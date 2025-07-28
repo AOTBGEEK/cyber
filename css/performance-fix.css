@@ -339,6 +339,8 @@
     line-height: 1.2 !important;
     white-space: nowrap !important;
     position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 .academy-tagline {
@@ -350,6 +352,9 @@
     max-width: 800px !important;
     line-height: 1.6 !important;
     padding: 0 2rem !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 /* إصلاح البطاقات مع أنيميشن خفيف */
@@ -403,6 +408,10 @@
 @media (max-width: 768px) {
     .academy-header {
         padding: 3rem 0 !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
     }
     
     .header-content {
@@ -416,6 +425,8 @@
         line-height: 1.2 !important;
         margin: 0 auto !important;
         width: 100% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
     
     .academy-tagline {
@@ -426,12 +437,18 @@
         max-width: 100% !important;
         padding: 0 1rem !important;
         margin: 1.5rem auto 0 auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 }
 
 @media (max-width: 480px) {
     .academy-header {
         padding: 2rem 0 !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
     }
     
     .header-content {
@@ -445,6 +462,8 @@
         line-height: 1.2 !important;
         margin: 0 auto !important;
         width: 100% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
     
     .academy-tagline {
@@ -455,6 +474,8 @@
         max-width: 100% !important;
         padding: 0 0.5rem !important;
         margin: 1.2rem auto 0 auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 }
 
@@ -462,6 +483,10 @@
 @media screen and (max-width: 414px) {
     .academy-header {
         padding: 1.5rem 0 !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
     }
     
     .header-content {
@@ -475,6 +500,8 @@
         line-height: 1.2 !important;
         margin: 0 auto !important;
         width: 100% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
     
     .academy-tagline {
@@ -485,6 +512,8 @@
         max-width: 100% !important;
         padding: 0 0.3rem !important;
         margin: 1rem auto 0 auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 }
 
@@ -492,6 +521,10 @@
 @media (min-width: 1200px) {
     .academy-header {
         padding: 5rem 0 !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
     }
     
     .academy-name {
@@ -499,6 +532,8 @@
         text-align: center !important;
         margin: 0 auto !important;
         width: 100% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
     
     .academy-tagline {
@@ -507,10 +542,12 @@
         margin: 2.5rem auto 0 auto !important;
         width: 100% !important;
         max-width: 900px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 }
 
-/* إصلاح للتوسيط العمودي */
+/* إصلاح شامل للتوسيط العمودي والأفقي */
 .landing-container {
     display: flex !important;
     flex-direction: column !important;
@@ -518,6 +555,7 @@
     align-items: center !important;
     min-height: 100vh !important;
     width: 100% !important;
+    position: relative !important;
 }
 
 .academy-header {
@@ -526,4 +564,9 @@
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 10 !important;
 } 
