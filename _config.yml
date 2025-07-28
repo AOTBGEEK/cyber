@@ -1,0 +1,60 @@
+title: "ورشة المهندس المستقبلي - الأمن السيبراني والذكاء الاصطناعي"
+description: "منصة تعليمية تفاعلية باللغة العربية لتعلم الأمن السيبراني والذكاء الاصطناعي"
+author: "Abdulrahman Alotaibi"
+lang: ar
+dir: rtl
+
+# GitHub Pages settings
+baseurl: "/cyber"
+url: "https://aotbgeek.github.io"
+
+# Jekyll settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - DEPLOYMENT.md
+  - .gitignore
+  - .git/
+
+# Include files
+include:
+  - _pages
+  - assets
+
+# Collections
+collections:
+  labs:
+    output: true
+    permalink: /:collection/:name/
+  ai-labs:
+    output: true
+    permalink: /:collection/:name/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO
+google_analytics: # Add your GA tracking ID if needed
+facebook:
+  app_id: # Add your Facebook App ID if needed
+
+# Social links
+social:
+  github: AOTBGEEK
+  
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      lang: ar
+      dir: rtl 
