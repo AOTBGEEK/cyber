@@ -12,6 +12,10 @@
     backdrop-filter: blur(20px);
     border-bottom: 2px solid rgba(0, 255, 255, 0.3);
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-content {
@@ -21,6 +25,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    text-align: center;
 }
 
 .academy-logo {
@@ -31,6 +37,7 @@
     margin: 0 auto;
     flex-direction: column;
     text-align: center;
+    width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -46,6 +53,15 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
 }
 
 .academy-name {
@@ -588,6 +604,9 @@
         padding: 2rem 0;
         text-align: center;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .header-content {
@@ -595,6 +614,8 @@
         justify-content: center;
         text-align: center;
         width: 100%;
+        display: flex;
+        align-items: center;
     }
     
     .academy-logo {
@@ -606,6 +627,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    
+    .logo-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
     }
     
     .academy-name {
