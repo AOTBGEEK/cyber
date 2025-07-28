@@ -72,7 +72,7 @@
     text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
     margin: 0;
     line-height: 1.1;
-    text-align: center;
+    text-align: center !important;
     white-space: nowrap;
     width: 100%;
     direction: rtl;
@@ -84,7 +84,7 @@
     color: rgba(255, 255, 255, 0.8);
     margin: 0.5rem 0 0 0;
     font-weight: 500;
-    text-align: center;
+    text-align: center !important;
     width: 100%;
     display: block;
     white-space: nowrap;
