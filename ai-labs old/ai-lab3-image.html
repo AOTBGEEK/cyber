@@ -1,102 +1,0 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Lab 03 - AI Image Generator | CyberNet Academy</title><link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/ai-labs.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><!-- Arabic Fonts --><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/arabic-fixes.css"><style>
-        /* Arabic RTL Support */
-        html[lang="ar"] {
-            direction: rtl;
-            text-align: right;
-        }
-        
-        html[lang="ar"] body {
-            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
-            direction: rtl;
-            text-align: right;
-        }
-        
-        html[lang="ar"] .message-text,
-        html[lang="ar"] .lab-description,
-        html[lang="ar"] .slide-body p,
-        html[lang="ar"] .hint,
-        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
-            direction: rtl;
-            text-align: right;
-            unicode-bidi: embed;
-        }
-        
-        html[lang="ar"] input[type="text"],
-        html[lang="ar"] textarea {
-            direction: rtl;
-            text-align: right;
-        }
-        
-        html[lang="ar"] .nav-back {
-            float: right;
-        }
-        
-        html[lang="ar"] .labs-grid,
-        html[lang="ar"] .ai-labs-grid {
-            direction: rtl;
-        }
-        
-        html[lang="ar"] .quick-prompts,
-        html[lang="ar"] .capability-item,
-        html[lang="ar"] .option-group {
-            text-align: right;
-        }
-        
-        /* Fix button alignment for RTL */
-        html[lang="ar"] .genre-buttons,
-        html[lang="ar"] .setting-buttons,
-        html[lang="ar"] .style-buttons {
-            justify-content: flex-end;
-        }
-        
-        /* Ensure proper Arabic text rendering */
-        html[lang="ar"] * {
-            font-kerning: auto;
-            text-rendering: optimizeLegibility;
-            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-        }
-    </style></head><body><div class="ai-lab-bg"></div><div class="ai-data-streams"></div><!-- Language Toggle --><nav class="ai-lab-nav"><a href="../ai-home.html" class="nav-back"><span>العودة لأكاديمية الذكاء الاصطناعي →</span></a><h1 class="nav-title"><span>مختبر الذكاء الاصطناعي 03: مولد الصور</span></h1><div class="ai-status"><span class="status-dot"></span><span><span>الذكاء الاصطناعي متصل</span></span></div></nav><main class="ai-lab-container"><!-- Lab Introduction --><section class="lab-intro"><h2 class="section-header"><span>إنشاء الصور بالذكاء الاصطناعي</span></h2><p class="lab-description"><span>حول خيالك إلى صور مذهلة! استخدم الذكاء الاصطناعي لإنشاء صور فريدة من الأوصاف النصية. 
-                استكشف أساليب وموضوعات ومناهج فنية مختلفة بقوة الذكاء الاصطناعي.</span></p><div class="ai-capabilities"><div class="capability-item"><span class="icon">🎨</span><span><span>إنشاء الفن</span></span></div><div class="capability-item"><span class="icon">🌆</span><span><span>توليد المشاهد</span></span></div><div class="capability-item"><span class="icon">🔮</span><span><span>نقل الأسلوب</span></span></div><div class="capability-item"><span class="icon">✨</span><span><span>الرؤية الإبداعية</span></span></div></div></section><!-- Image Generation Interface --><section class="image-section"><div class="image-container"><!-- Prompt Input --><div class="prompt-section"><div class="prompt-header"><h3><span>🎯 صف رؤيتك</span></h3><p><span>كلما كان وصفك أكثر تفصيلاً، كلما فهم الذكاء الاصطناعي ما تريد بشكل أفضل!</span></p></div><div class="prompt-input-area"><textarea 
-                            id="image-prompt" 
-                            placeholder="صف الصورة التي تريد إنشاؤها... (مثل: 'مدينة سايبربانك مستقبلية في الليل مع أضواء نيون وسيارات طائرة')"
-                            rows="4"
-                            maxlength="500"
-                        ></textarea><div class="prompt-controls"><div class="prompt-hints"><span class="hint"><span>💡 جرب: مدينة سايبربانك، غابة خيالية، محطة فضائية، عالم تحت الماء</span></span><span class="char-count" id="prompt-char-count">0/500</span></div><button onclick="generateImage()" class="generate-btn" id="generate-btn" disabled><span>✨ أنشئ الصورة</span></button></div></div><!-- Quick Prompts --><div class="quick-prompts"><h4><span>🚀 أفكار سريعة</span></h4><div class="prompt-buttons"><button onclick="useQuickPrompt('A futuristic cyberpunk city at night with neon lights, flying cars, and holographic advertisements')" class="quick-prompt-btn"><span>🌆 مدينة سايبربانك</span></button><button onclick="useQuickPrompt('A magical fantasy forest with glowing mushrooms, fairy lights, and mystical creatures')" class="quick-prompt-btn"><span>🧚 غابة خيالية</span></button><button onclick="useQuickPrompt('A high-tech space station orbiting Earth with solar panels and docking bays')" class="quick-prompt-btn"><span>🚀 محطة فضائية</span></button><button onclick="useQuickPrompt('An underwater research facility with transparent domes and colorful coral reefs')" class="quick-prompt-btn"><span>🌊 مختبر تحت الماء</span></button><button onclick="useQuickPrompt('A steampunk workshop filled with brass gears, mechanical inventions, and steam pipes')" class="quick-prompt-btn"><span>⚙️ ورشة ستيم بانك</span></button><button onclick="useQuickPrompt('A robot learning to paint in an art studio surrounded by colorful paintings')" class="quick-prompt-btn"><span>🤖 فنان ذكي</span></button></div></div><!-- Style Options --><div class="style-section"><h4><span>🎨 نمط الفن</span></h4><div class="style-buttons"><button class="style-btn selected" data-style="realistic"><span>📷 واقعي</span></button><button class="style-btn" data-style="anime"><span>🎌 أنمي</span></button><button class="style-btn" data-style="cartoon"><span>🎭 كرتون</span></button><button class="style-btn" data-style="oil-painting"><span>🖼️ رسم زيتي</span></button><button class="style-btn" data-style="digital-art"><span>💻 فن رقمي</span></button><button class="style-btn" data-style="sketch"><span>✏️ رسم تخطيطي</span></button></div></div></div><!-- Image Display Area --><div class="image-display"><div class="display-header"><h3><span>🖼️ الصورة المُنشأة</span></h3><div class="image-controls"><button onclick="downloadImage()" class="control-btn" id="download-btn" style="display: none;"><span>💾 تحميل</span></button><button onclick="shareImage()" class="control-btn" id="share-btn" style="display: none;"><span>📤 مشاركة</span></button></div></div><div class="image-viewport" id="image-viewport"><div class="placeholder-content"><div class="placeholder-icon">🎨</div><h4><span>جاهز للإبداع!</span></h4><p><span>أدخل وصفاً واضغط "أنشئ الصورة" لترى سحر الذكاء الاصطناعي!</span></p></div></div><div class="image-info" id="image-info" style="display: none;"><div class="info-item"><span class="label"><span>الوصف:</span></span><span class="value" id="used-prompt"></span></div><div class="info-item"><span class="label"><span>النمط:</span></span><span class="value" id="used-style"></span></div><div class="info-item"><span class="label"><span>وقت الإنشاء:</span></span><span class="value" id="generation-time"></span></div></div></div></div></section><!-- Generation History --><section class="history-section" id="history-section" style="display: none;"><div class="history-header"><h3><span>📚 سجل الإنشاء</span></h3><button onclick="clearHistory()" class="control-btn"><span>🗑️ مسح السجل</span></button></div><div class="history-grid" id="history-grid"><!-- Generated images will appear here --></div></section><!-- AI Thinking Indicator --><div class="ai-thinking" id="ai-thinking"><div class="thinking-animation"><div class="thinking-dot"></div><div class="thinking-dot"></div><div class="thinking-dot"></div></div><span class="thinking-text"><span>الذكاء الاصطناعي ينشئ صورتك...</span></span></div><!-- Lab Progress --><div class="lab-progress"><div class="progress-info"><span><span>تقدم إنشاء الصورة</span></span><span id="generation-progress"><span>جاهز للإنشاء</span></span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%"></div></div></div></main><script src="../js/ai-lab3-image.js"></script><script>
-        
-        function switchLanguage(lang) {
-            try {
-                currentLanguage = lang;
-                document.documentElement.lang = lang;
-                document.documentElement.dir = 'rtl' : 'ltr';
-                document.querySelectorAll('.lang-btn').forEach(btn => {
-                    if (btn.dataset.lang === lang) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
-                });
-                document.querySelectorAll('.text-en').forEach(el => {
-                    if (lang === 'en') { el.classList.remove('hidden'); } else { el.classList.add('hidden'); }
-                });
-                document.querySelectorAll('.text-ar').forEach(el => {
-                     else { el.classList.add('hidden'); }
-                });
-                // Update placeholder for image prompt
-                const promptInput = document.getElementById('image-prompt');
-                if (promptInput) {
-                    promptInput.placeholder = 
-                        'صف الصورة التي تريد إنشاؤها... (مثل: قط أزرق يجلس على قمر في الفضاء)' : 
-                        'Describe the image you want to create... (e.g., a blue cat sitting on a moon in space)';
-                }
-                localStorage.setItem('preferredLanguage', lang);
-            } catch (error) { console.error('Error switching language:', error); }
-        }
-        function initializeLanguage() {
-            try { const savedLang = 'ar'; switchLanguage('ar'); } 
-            catch (error) { console.error('Error initializing language:', error);  }
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeLanguage();
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', function() { );
-            });
-        });
-        
-    </script></body></html> 
