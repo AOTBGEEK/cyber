@@ -2,12 +2,12 @@
 
 // Simulated user database
 const users = {
-    '0': { name: 'System', role: 'system', access: 'FULL SYSTEM ACCESS', secret: 'CLASSIFIED' },
-    '1': { name: 'Admin', role: 'admin', access: 'ADMIN PANEL ACCESS', secret: 'Admin API Keys' },
-    '1000': { name: 'John Doe', role: 'moderator', access: 'Moderator Access', secret: 'Mod Tools' },
-    '1001': { name: 'Jane Smith', role: 'user', access: 'Basic User Access', secret: 'Personal Data' },
-    '1002': { name: 'Bob Johnson', role: 'user', access: 'Basic User Access', secret: 'Personal Data' },
-    '999': { name: 'Test Account', role: 'test', access: 'Test Environment', secret: 'Test Data' }
+    '0': { name: 'النظام', role: 'system', access: 'وصول كامل للنظام', secret: 'مصنف' },
+    '1': { name: 'المدير', role: 'admin', access: 'وصول لوحة الإدارة', secret: 'مفاتيح API المدير' },
+    '1000': { name: 'أحمد محمد', role: 'moderator', access: 'وصول المشرف', secret: 'أدوات الإشراف' },
+    '1001': { name: 'فاطمة علي', role: 'user', access: 'وصول المستخدم العادي', secret: 'البيانات الشخصية' },
+    '1002': { name: 'محمد حسن', role: 'user', access: 'وصول المستخدم العادي', secret: 'البيانات الشخصية' },
+    '999': { name: 'حساب الاختبار', role: 'test', access: 'بيئة الاختبار', secret: 'بيانات الاختبار' }
 };
 
 // Try User ID Function
@@ -19,7 +19,7 @@ function tryUserID() {
     const userId = input.value.trim();
     
     // Add loading effect
-    responseDisplay.innerHTML = '<pre style="color: #ffff00;">Accessing database...</pre>';
+    responseDisplay.innerHTML = '<pre style="color: #ffff00;">جاري الوصول لقاعدة البيانات...</pre>';
     
     setTimeout(() => {
         if (users[userId]) {
@@ -29,7 +29,7 @@ function tryUserID() {
             
             if (user.role === 'admin' || user.role === 'system') {
                 responseColor = '#ff0000';
-                responseText = `🚨 CRITICAL ACCESS DETECTED! 🚨\n\n`;
+                responseText = `🚨 تم اكتشاف وصول حرج! 🚨\n\n`;
                 successIndicator.classList.add('show');
                 labCommon.updateProgress(100);
                 
@@ -40,19 +40,19 @@ function tryUserID() {
                 }, 500);
             }
             
-            responseText += `User ID: ${userId}\n`;
-            responseText += `Name: ${user.name}\n`;
-            responseText += `Role: ${user.role.toUpperCase()}\n`;
-            responseText += `Access Level: ${user.access}\n`;
-            responseText += `Secret Data: ${user.secret}\n`;
+            responseText += `معرف المستخدم: ${userId}\n`;
+            responseText += `الاسم: ${user.name}\n`;
+            responseText += `الدور: ${user.role.toUpperCase()}\n`;
+            responseText += `مستوى الوصول: ${user.access}\n`;
+            responseText += `البيانات السرية: ${user.secret}\n`;
             
             if (user.role === 'admin') {
-                responseText += '\n⚠️ WARNING: Admin privileges exposed!\n';
-                responseText += 'You now have access to:\n';
-                responseText += '- User Management\n';
-                responseText += '- System Configuration\n';
-                responseText += '- Database Access\n';
-                responseText += '- API Keys\n';
+                responseText += '\n⚠️ تحذير: تم كشف صلاحيات المدير!\n';
+                responseText += 'لديك الآن وصول إلى:\n';
+                responseText += '- إدارة المستخدمين\n';
+                responseText += '- إعدادات النظام\n';
+                responseText += '- وصول قاعدة البيانات\n';
+                responseText += '- مفاتيح API\n';
             }
             
             responseDisplay.innerHTML = `<pre style="color: ${responseColor};">${responseText}</pre>`;
@@ -61,7 +61,7 @@ function tryUserID() {
             logAttempt(userId, user.role);
             
         } else {
-            responseDisplay.innerHTML = `<pre style="color: #ff6666;">Error 404: User ID ${userId} not found\nTry another ID...</pre>`;
+            responseDisplay.innerHTML = `<pre style="color: #ff6666;">خطأ 404: لم يتم العثور على معرف المستخدم ${userId}\nجرب معرف آخر...</pre>`;
         }
     }, 1000);
 }
@@ -177,10 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add hints system
     const hints = [
-        "💡 Hint: Admin accounts often have low ID numbers",
-        "💡 Hint: Try ID 0 or 1",
-        "💡 Hint: System accounts might use special IDs",
-        "💡 Hint: Enumerate sequentially from 0"
+        "💡 تلميح: حسابات المدير غالباً لها أرقام معرف منخفضة",
+        "💡 تلميح: جرب المعرف 0 أو 1",
+        "💡 تلميح: حسابات النظام قد تستخدم معرفات خاصة",
+        "💡 تلميح: عدّد بالتسلسل من 0"
     ];
     
     let hintIndex = 0;
