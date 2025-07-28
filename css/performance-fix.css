@@ -13,17 +13,163 @@
     display: none !important;
 }
 
-/* إزالة أنيميشن Glitch الثقيل */
-.glitch,
-.enhanced-glow {
-    animation: none !important;
+/* أنيميشن Glitch خفيف ومحسن للأداء */
+.glitch {
+    position: relative;
+    animation: glitch-text 4s ease-in-out infinite !important;
 }
 
 .glitch::before,
-.glitch::after,
-.enhanced-glow::before,
-.enhanced-glow::after {
-    display: none !important;
+.glitch::after {
+    content: attr(data-text) !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.glitch::before {
+    color: #ff0080 !important;
+    animation: glitch-before 4s ease-in-out infinite !important;
+    z-index: -1 !important;
+}
+
+.glitch::after {
+    color: #00ffff !important;
+    animation: glitch-after 4s ease-in-out infinite !important;
+    z-index: -2 !important;
+}
+
+/* Enhanced Glow خفيف */
+.enhanced-glow {
+    animation: enhanced-glow-pulse 3s ease-in-out infinite !important;
+    text-shadow: 
+        0 0 5px rgba(0, 255, 255, 0.5),
+        0 0 10px rgba(0, 255, 255, 0.3),
+        0 0 15px rgba(0, 255, 255, 0.2) !important;
+}
+
+/* أنيميشن Keyframes محسنة للأداء */
+@keyframes glitch-text {
+    0%, 90%, 100% {
+        transform: translate(0, 0);
+        filter: hue-rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, 1px);
+        filter: hue-rotate(90deg);
+    }
+    20% {
+        transform: translate(1px, -1px);
+        filter: hue-rotate(180deg);
+    }
+    30% {
+        transform: translate(-1px, -1px);
+        filter: hue-rotate(270deg);
+    }
+    40% {
+        transform: translate(1px, 1px);
+        filter: hue-rotate(360deg);
+    }
+    50% {
+        transform: translate(0, 0);
+        filter: hue-rotate(0deg);
+    }
+}
+
+@keyframes glitch-before {
+    0%, 90%, 100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    10% {
+        opacity: 0.3;
+        transform: translate(-2px, 2px);
+    }
+    20% {
+        opacity: 0.2;
+        transform: translate(2px, -2px);
+    }
+    30% {
+        opacity: 0.4;
+        transform: translate(-2px, -2px);
+    }
+    40% {
+        opacity: 0.1;
+        transform: translate(2px, 2px);
+    }
+}
+
+@keyframes glitch-after {
+    0%, 90%, 100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    15% {
+        opacity: 0.2;
+        transform: translate(2px, -2px);
+    }
+    25% {
+        opacity: 0.3;
+        transform: translate(-2px, 2px);
+    }
+    35% {
+        opacity: 0.1;
+        transform: translate(2px, 2px);
+    }
+    45% {
+        opacity: 0.4;
+        transform: translate(-2px, -2px);
+    }
+}
+
+@keyframes enhanced-glow-pulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 5px rgba(0, 255, 255, 0.5),
+            0 0 10px rgba(0, 255, 255, 0.3),
+            0 0 15px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+        text-shadow: 
+            0 0 8px rgba(0, 255, 255, 0.8),
+            0 0 16px rgba(0, 255, 255, 0.5),
+            0 0 24px rgba(0, 255, 255, 0.3);
+    }
+}
+
+/* تفاعل Hover للعنوان */
+.academy-name:hover {
+    animation-duration: 1s !important;
+    transform: scale(1.02) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.academy-name:hover .glitch::before {
+    animation-duration: 1s !important;
+}
+
+.academy-name:hover .glitch::after {
+    animation-duration: 1s !important;
+}
+
+/* أنيميشن للتاج لاين */
+.academy-tagline {
+    animation: tagline-float 6s ease-in-out infinite !important;
+}
+
+@keyframes tagline-float {
+    0%, 100% {
+        transform: translateY(0px);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-3px);
+        opacity: 1;
+    }
 }
 
 /* إصلاح التوسيط الكامل */
@@ -80,18 +226,34 @@
     padding: 0 2rem !important;
 }
 
-/* إصلاح البطاقات */
+/* إصلاح البطاقات مع أنيميشن خفيف */
 .program-card {
-    animation: none !important;
+    animation: card-float 8s ease-in-out infinite !important;
     transition: all 0.3s ease !important;
 }
 
 .program-card:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2) !important;
 }
 
 .program-card::before {
     display: none !important;
+}
+
+/* أنيميشن طفو البطاقات */
+@keyframes card-float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+/* تأخير مختلف للبطاقة الثانية */
+.program-card:nth-child(2) {
+    animation-delay: -4s !important;
 }
 
 /* تحسين الأداء العام */
