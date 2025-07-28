@@ -536,8 +536,8 @@ function switchView(viewType) {
     // Update button states
     toggleBtns.forEach(btn => {
         btn.classList.remove('active');
-        if ((viewType === 'hacker' && btn.textContent.includes('HACKER')) ||
-            (viewType === 'developer' && btn.textContent.includes('DEVELOPER'))) {
+        if ((viewType === 'hacker' && (btn.textContent.includes('HACKER') || btn.textContent.includes('هاكر') || btn.textContent.includes('الهاكر'))) ||
+            (viewType === 'developer' && (btn.textContent.includes('DEVELOPER') || btn.textContent.includes('مطور') || btn.textContent.includes('المطور')))) {
             btn.classList.add('active');
         }
     });
