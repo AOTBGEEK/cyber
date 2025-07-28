@@ -289,19 +289,19 @@
 /* إصلاح التوسيط الكامل */
 /* ===== نظام توسيط العنوان الجديد - يعمل على جميع الأجهزة ===== */
 
-/* إعادة تعيين كاملة للـ header */
+/* إعادة تعيين كاملة للـ header - في أعلى الصفحة */
 .academy-header {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 100vw !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
     height: auto !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     z-index: 1000 !important;
-    padding: 0 !important;
+    padding: 2rem 0 !important;
     margin: 0 !important;
 }
 
@@ -333,17 +333,17 @@
     margin: 0 !important;
 }
 
-/* العنوان الجديد - توسيط مطلق */
+/* العنوان الجديد - في الهيدر */
 .academy-name {
     font-family: 'Cairo', sans-serif !important;
-    font-size: clamp(1.5rem, 8vw, 4rem) !important;
+    font-size: clamp(1.8rem, 6vw, 3rem) !important;
     font-weight: 900 !important;
     color: #ffffff !important;
     text-align: center !important;
     margin: 0 auto !important;
     padding: 0 !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 1200px !important;
     line-height: 1.2 !important;
     direction: rtl !important;
     display: block !important;
@@ -353,20 +353,20 @@
     overflow-wrap: break-word !important;
 }
 
-/* التاج لاين الجديد - توسيط مطلق */
+/* التاج لاين الجديد - في الهيدر */
 .academy-tagline {
     font-family: 'Tajawal', sans-serif !important;
-    font-size: clamp(0.9rem, 3vw, 1.3rem) !important;
+    font-size: clamp(1rem, 2.5vw, 1.2rem) !important;
     font-weight: 500 !important;
     color: rgba(255, 255, 255, 0.8) !important;
     text-align: center !important;
-    margin: 1.5rem auto 0 auto !important;
+    margin: 1rem auto 0 auto !important;
     width: 100% !important;
-    max-width: 90vw !important;
+    max-width: 1000px !important;
     display: block !important;
     direction: rtl !important;
     line-height: 1.6 !important;
-    padding: 0 20px !important;
+    padding: 0 2rem !important;
     white-space: normal !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
@@ -421,12 +421,12 @@
 
 /* ===== نظام واحد يعمل على جميع الأجهزة ===== */
 
-/* إصلاح للـ container الرئيسي */
+/* إصلاح للـ container الرئيسي - تخطيط طبيعي */
 .landing-container {
     position: relative !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    overflow: hidden !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
 }
 
 /* نظام واحد للجميع - لا حاجة لـ media queries */
@@ -440,34 +440,34 @@ body {
     overflow-x: hidden !important;
 }
 
-/* إصلاح نهائي للتوسيط */
+/* إصلاح نهائي للتوسيط - في الهيدر */
 .academy-header {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 100vw !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
     height: auto !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     z-index: 1000 !important;
-    padding: 0 !important;
+    padding: 2rem 0 !important;
     margin: 0 !important;
     box-sizing: border-box !important;
 }
 
-/* ضمان أن العنوان في الوسط تماماً */
+/* ضمان أن العنوان في الهيدر */
 .academy-name {
     font-family: 'Cairo', sans-serif !important;
-    font-size: clamp(1.5rem, 8vw, 4rem) !important;
+    font-size: clamp(1.8rem, 6vw, 3rem) !important;
     font-weight: 900 !important;
     color: #ffffff !important;
     text-align: center !important;
     margin: 0 auto !important;
     padding: 0 !important;
     width: 100% !important;
-    max-width: 90vw !important;
+    max-width: 1200px !important;
     line-height: 1.2 !important;
     direction: rtl !important;
     display: block !important;
