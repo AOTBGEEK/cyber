@@ -287,69 +287,89 @@
 }
 
 /* إصلاح التوسيط الكامل */
+/* ===== نظام توسيط العنوان الجديد - يعمل على جميع الأجهزة ===== */
+
+/* إعادة تعيين كاملة للـ header */
 .academy-header {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100vw !important;
+    height: auto !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    text-align: center !important;
-    width: 100% !important;
-    position: relative !important;
-    padding: 4rem 0 !important;
+    z-index: 1000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .header-content {
+    width: 100% !important;
+    max-width: 90vw !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    text-align: center !important;
-    width: 100% !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 0 2rem !important;
+    padding: 0 20px !important;
+    margin: 0 !important;
 }
 
 .academy-logo {
+    width: 100% !important;
     display: flex !important;
-    flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    text-align: center !important;
-    width: 100% !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
 }
 
 .logo-text {
+    width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    width: 100% !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
 }
 
+/* العنوان الجديد - توسيط مطلق */
 .academy-name {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: clamp(1.5rem, 8vw, 4rem) !important;
+    font-weight: 900 !important;
+    color: #ffffff !important;
     text-align: center !important;
     margin: 0 auto !important;
+    padding: 0 !important;
     width: 100% !important;
-    display: block !important;
-    direction: rtl !important;
-    font-size: 2.4rem !important;
-    font-weight: 900 !important;
+    max-width: 100% !important;
     line-height: 1.2 !important;
-    white-space: nowrap !important;
+    direction: rtl !important;
+    display: block !important;
     position: relative !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
 }
 
+/* التاج لاين الجديد - توسيط مطلق */
 .academy-tagline {
+    font-family: 'Tajawal', sans-serif !important;
+    font-size: clamp(0.9rem, 3vw, 1.3rem) !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
     text-align: center !important;
-    margin: 2rem auto 0 auto !important;
+    margin: 1.5rem auto 0 auto !important;
     width: 100% !important;
+    max-width: 90vw !important;
     display: block !important;
     direction: rtl !important;
-    max-width: 800px !important;
     line-height: 1.6 !important;
-    padding: 0 2rem !important;
+    padding: 0 20px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
 }
 
 /* إصلاح البطاقات مع أنيميشن خفيف */
@@ -399,131 +419,61 @@
     filter: none !important;
 }
 
-/* تحسين للشاشات الصغيرة */
-@media (max-width: 768px) {
-    .academy-header {
-        padding: 3rem 0 !important;
-    }
-    
-    .header-content {
-        padding: 0 1rem !important;
-    }
-    
-    .academy-name {
-        font-size: 1.8rem !important;
-        text-align: center !important;
-        white-space: normal !important;
-        line-height: 1.2 !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-    }
-    
-    .academy-tagline {
-        font-size: 1rem !important;
-        text-align: center !important;
-        white-space: normal !important;
-        line-height: 1.6 !important;
-        max-width: 100% !important;
-        padding: 0 1rem !important;
-        margin: 1.5rem auto 0 auto !important;
-    }
-}
+/* ===== نظام واحد يعمل على جميع الأجهزة ===== */
 
-@media (max-width: 480px) {
-    .academy-header {
-        padding: 2rem 0 !important;
-    }
-    
-    .header-content {
-        padding: 0 0.5rem !important;
-    }
-    
-    .academy-name {
-        font-size: 1.5rem !important;
-        text-align: center !important;
-        white-space: normal !important;
-        line-height: 1.2 !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-    }
-    
-    .academy-tagline {
-        font-size: 0.9rem !important;
-        text-align: center !important;
-        white-space: normal !important;
-        line-height: 1.6 !important;
-        max-width: 100% !important;
-        padding: 0 0.5rem !important;
-        margin: 1.2rem auto 0 auto !important;
-    }
-}
-
-/* إصلاح خاص للـ iPhone */
-@media screen and (max-width: 414px) {
-    .academy-header {
-        padding: 1.5rem 0 !important;
-    }
-    
-    .header-content {
-        padding: 0 0.3rem !important;
-    }
-    
-    .academy-name {
-        font-size: 1.3rem !important;
-        text-align: center !important;
-        white-space: normal !important;
-        line-height: 1.2 !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-    }
-    
-    .academy-tagline {
-        font-size: 0.8rem !important;
-        text-align: center !important;
-        white-space: normal !important;
-        line-height: 1.6 !important;
-        max-width: 100% !important;
-        padding: 0 0.3rem !important;
-        margin: 1rem auto 0 auto !important;
-    }
-}
-
-/* إصلاح شامل للتوسيط على جميع الشاشات */
-@media (min-width: 1200px) {
-    .academy-header {
-        padding: 5rem 0 !important;
-    }
-    
-    .academy-name {
-        font-size: 3rem !important;
-        text-align: center !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-    }
-    
-    .academy-tagline {
-        font-size: 1.3rem !important;
-        text-align: center !important;
-        margin: 2.5rem auto 0 auto !important;
-        width: 100% !important;
-        max-width: 900px !important;
-    }
-}
-
-/* إصلاح للتوسيط العمودي */
+/* إصلاح للـ container الرئيسي */
 .landing-container {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: 100vh !important;
-    width: 100% !important;
+    position: relative !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: hidden !important;
 }
 
+/* نظام واحد للجميع - لا حاجة لـ media queries */
+/* العنوان يستخدم clamp() للتكيف التلقائي */
+/* التوسيط مطلق باستخدام position: absolute + transform */
+
+/* ضمان التوسيط المطلق */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* إصلاح نهائي للتوسيط */
 .academy-header {
-    flex: 1 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100vw !important;
+    height: auto !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    z-index: 1000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* ضمان أن العنوان في الوسط تماماً */
+.academy-name {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: clamp(1.5rem, 8vw, 4rem) !important;
+    font-weight: 900 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
     width: 100% !important;
+    max-width: 90vw !important;
+    line-height: 1.2 !important;
+    direction: rtl !important;
+    display: block !important;
+    position: relative !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    box-sizing: border-box !important;
 } 
