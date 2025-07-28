@@ -31,7 +31,7 @@ async function requestCameraAccess() {
         updatePermissionState('camera', 'granted');
         
         // Show fake success message
-        alert("Camera access granted! You can now take amazing photos!");
+        alert("تم منح وصول الكاميرا! يمكنك الآن التقاط صور مذهلة!");
         
         updateProgress(25);
         
@@ -40,7 +40,7 @@ async function requestCameraAccess() {
         console.log('Camera access denied:', error);
         
         // Show fake error to encourage retry
-        alert("Camera access is required for this app to work. Please allow access and try again.");
+        alert("وصول الكاميرا مطلوب لكي يعمل هذا التطبيق. يرجى السماح بالوصول والمحاولة مرة أخرى.");
     }
 }
 
@@ -87,10 +87,10 @@ function updatePermissionState(permission, state) {
     const stateElement = document.getElementById(`${permission}-state`);
     
     const stateText = {
-        'not-requested': 'Not Requested',
-        'requesting': 'Requesting...',
-        'granted': '✅ Granted',
-        'denied': '❌ Denied'
+        'not-requested': 'لم يتم الطلب',
+        'requesting': 'جاري الطلب...',
+        'granted': '✅ مُمنح',
+        'denied': '❌ مرفوض'
     };
     
     const stateColors = {
