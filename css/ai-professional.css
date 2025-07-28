@@ -1,0 +1,509 @@
+/*
+ * Professional AI Academy Styles
+ * Enhanced layout for ai-home page
+ */
+
+/* AI-specific color scheme */
+:root {
+    --ai-primary: #ff00ff;
+    --ai-secondary: #00ff00;
+    --ai-accent: #ffff00;
+    --ai-gradient: linear-gradient(135deg, var(--ai-primary), var(--primary-cyan));
+}
+
+/* AI Navigation Styling */
+.ai-nav {
+    background: linear-gradient(to bottom, rgba(255, 0, 255, 0.2), rgba(0, 0, 0, 0.85));
+    border-bottom: 2px solid rgba(255, 0, 255, 0.3);
+}
+
+.ai-nav .nav-icon {
+    color: var(--ai-primary);
+    filter: drop-shadow(0 0 15px var(--ai-primary));
+}
+
+.ai-nav .nav-title {
+    text-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+.ai-status {
+    background: rgba(255, 0, 255, 0.1) !important;
+    border-color: rgba(255, 0, 255, 0.3) !important;
+    color: var(--ai-primary) !important;
+}
+
+.ai-status .status-dot {
+    background: var(--ai-primary) !important;
+    box-shadow: 0 0 10px var(--ai-primary);
+}
+
+/* AI Hero Section */
+.ai-hero {
+    background: radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+}
+
+.ai-hero .hero-title {
+    background: linear-gradient(135deg, #ffffff, var(--ai-primary), var(--primary-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ai-features-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.ai-features-overview .feature-item {
+    background: rgba(255, 0, 255, 0.05);
+    border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.ai-features-overview .feature-item:hover {
+    border-color: rgba(255, 0, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2);
+}
+
+.ai-features-overview .feature-number {
+    color: var(--ai-primary);
+    text-shadow: 0 0 10px currentColor;
+}
+
+/* AI Concepts Container */
+.ai-concepts-container {
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 0, 0, 0.4));
+    border: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+.ai-concepts-container .nav-btn {
+    background: var(--ai-gradient);
+}
+
+.ai-concepts-container .slide-counter {
+    color: var(--ai-primary);
+}
+
+/* AI Concept Slides */
+.ai-concept-slide {
+    transition: all 0.6s ease;
+}
+
+.ai-concept-slide.active {
+    animation: slideInFromLeft 0.6s ease forwards;
+}
+
+.ai-concept-slide .slide-icon {
+    filter: drop-shadow(0 0 20px var(--ai-primary));
+}
+
+/* AI Capabilities */
+.ai-capabilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.capability-item {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(255, 0, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 0, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.capability-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 0, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2);
+}
+
+.capability-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.capability-item h6 {
+    color: var(--ai-primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.capability-item p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ChatGPT Process */
+.chatgpt-process {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.process-step {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(0, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    min-width: 180px;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.process-step h6 {
+    color: var(--primary-cyan);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.process-arrow {
+    font-size: 2rem;
+    color: var(--ai-primary);
+    font-weight: 900;
+}
+
+/* Token Example */
+.token-example {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.token-example h6 {
+    color: var(--ai-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.tokens {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.token {
+    padding: 0.5rem 1rem;
+    background: rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    font-family: 'Source Code Pro', monospace;
+    color: var(--primary-cyan);
+    font-weight: 600;
+}
+
+.token.predicted {
+    background: rgba(255, 0, 255, 0.2);
+    border-color: rgba(255, 0, 255, 0.3);
+    color: var(--ai-primary);
+    animation: tokenPulse 2s ease-in-out infinite;
+}
+
+/* Vector Demo */
+.vector-demo {
+    margin: 2rem 0;
+}
+
+.word-conversion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.word-example, .vector-example {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    background: rgba(255, 0, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.word-label, .vector-label {
+    font-weight: 700;
+    color: var(--ai-primary);
+}
+
+.arrow {
+    font-size: 2rem;
+    color: var(--primary-cyan);
+    font-weight: 900;
+}
+
+.similarity-demo {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.similarity-demo h6 {
+    color: var(--ai-primary);
+    margin-bottom: 1.5rem;
+}
+
+.similar-words {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.word-pair {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: rgba(255, 0, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.word {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    color: var(--primary-cyan);
+}
+
+.similarity-score {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    color: var(--ai-primary);
+    background: rgba(255, 0, 255, 0.2);
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+}
+
+/* AI Labs Styling */
+.ai-labs-academy {
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.05), rgba(0, 0, 0, 0.1));
+    border-radius: 30px;
+    margin-top: 2rem;
+}
+
+.ai-lab-card {
+    border-color: rgba(255, 0, 255, 0.3) !important;
+}
+
+.ai-lab-card:hover {
+    border-color: var(--ai-primary) !important;
+    box-shadow: 0 20px 40px rgba(255, 0, 255, 0.3) !important;
+}
+
+.ai-lab-card::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.1), transparent) !important;
+}
+
+.lab-difficulty.beginner {
+    background: rgba(0, 255, 0, 0.2);
+    color: var(--neon-green);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.lab-difficulty.intermediate {
+    background: rgba(255, 255, 0, 0.2);
+    color: var(--primary-yellow);
+    border: 1px solid rgba(255, 255, 0, 0.3);
+}
+
+.ai-tag {
+    background: rgba(255, 0, 255, 0.1) !important;
+    color: var(--ai-primary) !important;
+    border: 1px solid rgba(255, 0, 255, 0.3) !important;
+}
+
+/* AI CTA */
+.ai-cta {
+    background: var(--ai-gradient), rgba(0, 0, 0, 0.8);
+    background-blend-mode: overlay;
+    border: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+.ai-cta-button {
+    background: var(--ai-gradient) !important;
+}
+
+.ai-cta-button:hover {
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.4) !important;
+}
+
+/* AI Applications */
+.ai-applications {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.application-item {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.05));
+    border-radius: 20px;
+    border: 1px solid rgba(255, 0, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.application-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.application-item:hover::before {
+    left: 100%;
+}
+
+.application-item:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 0, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(255, 0, 255, 0.3);
+}
+
+.app-icon {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    display: block;
+    filter: drop-shadow(0 0 15px var(--ai-primary));
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+}
+
+.app-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Enhanced Animations */
+@keyframes slideInFromLeft {
+    0% { 
+        opacity: 0; 
+        transform: translateX(-50px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+@keyframes tokenPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+    }
+}
+
+@keyframes aiFloating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Neural Network Effect */
+.neural-network::before {
+    background: radial-gradient(circle at 30% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+}
+
+.neural-network::after {
+    background: radial-gradient(circle at 70% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+}
+
+/* Responsive AI Design */
+@media (max-width: 768px) {
+    .chatgpt-process {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .process-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .word-conversion {
+        flex-direction: column;
+    }
+    
+    .arrow {
+        transform: rotate(90deg);
+    }
+    
+    .ai-capabilities {
+        grid-template-columns: 1fr;
+    }
+    
+    .applications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .application-item {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* AI Particle Effects */
+.ai-particles::before {
+    background: radial-gradient(circle at 20% 80%, rgba(255, 0, 255, 0.15) 0%, transparent 50%);
+    animation: aiFloating 6s ease-in-out infinite;
+}
+
+.ai-particles::after {
+    background: radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+    animation: aiFloating 8s ease-in-out infinite reverse;
+}
+
+/* Enhanced AI Lab Cards */
+.ai-lab-card .lab-number {
+    background: rgba(255, 0, 255, 0.1) !important;
+    border: 1px solid rgba(255, 0, 255, 0.3) !important;
+    color: var(--ai-primary) !important;
+}
+
+.ai-lab-card .lab-arrow {
+    color: var(--ai-primary) !important;
+}

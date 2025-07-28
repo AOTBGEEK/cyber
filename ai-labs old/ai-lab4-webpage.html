@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Lab 04 - Build with AI | CyberNet Academy</title><link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/ai-labs.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><!-- Arabic Fonts --><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/arabic-fixes.css"><style>
+        /* Arabic RTL Support */
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .message-text,
+        html[lang="ar"] .lab-description,
+        html[lang="ar"] .slide-body p,
+        html[lang="ar"] .hint,
+        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+        
+        html[lang="ar"] input[type="text"],
+        html[lang="ar"] textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .nav-back {
+            float: right;
+        }
+        
+        html[lang="ar"] .labs-grid,
+        html[lang="ar"] .ai-labs-grid {
+            direction: rtl;
+        }
+        
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .capability-item,
+        html[lang="ar"] .option-group {
+            text-align: right;
+        }
+        
+        /* Fix button alignment for RTL */
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons {
+            justify-content: flex-end;
+        }
+        
+        /* Ensure proper Arabic text rendering */
+        html[lang="ar"] * {
+            font-kerning: auto;
+            text-rendering: optimizeLegibility;
+            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        }
+    </style></head><body><div class="ai-lab-bg"></div><div class="ai-data-streams"></div><!-- Language Toggle --><nav class="ai-lab-nav"><a href="../ai-home.html" class="nav-back"><span>العودة لأكاديمية الذكاء الاصطناعي →</span></a><h1 class="nav-title"><span>مختبر الذكاء الاصطناعي 04: البناء مع الذكاء الاصطناعي</span></h1><div class="ai-status"><span class="status-dot"></span><span><span>الذكاء الاصطناعي متصل</span></span></div></nav><main class="ai-lab-container"><!-- Lab Introduction --><section class="lab-intro"><h2 class="section-header"><span>تطوير الويب بالذكاء الاصطناعي</span></h2><p class="lab-description"><span>ابن مواقع الويب بمساعدة الذكاء الاصطناعي! أنشئ كود HTML و CSS و JavaScript من خلال وصف ما تريد. 
+                دع الذكاء الاصطناعي يساعدك في إنشاء صفحات ويب مذهلة وميزات تفاعلية.</span></p><div class="ai-capabilities"><div class="capability-item"><span class="icon">🤖</span><span><span>توليد الكود بالذكاء الاصطناعي</span></span></div><div class="capability-item"><span class="icon">🎨</span><span><span>تنسيق ديناميكي</span></span></div><div class="capability-item"><span class="icon">⚡</span><span><span>معاينة مباشرة</span></span></div><div class="capability-item"><span class="icon">💻</span><span><span>تصدير الكود</span></span></div></div></section><!-- Webpage Builder Interface --><section class="webpage-section"><div class="webpage-container"><!-- Input Section --><div class="builder-section"><h3 class="section-title"><span>📝 صف صفحتك الالكترونية</span></h3><!-- Prompt Input --><div class="prompt-container"><textarea 
+                            id="webpagePrompt" 
+                            placeholder="صف صفحة الويب التي تريد إنشاؤها... (مثل: 'أنشئ موقع محفظة أعمال حديث لمصمم جرافيك مع سمة داكنة ورسوم متحركة سلسة')"
+                            rows="4"
+                            maxlength="500"
+                        ></textarea><div class="input-hints"><span class="hint"><span>💡 كن محدداً بشأن التصميم والألوان والميزات التي تريدها</span></span><span class="char-count" id="charCount">0/500</span></div></div><!-- Quick Prompts --><div class="quick-prompts"><h4><span>🚀 قوالب سريعة</span></h4><div class="prompt-buttons"><button class="quick-btn" data-prompt="Create a modern portfolio website for a graphic designer with a dark theme and smooth animations"><span>موقع محفظة</span></button><button class="quick-btn" data-prompt="Build a restaurant landing page with menu showcase, location info, and reservation form"><span>صفحة مطعم</span></button><button class="quick-btn" data-prompt="Design a tech startup homepage with hero section, features, and contact form"><span>صفحة شركة ناشئة</span></button><button class="quick-btn" data-prompt="Create a personal blog layout with article cards and sidebar navigation"><span>تصميم مدونة</span></button><button class="quick-btn" data-prompt="Build a fitness gym website with class schedules and membership info"><span>موقع لياقة بدنية</span></button></div></div><!-- Generation Options --><div class="generation-options"><div class="option-group"><label for="pageType"><span>نوع الصفحة:</span></label><select id="pageType"><option value="general">موقع عام</option><option value="portfolio">محفظة أعمال</option><option value="business">أعمال</option><option value="blog">مدونة</option><option value="landing">صفحة هبوط</option></select></div><div class="option-group"><label for="colorScheme"><span>نظام الألوان:</span></label><select id="colorScheme"><option value="cyberpunk">سايبربانك (نيون)</option><option value="dark">وضع مظلم</option><option value="light">فاتح ونظيف</option><option value="colorful">ملون ونابض</option><option value="minimal">بسيط وأنيق</option></select></div><div class="option-group"><label><span>تضمين الميزات:</span></label><div class="checkbox-group"><label><input type="checkbox" id="includeNav" checked><span>شريط التنقل</span></label><label><input type="checkbox" id="includeHero" checked><span>قسم البطل</span></label><label><input type="checkbox" id="includeForm"><span>نموذج اتصال</span></label><label><input type="checkbox" id="includeAnimation"><span>رسوم متحركة</span></label></div></div></div><!-- Generate Button --><button class="generate-btn" id="generateBtn" disabled><span>⚡ أنشئ صفحة ويب بالذكاء الاصطناعي</span></button></div><!-- Output Section --><div class="builder-output"><h3 class="section-title"><span>🖥️ الصفحة المُنشأة</span></h3><!-- Output Tabs --><div class="output-tabs"><button class="tab-btn active" data-tab="preview"><span>معاينة مباشرة</span></button><button class="tab-btn" data-tab="html"><span>كود HTML</span></button><button class="tab-btn" data-tab="explanation"><span>شرح الذكاء الاصطناعي</span></button></div><!-- Generated Code Display --><div class="generated-code" id="generatedCode" style="display: none;"><!-- Preview Tab --><div class="tab-content active" id="previewTab"><div class="preview-container"><div class="preview-header"><div class="preview-title"><span>معاينة مباشرة</span></div><div class="preview-controls"><button class="control-btn" id="refreshPreview"><span>تحديث</span></button><button class="control-btn" id="fullscreenPreview"><span>شاشة كاملة</span></button><button class="control-btn" id="copyCode"><span>نسخ الكود</span></button></div></div><iframe class="webpage-preview" id="previewFrame"></iframe></div></div><!--  Tab --><div class="tab-content" id="htmlTab"><div class="code-container"><div class="code-header"><div class="code-title"><span>كود HTML المُنشأ</span></div><button class="control-btn" id="copyHtml"><span>نسخ HTML</span></button></div><pre id="htmlCode"></pre></div></div><!--  Tab --><div class="tab-content" id="explanationTab"><div class="explanation-container"><h4><span>🤖 تحليل الذكاء الاصطناعي</span></h4><div class="ai-explanation" id="aiExplanation"><p><span>سيشرح الذكاء الاصطناعي كيف فسر طلبك وما هي القرارات التي اتخذها...</span></p></div><h4><span>✨ الميزات الرئيسية</span></h4><div class="key-features" id="keyFeatures"><div class="feature-item"></div></div><h4>💡 Customization Tips</h4><div class="customization-tips" id="customizationTips"><div class="tip-item"></div></div></div></div></div></div></div></section><!-- Generation History --><section class="history-section" id="historySection" style="display: none;"><div class="history-header"><h3>📚 GENERATION HISTORY</h3><button onclick="clearHistory()" class="control-btn">🗑️ Clear History</button></div><div class="history-grid" id="historyGrid"><!-- Generated webpages will appear here --></div></section><!-- AI Thinking Indicator --><div class="ai-thinking" id="aiThinking"><div class="thinking-animation"><div class="thinking-dot"></div><div class="thinking-dot"></div><div class="thinking-dot"></div></div><span class="thinking-text">AI is generating your webpage...</span></div><!-- Lab Progress --><div class="lab-progress"><div class="progress-info"><span>Webpage Generation Progress</span><span id="progressText">Ready to build with AI</span></div><div class="progress-bar"><div class="progress-fill" id="labProgress" style="width: 0%"></div></div></div></main><script src="../js/ai-lab4-webpage.js"></script><script>
+        
+        function switchLanguage(lang) {
+            try {
+                currentLanguage = lang;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = 'rtl' : 'ltr';
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if (btn.dataset.lang === lang) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
+                });
+                document.querySelectorAll('.text-en').forEach(el => {
+                    if (lang === 'en') { el.classList.remove('hidden'); } else { el.classList.add('hidden'); }
+                });
+                document.querySelectorAll('.text-ar').forEach(el => {
+                     else { el.classList.add('hidden'); }
+                });
+                // Update placeholder for webpage description
+                const descInput = document.getElementById('webpage-description');
+                if (descInput) {
+                    descInput.placeholder = 
+                        'صف الموقع الذي تريد إنشاؤه... (مثل: موقع لمتجر كتب مع خلفية زرقاء وأزرار ذهبية)' : 
+                        'Describe the website you want to create... (e.g., a bookstore website with blue background and golden buttons)';
+                }
+                localStorage.setItem('preferredLanguage', lang);
+            } catch (error) { console.error('Error switching language:', error); }
+        }
+        function initializeLanguage() {
+            try { const savedLang = 'ar'; switchLanguage('ar'); } 
+            catch (error) { console.error('Error initializing language:', error);  }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguage();
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() { );
+            });
+        });
+        
+    </script></body></html> 

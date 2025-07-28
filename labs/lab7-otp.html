@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>مختبر 07: حماية الحساب بـ OTP | ورشة مهندسين المستقبل</title><link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/labs.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><!-- Arabic Fonts --><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/arabic-fixes.css"><style>
+        /* أنماط مخصصة لأنواع تنفيذ المصادقة الثنائية */
+        .implementation-types {
+            margin: 2rem 0;
+        }
+        
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .type-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--primary-cyan);
+            border-radius: 10px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-cyan);
+        }
+        
+        .type-card.best::before {
+            background: #27c93f;
+        }
+        
+        .type-card.good::before {
+            background: #ffbd2e;
+        }
+        
+        .type-card.okay::before {
+            background: #ff9900;
+        }
+        
+        .type-card.weak::before {
+            background: #ff5f56;
+        }
+        
+        .type-card h5 {
+            color: var(--primary-cyan);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .type-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem 0;
+        }
+        
+        .type-card li {
+            color: #ccc;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .type-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .security-rating {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--primary-cyan);
+            border-radius: 5px;
+            padding: 0.75rem;
+            text-align: center;
+            margin-top: 1rem;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px currentColor;
+        }
+        
+        .type-card.best .security-rating {
+            color: #27c93f;
+            border-color: #27c93f;
+        }
+        
+        .type-card.good .security-rating {
+            color: #ffbd2e;
+            border-color: #ffbd2e;
+        }
+        
+        .type-card.okay .security-rating {
+            color: #ff9900;
+            border-color: #ff9900;
+        }
+        
+        .type-card.weak .security-rating {
+            color: #ff5f56;
+            border-color: #ff5f56;
+        }
+        
+        /* RTL Support for Arabic */
+        html[dir="rtl"] .type-card h5 {
+            text-align: center;
+        }
+        
+        html[dir="rtl"] .security-rating {
+            text-align: left;
+        }
+        
+        html[dir="rtl"] .type-card li {
+            text-align: right;
+        }
+    </style><style>
+        /* Arabic RTL Support */
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .message-text,
+        html[lang="ar"] .lab-description,
+        html[lang="ar"] .slide-body p,
+        html[lang="ar"] .hint,
+        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+        
+        html[lang="ar"] input[type="text"],
+        html[lang="ar"] textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .nav-back {
+            float: right;
+        }
+        
+        html[lang="ar"] .labs-grid,
+        html[lang="ar"] .ai-labs-grid {
+            direction: rtl;
+        }
+        
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .capability-item,
+        html[lang="ar"] .option-group {
+            text-align: right;
+        }
+        
+        /* Fix button alignment for RTL */
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons {
+            justify-content: flex-end;
+        }
+        
+        /* Ensure proper Arabic text rendering */
+        html[lang="ar"] * {
+            font-kerning: auto;
+            text-rendering: optimizeLegibility;
+            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        }
+    </style></head><body><div class="lab-grid-bg"></div><div class="cyber-particles"></div><!-- Language Toggle --><nav class="lab-nav"><a href="../cyber-home.html" class="nav-back"><span>العودة للمختبرات →</span></a><h1 class="nav-title"><span>مختبر 07: حماية الحساب بـ OTP</span></h1><div class="lab-timer">00:00:00</div></nav><main class="lab-container"><!-- View Toggle --><div class="view-toggle"><button class="toggle-btn active" onclick="switchView('hacker')"><span class="icon">💀</span><span>عرض الهاكر</span></button><button class="toggle-btn" onclick="switchView('developer')"><span class="icon">🛡️</span><span>عرض المطور</span></button></div><!-- Lab Introduction --><section class="lab-intro"><h2 class="section-header"><span>المصادقة ثنائية العوامل</span></h2><p class="lab-description"><span>يوضح هذا المختبر تنفيذ وأهمية كلمات المرور لمرة واحدة (OTP) و
+                المصادقة ثنائية العوامل (2FA) في حماية الحسابات من الوصول غير المصرح به.</span></p><div class="threat-level"><span>مستوى التهديد:</span><div class="threat-bar low"></div><span class="threat-text low"><span>منخفض (عند التنفيذ)</span></span></div></section><!-- Hacker View --><section id="hacker-view" class="view-section active"><div class="terminal-header"><span class="terminal-title"><span>طرفية الهاكر</span></span><div class="terminal-controls"><span class="control red"></span><span class="control yellow"></span><span class="control green"></span></div></div><div class="hacker-content"><div class="scenario-box"><h3><span>📋 السيناريو</span></h3><p><span>لقد حصلت على بيانات تسجيل الدخول لكن الحساب المستهدف محمي بـ 2FA. 
+                        استكشف تقنيات التجاوز المختلفة وافهم ثغرات 2FA.</span></p><p></span><span>الهدف: <code>admin@company.com / CompanyPass123!</code></span></p></div><div class="exploit-steps"><h3><span>🔓 تقنيات تجاوز 2FA</span></h3><div class="step"><span class="step-number">01</span><div class="step-content"><h4><span>محاولة تسجيل الدخول الأولى</span></h4><div class="login-simulator"><div class="login-form"><input type="email" value="admin@company.com" readonly><input type="password" value="CompanyPass123!" readonly><button onclick="attemptLogin()" class="cyber-btn"><span>🔑 محاولة تسجيل الدخول</span></button></div><div id="login-response" class="response-area"></div></div></div></div><div class="step"><span class="step-number">02</span><div class="step-content"><h4><span>تحليل تحدي 2FA</span></h4><div class="otp-analyzer" id="otp-analyzer"><div class="analyzer-display"><p><span>في انتظار تحدي 2FA...</span></p></div></div></div></div><div class="step"><span class="step-number">03</span><div class="step-content"><h4><span>تقنيات التجاوز</span></h4><div class="bypass-methods"><button onclick="attemptSMSInterception()" class="method-btn"><span>📱 اعتراض SMS</span></button><button onclick="attemptSIMSwap()" class="method-btn"><span>📞 هجوم تبديل SIM</span></button><button onclick="attemptBruteForce()" class="method-btn"><span>🔢 القوة الغاشمة OTP</span></button><button onclick="attemptSocialEngineering()" class="method-btn"><span>🎭 الهندسة الاجتماعية</span></button></div><div id="bypass-results" class="bypass-results"></div></div></div><div class="step"><span class="step-number">04</span><div class="step-content"><h4><span>معدل نجاح الهجوم</span></h4><div class="attack-stats"><div class="stat-item"><span class="stat-label"><span>اعتراض SMS:</span></span><span class="stat-value" id="sms-success">0%</span></div><div class="stat-item"><span class="stat-label"><span>تبديل SIM:</span></span><span class="stat-value" id="sim-success">15%</span></div><div class="stat-item"><span class="stat-label"><span>القوة الغاشمة:</span></span><span class="stat-value" id="brute-success">0.001%</span></div><div class="stat-item"><span class="stat-label"><span>الهندسة الاجتماعية:</span></span><span class="stat-value" id="social-success">25%</span></div></div></div></div></div><div class="otp-simulator"><h3><span>📱 محاكي مولد OTP</span></h3><div class="otp-display"><div class="otp-code" id="current-otp">000000</div><div class="otp-timer"><div class="timer-bar" id="timer-bar"></div><span id="timer-text">30s</span></div><div class="otp-type"><span>TOTP (قائم على الوقت)</span></div></div></div><div class="success-indicator" id="success-indicator"><span class="icon">🛡️</span><span><span>حماية 2FA نشطة!</span></span></div></div></section><!-- Developer View --><section id="developer-view" class="view-section"><div class="terminal-header"><span class="terminal-title"><span>طرفية المطور</span></span><div class="terminal-controls"><span class="control red"></span><span class="control yellow"></span><span class="control green"></span></div></div><div class="developer-content"><div class="vulnerability-explanation"><h3><span>🐛 ثغرات وتجاوزات المصادقة الثنائية</span></h3><p><span>بينما تحسن المصادقة الثنائية الأمان بشكل كبير، لا تزال هناك طرق هجوم مختلفة:</span></p><div class="vulnerability-types"><div class="vuln-card"><h5><span>ضعف المصادقة الثنائية القائمة على الرسائل النصية</span></h5><ul><li><span>هجمات تبديل الشريحة</span></li><li><span>ثغرات شبكة SS7</span></li><li><span>اعتراض الرسائل النصية</span></li><li><span>هجمات على مستوى المشغل</span></li></ul></div><div class="vuln-card"><h5><span>عيوب التنفيذ</span></h5><ul><li><span>سوء إدارة رموز النسخ الاحتياطي</span></li><li><span>استمرار الجلسة بعد المصادقة الثنائية</span></li><li><span>تحديد معدل غير كافٍ</span></li><li><span>توليد OTP ضعيف</span></li></ul></div><div class="vuln-card"><h5><span>الهندسة الاجتماعية</span></h5><ul><li><span>التلاعب بمكتب الدعم</span></li><li><span>استغلال عملية إعادة التعيين</span></li><li><span>التصيد الاحتيالي لرموز OTP</span></li><li><span>التصيد الاحتيالي في الوقت الفعلي</span></li></ul></div></div></div><div class="secure-implementation"><h3><span>🛡️ التنفيذ الآمن للمصادقة الثنائية</span></h3><div class="secure-code"><h4><span>✅ كود مصادقة ثنائية قوي</span></h4><pre class="code-block language-javascript">
+// جيد: تنفيذ مصادقة ثنائية آمن
+const speakeasy = require('speakeasy');
+const QRCode = require('qrcode');
+const crypto = require('crypto');
+
+class Secure2FA {
+    constructor() {
+        this.maxAttempts = 3;
+        this.lockoutDuration = 15 * 60 * 1000; // 15 دقيقة
+        this.attemptTracker = new Map();
+    }
+    
+    // توليد مفتاح آمن لـ TOTP
+    generateSecret(userEmail) {
+        const secret = speakeasy.generateSecret({
+            name: userEmail,
+            issuer: 'SecureApp',
+            length: 32 // مفتاح 256 بت
+        });
+        
+        return {
+            secret: secret.base32,
+            qrCode: secret.otpauth_url
+        };
+    }
+    
+    // التحقق من TOTP مع إجراءات أمان
+    async verifyTOTP(userId, token, secret) {
+        // التحقق من قفل الحساب
+        if (this.isAccountLocked(userId)) {
+            throw new Error('Account temporarily locked due to failed attempts');
+        }
+        
+        // التحقق من المدخلات
+        if (!token || !/^\d{6}$/.test(token)) {
+            this.recordFailedAttempt(userId);
+            throw new Error('Invalid token format');
+        }
+        
+        // التحقق من الرمز مع نافذة تسامح
+        const verified = speakeasy.totp.verify({
+            secret: secret,
+            encoding: 'base32',
+            token: token,
+            window: 1, // السماح بخطوة تسامح واحدة (30ث)
+            time: Math.floor(Date.now() / 1000)
+        });
+        
+        if (verified) {
+            // محو المحاولات الفاشلة عند النجاح
+            this.clearFailedAttempts(userId);
+            
+            // توليد رمز جلسة آمن
+            const sessionToken = crypto.randomBytes(32).toString('hex');
+            
+            // حفظ الجلسة مع علامة المصادقة الثنائية
+            await this.createSecureSession(userId, sessionToken, {
+                twoFactorVerified: true,
+                verificationTime: Date.now(),
+                ipAddress: this.getCurrentIP(),
+                userAgent: this.getCurrentUserAgent()
+            });
+            
+            return { success: true, sessionToken };
+        } else {
+            this.recordFailedAttempt(userId);
+            throw new Error('Invalid 2FA code');
+        }
+    }
+    
+    // تتبع وتحديد المحاولات الفاشلة
+    recordFailedAttempt(userId) {
+        if (!this.attemptTracker.has(userId)) {
+            this.attemptTracker.set(userId, {
+                attempts: 0,
+                firstAttempt: Date.now()
+            });
+        }
+        
+        const userAttempts = this.attemptTracker.get(userId);
+        userAttempts.attempts++;
+        
+        // قفل الحساب بعد الحد الأقصى من المحاولات
+        if (userAttempts.attempts >= this.maxAttempts) {
+            userAttempts.lockedUntil = Date.now() + this.lockoutDuration;
+            
+            // تنبيه فريق الأمان
+            this.alertSecurityTeam(userId, 'Multiple failed 2FA attempts');
+        }
+    }
+    
+    isAccountLocked(userId) {
+        const userAttempts = this.attemptTracker.get(userId);
+        if (!userAttempts || !userAttempts.lockedUntil) return false;
+        
+        if (Date.now() < userAttempts.lockedUntil) {
+            return true;
+        } else {
+            // محو القفل المنتهي الصلاحية
+            this.clearFailedAttempts(userId);
+            return false;
+        }
+    }
+    
+    // رموز احتياطية لاستعادة الحساب
+    generateBackupCodes(userId) {
+        const codes = [];
+        for (let i = 0; i < 10; i++) {
+            // توليد رموز آمنة تشفيرياً
+            const code = crypto.randomBytes(4).toString('hex').toUpperCase();
+            codes.push(code);
+        }
+        
+        // ترميز الرموز قبل الحفظ
+        const hashedCodes = codes.map(code => 
+            crypto.pbkdf2Sync(code, userId, 100000, 32, 'sha256').toString('hex')
+        );
+        
+        // حفظ الرموز المرمزة
+        this.storeBackupCodes(userId, hashedCodes);
+        
+        // Return plain codes to user (one-time display)
+        return codes;
+    }
+    
+    // Verify backup code
+    async verifyBackupCode(userId, code) {
+        const hashedCode = crypto.pbkdf2Sync(code, userId, 100000, 32, 'sha256').toString('hex');
+        const storedCodes = await this.getBackupCodes(userId);
+        
+        const codeIndex = storedCodes.indexOf(hashedCode);
+        if (codeIndex !== -1) {
+            // Remove used code
+            storedCodes.splice(codeIndex, 1);
+            await this.updateBackupCodes(userId, storedCodes);
+            
+            // Alert user about backup code usage
+            this.alertUser(userId, 'Backup code used for login');
+            
+            return true;
+        }
+        
+        return false;
+    }
+    
+    // Hardware token support (WebAuthn/FIDO2)
+    async registerHardwareToken(userId, credential) {
+        // Validate WebAuthn credential
+        const verification = await this.verifyWebAuthnCredential(credential);
+        
+        if (verification.verified) {
+            // Store credential for user
+            await this.storeHardwareCredential(userId, {
+                credentialId: verification.registrationInfo.credentialID,
+                publicKey: verification.registrationInfo.credentialPublicKey,
+                counter: verification.registrationInfo.counter,
+                deviceType: verification.registrationInfo.deviceType
+            });
+            
+            return { success: true };
+        }
+        
+        throw new Error('Hardware token registration failed');
+    }
+}</pre></div><div class="implementation-types"><h4><span>🔐 أنواع تنفيذ المصادقة الثنائية</span></h4><div class="types-grid"><div class="type-card best"><h5><span>🥇 رموز الأجهزة (الأفضل)</span></h5><ul><li><span>مفاتيح FIDO2/WebAuthn</span></li><li><span>YubiKey، Google Titan</span></li><li><span>مقاوم للتصيد الاحتيالي</span></li><li><span>لا يعتمد على الشبكة</span></li></ul><div class="security-rating"><span>الأمان: 95%</span></div></div><div class="type-card good"><h5><span>🥈 تطبيقات المصادقة (جيد)</span></h5><ul><li><span>Google Authenticator</span></li><li><span>Authy، Microsoft Authenticator</span></li><li><span>قائم على TOTP/HOTP</span></li><li><span>توليد دون اتصال</span></li></ul><div class="security-rating"><span>الأمان: 85%</span></div></div><div class="type-card okay"><h5><span>🥉 الإشعارات الفورية (مقبول)</span></h5><ul><li><span>موافقة قائمة على التطبيق</span></li><li><span>Duo، Microsoft Authenticator</span></li><li><span>سهل الاستخدام</span></li><li><span>معرض لهجمات الإرهاق</span></li></ul><div class="security-rating"><span>الأمان: 75%</span></div></div><div class="type-card weak"><h5><span>⚠️ الرسائل النصية/الصوت (ضعيف)</span></h5><ul><li><span>رموز الرسائل النصية</span></li><li><span>توصيل المكالمات الصوتية</span></li><li><span>معرض لتبديل SIM</span></li><li><span>أفضل من عدم وجود مصادقة ثنائية</span></li></ul><div class="security-rating"><span>الأمان: 60%</span></div></div></div></div></div><div class="best-practices"><h3><span>💡 أفضل ممارسات المصادقة الثنائية</span></h3><div class="practices-grid"><div class="practice-section"><h5><span>للمطورين</span></h5><ul><li><span>تنفيذ خيارات متعددة للمصادقة الثنائية</span></li><li><span>استخدام TOTP مع نوافذ زمنية مناسبة</span></li><li><span>تحديد معدل محاولات OTP</span></li><li><span>توليد رموز نسخ احتياطي آمنة</span></li><li><span>مراقبة الأنماط المشبوهة</span></li><li><span>تنفيذ سياسات قفل الحساب</span></li></ul></div><div class="practice-section"><h5><span>للمستخدمين</span></h5><ul><li><span>استخدام رموز الأجهزة عند الإمكان</span></li><li><span>تفضيل تطبيقات المصادقة على الرسائل النصية</span></li><li><span>تخزين رموز النسخ الاحتياطي بأمان</span></li><li><span>تفعيل المصادقة الثنائية على جميع الحسابات المهمة</span></li><li><span>كن على دراية بمحاولات التصيد الاحتيالي</span></li><li><span>مراجعة نشاط الحساب بانتظام</span></li></ul></div><div class="practice-section"><h5><span>للمؤسسات</span></h5><ul><li><span>إلزام جميع الموظفين بالمصادقة الثنائية</span></li><li><span>توفير رموز الأجهزة</span></li><li><span>تدريب الموظفين على الهندسة الاجتماعية</span></li><li><span>تنفيذ الوصول المشروط</span></li><li><span>مراقبة سجلات المصادقة</span></li><li><span>وضع خطط الاستجابة للحوادث</span></li></ul></div></div></div><div class="recovery-mechanisms"><h3><span>🔄 آليات الاسترداد الآمنة</span></h3><div class="recovery-methods"><div class="recovery-card"><h5><span>رموز النسخ الاحتياطي</span></h5><p><span>رموز لمرة واحدة يتم توليدها أثناء إعداد المصادقة الثنائية</span></p><div class="implementation-note"><span>تخزين مشفر، السماح بالاستخدام مرة واحدة، إعادة التوليد دورياً</span></div></div><div class="recovery-card"><h5><span>تجاوز المدير</span></h5><p><span>التحقق اليدوي من قبل الموظفين المصرح لهم</span></p><div class="implementation-note"><span>تتطلب موافقات متعددة، تسجيل موسع</span></div></div><div class="recovery-card"><h5><span>التحقق من الهوية</span></h5><p><span>تأكيد الهوية القائم على الوثائق</span></p><div class="implementation-note"><span>الهوية الحكومية، التحقق البيومتري</span></div></div></div></div></div></section><!-- Lab Progress --><div class="lab-progress"><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div><div class="progress-steps"><div class="step-indicator active"><span>تسجيل الدخول</span></div><div class="step-indicator"><span>التحدي</span></div><div class="step-indicator"><span>التجاوز</span></div><div class="step-indicator"><span>الأمان</span></div></div></div></main><script src="../js/lab-common.js"></script><script src="../js/lab7-otp.js"></script></body></html> 

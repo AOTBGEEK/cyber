@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختبر 04 | ورشة مهندسين المستقبل</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/ai-labs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Arabic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Arabic RTL Support */
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .message-text,
+        html[lang="ar"] .lab-description,
+        html[lang="ar"] .slide-body p,
+        html[lang="ar"] .hint,
+        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+        
+        html[lang="ar"] input[type="text"],
+        html[lang="ar"] textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .nav-back {
+            float: right;
+        }
+        
+        html[lang="ar"] .labs-grid,
+        html[lang="ar"] .ai-labs-grid {
+            direction: rtl;
+        }
+        
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .capability-item,
+        html[lang="ar"] .option-group {
+            text-align: right;
+        }
+        
+        /* Fix button alignment for RTL */
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons {
+            justify-content: flex-end;
+        }
+        
+        /* Ensure proper Arabic text rendering */
+        html[lang="ar"] * {
+            font-kerning: auto;
+            text-rendering: optimizeLegibility;
+            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        }
+        
+        /* Fix navigation layout for Arabic */
+        html[lang="ar"] .ai-lab-nav {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            direction: rtl !important;
+        }
+        
+        html[lang="ar"] .nav-back {
+            transform: none !important;
+            direction: rtl !important;
+            order: 1 !important;
+            margin-right: 0 !important;
+            margin-left: auto !important;
+        }
+        
+        html[lang="ar"] .nav-back:hover {
+            transform: translateX(8px) !important;
+        }
+        
+        html[lang="ar"] .nav-title {
+            text-align: center !important;
+            order: 2 !important;
+            flex: 1 !important;
+            margin: 0 20px !important;
+        }
+        
+        html[lang="ar"] .ai-status {
+            order: 3 !important;
+            margin-left: 0 !important;
+            margin-right: auto !important;
+        }
+        
+        /* Center other titles */
+        html[lang="ar"] .section-header,
+        html[lang="ar"] h2, html[lang="ar"] h3 {
+            text-align: center !important;
+        }
+        
+        /* Fix button alignment for Arabic */
+        html[lang="ar"] .prompt-buttons,
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons,
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .generation-options {
+            direction: rtl !important;
+            text-align: right !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="ai-lab-bg"></div>
+    <div class="ai-data-streams"></div>
+    
+    <nav class="ai-lab-nav">
+        <a href="../ai-home.html" class="nav-back">
+            <span>العودة للمختبرات →</span>
+        </a>
+        <h1 class="nav-title">
+            <span>مختبر 04: البناء مع الذكاء الاصطناعي</span>
+        </h1>
+        <div class="ai-status">
+            <span class="status-dot"></span>
+            <span>الذكاء الاصطناعي متصل</span>
+        </div>
+    </nav>
+    
+    <main class="ai-lab-container">
+        <!-- Lab Introduction -->
+        <section class="lab-intro">
+            <h2 class="section-header">
+                <span>تطوير الويب بالذكاء الاصطناعي</span>
+            </h2>
+            <p class="lab-description">
+                <span>ابن مواقع الويب بمساعدة الذكاء الاصطناعي! أنشئ كود HTML و CSS و JavaScript من خلال وصف ما تريد. 
+                دع الذكاء الاصطناعي يساعدك في إنشاء صفحات ويب مذهلة وميزات تفاعلية.</span>
+            </p>
+            <div class="ai-capabilities">
+                <div class="capability-item">
+                    <span class="icon">🤖</span>
+                    <span>توليد الكود بالذكاء الاصطناعي</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🎨</span>
+                    <span>تنسيق ديناميكي</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">⚡</span>
+                    <span>معاينة مباشرة</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">💻</span>
+                    <span>تصدير الكود</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Website Builder Wizard -->
+        <section class="website-builder">
+            <div class="builder-container">
+                <!-- Step 1: Project Type Selection -->
+                <div class="builder-step" id="projectStep">
+                    <h3 class="step-title">
+                        <span class="step-number">1</span>
+                        <span>اختر نوع المشروع</span>
+                    </h3>
+                    <div class="projects-grid" id="projectsGrid">
+                        <div class="project-card" data-project="portfolio">
+                            <span class="project-icon">💼</span>
+                            <div class="project-title">محفظة أعمال</div>
+                            <div class="project-description">موقع شخصي لعرض أعمالك ومهاراتك</div>
+                        </div>
+                        <div class="project-card" data-project="business">
+                            <span class="project-icon">🏢</span>
+                            <div class="project-title">موقع شركة</div>
+                            <div class="project-description">موقع احترافي للشركات والخدمات</div>
+                        </div>
+                        <div class="project-card" data-project="ecommerce">
+                            <span class="project-icon">🛒</span>
+                            <div class="project-title">متجر إلكتروني</div>
+                            <div class="project-description">منصة لبيع المنتجات أونلاين</div>
+                        </div>
+                        <div class="project-card" data-project="blog">
+                            <span class="project-icon">📝</span>
+                            <div class="project-title">مدونة شخصية</div>
+                            <div class="project-description">منصة لنشر المقالات والأفكار</div>
+                        </div>
+                        <div class="project-card" data-project="restaurant">
+                            <span class="project-icon">🍽️</span>
+                            <div class="project-title">موقع مطعم</div>
+                            <div class="project-description">موقع لعرض القائمة والحجوزات</div>
+                        </div>
+                        <div class="project-card" data-project="creative">
+                            <span class="project-icon">🎨</span>
+                            <div class="project-title">موقع إبداعي</div>
+                            <div class="project-description">موقع فني أو إبداعي مميز</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Industry/Theme Selection -->
+                <div class="builder-step" id="industryStep" style="display: none;">
+                    <h3 class="step-title">
+                        <span class="step-number">2</span>
+                        <span>اختر المجال أو الفكرة</span>
+                    </h3>
+                    <div class="industries-grid" id="industriesGrid">
+                        <!-- Will be populated by JavaScript based on project type -->
+                    </div>
+                </div>
+
+                <!-- Step 3: Design Style Selection -->
+                <div class="builder-step" id="styleStep" style="display: none;">
+                    <h3 class="step-title">
+                        <span class="step-number">3</span>
+                        <span>اختر أسلوب التصميم</span>
+                    </h3>
+                    <div class="styles-grid" id="stylesGrid">
+                        <div class="style-card" data-style="modern">
+                            <span class="style-icon">✨</span>
+                            <div class="style-title">عصري ونظيف</div>
+                            <div class="style-description">تصميم بسيط وأنيق مع خطوط واضحة</div>
+                        </div>
+                        <div class="style-card" data-style="creative">
+                            <span class="style-icon">🎨</span>
+                            <div class="style-title">إبداعي وملون</div>
+                            <div class="style-description">تصميم جريء مع ألوان نابضة بالحياة</div>
+                        </div>
+                        <div class="style-card" data-style="professional">
+                            <span class="style-icon">👔</span>
+                            <div class="style-title">مهني وكلاسيكي</div>
+                            <div class="style-description">تصميم أنيق ومناسب للأعمال</div>
+                        </div>
+                        <div class="style-card" data-style="dark">
+                            <span class="style-icon">🌙</span>
+                            <div class="style-title">داكن وغامض</div>
+                            <div class="style-description">ثيم مظلم مع إضاءة مميزة</div>
+                        </div>
+                        <div class="style-card" data-style="retro">
+                            <span class="style-icon">📼</span>
+                            <div class="style-title">ريترو وعتيق</div>
+                            <div class="style-description">طراز قديم بلمسة عصرية</div>
+                        </div>
+                        <div class="style-card" data-style="futuristic">
+                            <span class="style-icon">🚀</span>
+                            <div class="style-title">مستقبلي وتقني</div>
+                            <div class="style-description">تصميم سايبربانك مع نيون</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Features Selection -->
+                <div class="builder-step" id="featuresStep" style="display: none;">
+                    <h3 class="step-title">
+                        <span class="step-number">4</span>
+                        <span>اختر الميزات المطلوبة</span>
+                    </h3>
+                    <div class="features-grid" id="featuresGrid">
+                        <div class="feature-card" data-feature="hero">
+                            <span class="feature-icon">🌟</span>
+                            <div class="feature-title">قسم البطل</div>
+                            <div class="feature-description">عنوان رئيسي وصورة جذابة</div>
+                        </div>
+                        <div class="feature-card" data-feature="gallery">
+                            <span class="feature-icon">🖼️</span>
+                            <div class="feature-title">معرض صور</div>
+                            <div class="feature-description">عرض الأعمال والمنتجات</div>
+                        </div>
+                        <div class="feature-card" data-feature="contact">
+                            <span class="feature-icon">📞</span>
+                            <div class="feature-title">نموذج التواصل</div>
+                            <div class="feature-description">استمارة للرسائل والاستفسارات</div>
+                        </div>
+                        <div class="feature-card" data-feature="testimonials">
+                            <span class="feature-icon">💬</span>
+                            <div class="feature-title">آراء العملاء</div>
+                            <div class="feature-description">عرض تقييمات وتعليقات</div>
+                        </div>
+                        <div class="feature-card" data-feature="services">
+                            <span class="feature-icon">⚙️</span>
+                            <div class="feature-title">قسم الخدمات</div>
+                            <div class="feature-description">عرض الخدمات المقدمة</div>
+                        </div>
+                        <div class="feature-card" data-feature="animation">
+                            <span class="feature-icon">✨</span>
+                            <div class="feature-title">تأثيرات حركية</div>
+                            <div class="feature-description">رسوم متحركة وتفاعلات</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Generate Button -->
+                    <button class="generate-btn" id="generateWebsiteBtn" disabled>
+                        🚀 إنشاء الموقع الآن
+                    </button>
+                </div>
+            </div>
+        </section>
+                
+        <!-- Generated Website Display -->
+        <div class="generated-website" id="websiteDisplay" style="display: none;">
+            <h3 style="color: #00d4ff; text-align: center; margin-bottom: 20px;">
+                🌐 موقعك المُنشأ
+            </h3>
+            
+            <!-- Website Preview -->
+            <div class="website-preview" id="websitePreview">
+                <div class="preview-header">
+                    <div class="preview-title">معاينة مباشرة</div>
+                    <div class="preview-controls">
+                        <button class="control-btn" id="refreshPreview">🔄 تحديث</button>
+                        <button class="control-btn" id="fullscreenPreview">🔍 شاشة كاملة</button>
+                    </div>
+                </div>
+                <iframe class="webpage-frame" id="previewFrame"></iframe>
+            </div>
+            
+            <!-- Generated Code Tabs -->
+            <div class="code-tabs">
+                <button class="code-tab active" data-tab="prompt">📝 النص المُنشأ</button>
+                <button class="code-tab" data-tab="html">💻 كود HTML</button>
+                <button class="code-tab" data-tab="explanation">🤖 شرح الذكاء الاصطناعي</button>
+            </div>
+            
+            <div class="code-content">
+                <!-- Prompt Tab -->
+                <div class="tab-panel active" id="promptPanel">
+                    <div class="prompt-display">
+                        <h4>النص المُنشأ لأدوات تطوير الويب:</h4>
+                        <div class="generated-prompt" id="generatedWebPrompt"></div>
+                        <div class="prompt-actions">
+                            <button class="action-btn" id="copyPrompt">📋 نسخ النص</button>
+                            <a href="https://chat.openai.com" target="_blank" class="action-btn external-link">
+                                🔗 فتح ChatGPT
+                            </a>
+                            <a href="https://v0.dev" target="_blank" class="action-btn external-link">
+                                🚀 فتح V0.dev
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HTML Tab -->
+                <div class="tab-panel" id="htmlPanel">
+                    <div class="code-display">
+                        <h4>كود HTML المُنشأ:</h4>
+                        <pre class="code-block" id="htmlCode"></pre>
+                        <button class="action-btn" id="copyHtml">📋 نسخ HTML</button>
+                    </div>
+                </div>
+                
+                <!-- Explanation Tab -->
+                <div class="tab-panel" id="explanationPanel">
+                    <div class="explanation-display">
+                        <h4>🤖 تحليل الذكاء الاصطناعي</h4>
+                        <div class="ai-explanation" id="aiExplanation"></div>
+                        
+                        <h4>✨ الميزات المضافة</h4>
+                        <div class="features-list" id="addedFeatures"></div>
+                        
+                        <h4>🎨 التصميم المختار</h4>
+                        <div class="design-choices" id="designChoices"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="website-actions">
+                <button class="new-website-btn" id="newWebsiteBtn">🔄 موقع جديد</button>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 12px; font-size: 0.9rem; color: #b0b0b0;">
+                <strong>🎯 كيفية الاستخدام:</strong><br>
+                1. انسخ النص المُنشأ أعلاه<br>
+                2. اذهب إلى ChatGPT أو أدوات تطوير الويب<br>
+                3. الصق النص واطلب إنشاء الموقع<br>
+                4. استمتع بموقعك الاحترافي!
+            </div>
+        </div>
+            </div>
+        </section>
+        
+        <!-- Generation History -->
+        <section class="history-section" id="historySection" style="display: none;">
+            <div class="history-header">
+                <h3>📚 سجل الإنشاء</h3>
+                <button onclick="clearHistory()" class="control-btn">🗑️ مسح السجل</button>
+            </div>
+            <div class="history-grid" id="historyGrid">
+                <!-- Generated webpages will appear here -->
+            </div>
+        </section>
+        
+        <!-- AI Thinking Indicator -->
+        <div class="ai-thinking" id="aiThinking">
+            <div class="thinking-animation">
+                <div class="thinking-dot"></div>
+                <div class="thinking-dot"></div>
+                <div class="thinking-dot"></div>
+            </div>
+            <span class="thinking-text">الذكاء الاصطناعي ينشئ صفحتك...</span>
+        </div>
+        
+        <!-- Lab Progress -->
+        <div class="lab-progress">
+            <div class="progress-info">
+                <span>تقدم إنشاء الصفحة</span>
+                <span id="progressText">جاهز للبناء بالذكاء الاصطناعي</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="labProgress" style="width: 0%"></div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../js/ai-lab4-webpage.js"></script>
+</body>
+</html>

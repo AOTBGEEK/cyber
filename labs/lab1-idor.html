@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>مختبر 01: IDOR - تغيير الأدوار | ورشة مهندسين المستقبل</title><link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/labs.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><!-- Arabic Fonts --><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/arabic-fixes.css"><style>
+        /* Arabic RTL Support */
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .message-text,
+        html[lang="ar"] .lab-description,
+        html[lang="ar"] .slide-body p,
+        html[lang="ar"] .hint,
+        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+        
+        html[lang="ar"] input[type="text"],
+        html[lang="ar"] textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .nav-back {
+            float: right;
+        }
+        
+        html[lang="ar"] .labs-grid,
+        html[lang="ar"] .ai-labs-grid {
+            direction: rtl;
+        }
+        
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .capability-item,
+        html[lang="ar"] .option-group {
+            text-align: right;
+        }
+        
+        /* Fix button alignment for RTL */
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons {
+            justify-content: flex-end;
+        }
+        
+        /* Ensure proper Arabic text rendering */
+        html[lang="ar"] * {
+            font-kerning: auto;
+            text-rendering: optimizeLegibility;
+            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        }
+    </style></head><body><div class="lab-grid-bg"></div><div class="cyber-particles"></div><!-- Language Toggle --><nav class="lab-nav"><a href="../cyber-home.html" class="nav-back"><span>العودة للمختبرات →</span></a><h1 class="nav-title"><span>مختبر 01: <span class="english-term">IDOR</span> - تغيير الأدوار</span></h1><div class="lab-timer">00:00:00</div></nav><main class="lab-container"><!-- View Toggle --><div class="view-toggle"><button class="toggle-btn active" onclick="switchView('hacker')"><span class="icon">💀</span><span>عرض الهاكر</span></button><button class="toggle-btn" onclick="switchView('developer')"><span class="icon">🛡️</span><span>عرض المطور</span></button></div><!-- Lab Introduction --><section class="lab-intro"><h2 class="section-header"><span>المرجع المباشر غير الآمن للكائن (<span class="english-term">IDOR</span>)</span></h2><p class="lab-description"><span>تحدث ثغرات <span class="english-term">IDOR</span> عندما يكشف التطبيق مراجع مباشرة للكائنات الداخلية 
+                مثل مفاتيح قاعدة البيانات أو أسماء الملفات. يمكن للمهاجمين التلاعب بهذه المراجع للوصول إلى بيانات غير مصرح بها.</span></p><div class="threat-level"><span>مستوى التهديد:</span><div class="threat-bar high"></div><span class="threat-text"><span>عالي</span></span></div></section><!-- Hacker View --><section id="hacker-view" class="view-section active"><div class="terminal-header"><span class="terminal-title"><span>طرفية الهاكر</span></span><div class="terminal-controls"><span class="control red"></span><span class="control yellow"></span><span class="control green"></span></div></div><div class="hacker-content"><div class="scenario-box"><h3><span>📋 السيناريو</span></h3><p></span><span>لقد اكتشفت تطبيق ويب يستخدم معرفات مستخدمين قابلة للتنبؤ في الرابط. 
+                        الرابط الحالي يظهر: <code><span class="english-term">https://app.example.com/profile?user_id=1001</span></code></span></p><p><span>مهمتك: استغلال هذه الثغرة للوصول إلى صلاحيات المدير.</span></p></div><div class="exploit-steps"><h3><span>🔓 خطوات الاستغلال</span></h3><div class="step"><span class="step-number">01</span><div class="step-content"><h4><span>تحديد النمط</span></h4><div class="code-block"><pre><span class="english-term">// الرابط الحالي
+https://app.example.com/profile?user_id=1001
+                                
+// جرب معرفات مختلفة
+user_id=1000  // ربما المدير؟
+user_id=1     // المستخدم الأول؟
+user_id=0     // مستخدم النظام؟</span></pre></div></div></div><div class="step"><span class="step-number">02</span><div class="step-content"><h4><span>تعداد أدوار المستخدمين</span></h4><div class="interactive-demo"><input type="text" id="user-id-input" placeholder="" value="1001"><button onclick="tryUserID()" class="cyber-btn"><span>تنفيذ</span></button><div id="response-display" class="response-area"><pre><span>في انتظار الإدخال...</span></pre></div></div></div></div><div class="step"><span class="step-number">03</span><div class="step-content"><h4><span>تصعيد الصلاحيات</span></h4><p><span>بمجرد العثور على معرف المدير، يمكنك الوصول إلى الوظائف الإدارية!</span></p><div class="success-indicator" id="success-indicator"><span class="icon">🎯</span><span>تم اختراق الهدف</span></div></div></div></div><div class="attack-visualization"><canvas id="attack-canvas"></canvas></div></div></section><!-- Developer View --><section id="developer-view" class="view-section"><div class="terminal-header"><span class="terminal-title"><span>وحدة تحكم المطور</span></span><div class="terminal-controls"><span class="control red"></span><span class="control yellow"></span><span class="control green"></span></div></div><div class="developer-content"><div class="vulnerability-explanation"><h3><span>🐛 تحليل الثغرة</span></h3><p><span>يستخدم التطبيق مباشرة المدخلات التي يتحكم فيها المستخدم للوصول إلى ملفات تعريف المستخدمين بدون فحوصات تخويل مناسبة.</span></p><div class="vulnerable-code"><h4><span>❌ كود معرض للخطر</span></h4><pre class="code-block language-javascript">
+<span class="english-term">// سيء: مرجع مباشر للكائن بدون تخويل
+app.get('/profile', (req, res) => {
+    const userId = req.query.user_id;
+    
+    // جلب المستخدم مباشرة بدون التحقق من الصلاحيات
+    const user = db.getUser(userId);
+    res.json(user);
+});</span></pre></div></div><div class="secure-implementation"><h3><span>🛡️ التنفيذ الآمن</span></h3><div class="secure-code"><h4><span>✅ كود مُصحح</span></h4><pre class="code-block language-javascript">
+<span class="english-term">// جيد: فحص تخويل مناسب
+app.get('/profile', authenticate, (req, res) => {
+    const requestedUserId = req.query.user_id;
+    const currentUserId = req.user.id;
+    
+    // التحقق من إمكانية وصول المستخدم لهذا الملف الشخصي
+    if (requestedUserId !== currentUserId && !req.user.isAdmin) {
+        return res.status(403).json({ 
+            error: 'Unauthorized access' 
+        });
+    }
+    
+    const user = db.getUser(requestedUserId);
+    res.json(user);
+});
+
+// إجراءات أمان إضافية
+function authenticate(req, res, next) {
+    const token = req.headers.authorization;
+    
+    if (!token) {
+        return res.status(401).json({ 
+            error: 'Authentication required' 
+        });
+    }
+    
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded;
+        next();
+    } catch (error) {
+        return res.status(401).json({ 
+            error: 'Invalid token' 
+        });
+    }
+}</span></pre></div><div class="security-checklist"><h4><span>🔒 قائمة الأمان</span></h4><ul><li class="checklist-item"><span class="check">✓</span><span>تنفيذ مصادقة مناسبة</span></li><li class="checklist-item"><span class="check">✓</span><span>التحقق من صلاحيات المستخدم لكل طلب</span></li><li class="checklist-item"><span class="check">✓</span><span>استخدام مراجع كائنات غير مباشرة (UUIDs، tokens)</span></li><li class="checklist-item"><span class="check">✓</span><span>تسجيل محاولات الوصول لمراقبة الأمان</span></li><li class="checklist-item"><span class="check">✓</span><span>تنفيذ تحديد المعدل لمنع التعداد</span></li></ul></div></div><div class="best-practices"><h3><span>💡 أفضل الممارسات</span></h3><div class="practice-grid"><div class="practice-card"><h4><span>استخدام UUIDs</span></h4><p><span>استبدال المعرفات المتسلسلة بـ UUIDs لمنع التعداد</span></p><code><span class="english-term">user_id=550e8400-e29b-41d4-a716-446655440000</span></code></div><div class="practice-card"><h4><span>الوصول القائم على الجلسة</span></h4><p><span>استخدام رموز الجلسة بدلاً من المعرفات المباشرة</span></p><code><span class="english-term">/profile/me</span></code></div><div class="practice-card"><h4><span>قوائم التحكم في الوصول</span></h4><p><span>تنفيذ صلاحيات دقيقة التفصيل</span></p><code><span class="english-term">canRead(), canWrite(), canDelete()</span></code></div></div></div></div></section><!-- Lab Progress --><div class="lab-progress"><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div><div class="progress-steps"><div class="step-indicator active"><span>تحديد</span></div><div class="step-indicator"><span>استغلال</span></div><div class="step-indicator"><span>دفاع</span></div><div class="step-indicator"><span>مكتمل</span></div></div></div></main><script src="../js/lab-common.js"></script><script src="../js/lab1-idor.js"></script></body></html> 

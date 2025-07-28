@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Lab 05 - AI vs Search | CyberNet Academy</title><link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/ai-labs.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><!-- Arabic Fonts --><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/arabic-fixes.css"><style>
+        /* Arabic RTL Support */
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .message-text,
+        html[lang="ar"] .lab-description,
+        html[lang="ar"] .slide-body p,
+        html[lang="ar"] .hint,
+        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+        
+        html[lang="ar"] input[type="text"],
+        html[lang="ar"] textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .nav-back {
+            float: right;
+        }
+        
+        html[lang="ar"] .labs-grid,
+        html[lang="ar"] .ai-labs-grid {
+            direction: rtl;
+        }
+        
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .capability-item,
+        html[lang="ar"] .option-group {
+            text-align: right;
+        }
+        
+        /* Fix button alignment for RTL */
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons {
+            justify-content: flex-end;
+        }
+        
+        /* Ensure proper Arabic text rendering */
+        html[lang="ar"] * {
+            font-kerning: auto;
+            text-rendering: optimizeLegibility;
+            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        }
+    </style></head><body><div class="ai-lab-bg"></div><div class="ai-data-streams"></div><!-- Language Toggle --><nav class="ai-lab-nav"><a href="../ai-home.html" class="nav-back"><span>العودة لأكاديمية الذكاء الاصطناعي →</span></a><h1 class="nav-title"><span>مختبر الذكاء الاصطناعي 05: الذكاء الاصطناعي مقابل البحث</span></h1><div class="ai-status"><span class="status-dot"></span><span><span>الذكاء الاصطناعي متصل</span></span></div></nav><main class="ai-lab-container"><!-- Lab Introduction --><section class="lab-intro"><h2 class="section-header"><span>الذكاء الاصطناعي مقابل البحث التقليدي</span></h2><p class="lab-description"><span>قارن قوة الذكاء الاصطناعي مع محركات البحث التقليدية! اطرح نفس السؤال على كل من الذكاء الاصطناعي والبحث، 
+                ثم انظر كيف يختلفان في الفهم والسياق وتقديم إجابات مفيدة.</span></p><div class="ai-capabilities"><div class="capability-item"><span class="icon">🔍</span><span><span>مقارنة البحث</span></span></div><div class="capability-item"><span class="icon">🤖</span><span><span>تحليل الذكاء الاصطناعي</span></span></div><div class="capability-item"><span class="icon">📊</span><span><span>عرض جنباً إلى جنب</span></span></div><div class="capability-item"><span class="icon">💡</span><span><span>رؤى ونصائح</span></span></div></div></section><!-- Comparison Interface --><section class="comparison-section"><div class="comparison-container"><!-- Query Input Section --><div class="query-section"><h3 class="section-title"><span>❓ اطرح سؤالك</span></h3><div class="query-container"><textarea 
+                            id="queryInput" 
+                            placeholder="أدخل سؤالك هنا... (مثل: 'ما هي الحوسبة الكمية؟'، 'كيف أتعلم البرمجة؟'، 'أفضل ممارسات الأمن السيبراني؟')"
+                            rows="4"
+                            maxlength="500"
+                        ></textarea><div class="input-hints"><span class="hint"><span>💡 جرب طرح أسئلة معقدة لترى الفرق</span></span><span class="char-count" id="charCount">0/500</span></div></div><!-- Quick Questions --><div class="quick-prompts"><h4><span>🚀 أسئلة شائعة</span></h4><div class="question-buttons"><button class="quick-btn" data-query="What is artificial intelligence and how does it work?"><span>ما هو الذكاء الاصطناعي؟</span></button><button class="quick-btn" data-query="How to start learning programming as a beginner?"><span>تعلم البرمجة</span></button><button class="quick-btn" data-query="What are the best cybersecurity practices for businesses?"><span>نصائح الأمن السيبراني</span></button><button class="quick-btn" data-query="Explain quantum computing in simple terms"><span>الحوسبة الكمية</span></button><button class="quick-btn" data-query="What is the future of technology in the next 10 years?"><span>مستقبل التكنولوجيا</span></button><button class="quick-btn" data-query="How does machine learning differ from traditional programming?"><span>التعلم الآلي مقابل البرمجة</span></button></div></div><!-- Search Options --><div class="search-options"><div class="option-group"><label><input type="checkbox" id="includeImages" checked><span>تضمين نتائج الصور</span></label></div><div class="option-group"><label><input type="checkbox" id="includeNews" checked><span>تضمين الأخبار الحديثة</span></label></div><div class="option-group"><label><input type="checkbox" id="detailedAnalysis" checked><span>تحليل مفصل من الذكاء الاصطناعي</span></label></div></div><!-- Compare Button --><button class="compare-btn" id="compareBtn" disabled><span>⚡ قارن النتائج</span></button></div></div></section><!-- Results Comparison --><section class="results-section" id="resultsSection" style="display: none;"><div class="comparison-grid"><!-- Google Results --><div class="result-panel google-panel"><div class="panel-header"><div class="search-engine-logo"><span class="engine-icon">🔍</span><span class="engine-name"><span>بحث جوجل</span></span></div><div class="result-stats" id="googleStats"><span class="result-count">0 results</span><span class="search-time">0.00 seconds</span></div></div><div class="search-results" id="googleResults"><!-- Google search results will be populated here --></div></div><!-- ChatGPT Results --><div class="result-panel chatgpt-panel"><div class="panel-header"><div class="search-engine-logo"><span class="engine-icon">🤖</span><span class="engine-name">ChatGPT</span></div><div class="result-stats" id="chatgptStats"><span class="response-type">Conversational AI</span><span class="response-time">0.00 seconds</span></div></div><div class="ai-response" id="chatgptResponse"><!-- ChatGPT response will be populated here --></div></div></div><!-- Comparison Analysis --><div class="comparison-analysis"><h3 class="section-title">
+                    📊 COMPARISON ANALYSIS
+                </h3><div class="analysis-grid"><div class="analysis-card"><h4>⚡ Speed</h4><div class="speed-comparison" id="speedComparison"><div class="speed-bar google-speed"><span class="speed-label">Google</span><div class="speed-meter"><div class="speed-fill" id="googleSpeedFill"></div></div><span class="speed-value" id="googleSpeedValue">0.00s</span></div><div class="speed-bar chatgpt-speed"><span class="speed-label">ChatGPT</span><div class="speed-meter"><div class="speed-fill" id="chatgptSpeedFill"></div></div><span class="speed-value" id="chatgptSpeedValue">0.00s</span></div></div></div><div class="analysis-card"><h4>📝 Content Type</h4><div class="content-comparison" id="contentComparison"><div class="content-item"><strong>Google:</strong><span id="googleContentType">Multiple sources</span></div><div class="content-item"><strong>ChatGPT:</strong><span id="chatgptContentType">Conversational response</span></div></div></div><div class="analysis-card"><h4>🎯 Best For</h4><div class="use-case-comparison" id="useCaseComparison"><div class="use-case-item"><strong>Google:</strong><span id="googleUseCase">Current information, multiple perspectives</span></div><div class="use-case-item"><strong>ChatGPT:</strong><span id="chatgptUseCase">Explanations, summaries, creative tasks</span></div></div></div><div class="analysis-card full-width"><h4>💡 Key Insights</h4><div class="insights-list" id="insightsList"><!-- Insights will be populated here --></div></div></div></div><!-- Action Buttons --><div class="action-buttons"><button class="control-btn" id="newSearchBtn">
+                    🔄 New Search
+                </button><button class="control-btn" id="shareResultsBtn">
+                    📤 Share Results
+                </button><button class="control-btn" id="saveComparisonBtn">
+                    💾 Save Comparison
+                </button></div></section><!-- Search History --><section class="history-section" id="historySection" style="display: none;"><div class="history-header"><h3>📚 SEARCH HISTORY</h3><button onclick="clearHistory()" class="control-btn">🗑️ Clear History</button></div><div class="history-grid" id="historyGrid"><!-- History items will be populated by JavaScript --></div></section><!-- AI Thinking Indicator --><div class="ai-thinking" id="aiThinking"><div class="thinking-animation"><div class="thinking-dot"></div><div class="thinking-dot"></div><div class="thinking-dot"></div></div><span class="thinking-text">Searching and analyzing...</span></div><!-- Lab Progress --><div class="lab-progress"><div class="progress-info"><span>Comparison Progress</span><span id="progressText">Ready to compare AI vs Search</span></div><div class="progress-bar"><div class="progress-fill" id="labProgress" style="width: 0%"></div></div></div></main><script src="../js/ai-lab5-compare.js"></script><script>
+        
+        function switchLanguage(lang) {
+            try {
+                currentLanguage = lang;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = 'rtl' : 'ltr';
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if (btn.dataset.lang === lang) { btn.classList.add('active'); } else { btn.classList.remove('active'); }
+                });
+                document.querySelectorAll('.text-en').forEach(el => {
+                    if (lang === 'en') { el.classList.remove('hidden'); } else { el.classList.add('hidden'); }
+                });
+                document.querySelectorAll('.text-ar').forEach(el => {
+                     else { el.classList.add('hidden'); }
+                });
+                // Update placeholder for comparison query
+                const queryInput = document.getElementById('comparison-query');
+                if (queryInput) {
+                    queryInput.placeholder = 
+                        'اطرح سؤالاً للمقارنة... (مثل: كيف يعمل الذكاء الاصطناعي؟)' : 
+                        'Ask a question to compare... (e.g., How does artificial intelligence work?)';
+                }
+                localStorage.setItem('preferredLanguage', lang);
+            } catch (error) { console.error('Error switching language:', error); }
+        }
+        function initializeLanguage() {
+            try { const savedLang = 'ar'; switchLanguage('ar'); } 
+            catch (error) { console.error('Error initializing language:', error);  }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguage();
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() { );
+            });
+        });
+        
+    </script></body></html> 

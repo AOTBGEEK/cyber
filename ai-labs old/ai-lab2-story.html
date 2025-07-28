@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Lab 02 - Story Generator | CyberNet Academy</title><link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/ai-labs.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><!-- Arabic Fonts --><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/arabic-fixes.css"><style>
+        /* Arabic RTL Support */
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .message-text,
+        html[lang="ar"] .lab-description,
+        html[lang="ar"] .slide-body p,
+        html[lang="ar"] .hint,
+        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+        
+        html[lang="ar"] input[type="text"],
+        html[lang="ar"] textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .nav-back {
+            float: right;
+        }
+        
+        html[lang="ar"] .labs-grid,
+        html[lang="ar"] .ai-labs-grid {
+            direction: rtl;
+        }
+        
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .capability-item,
+        html[lang="ar"] .option-group {
+            text-align: right;
+        }
+        
+        /* Fix button alignment for RTL */
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons {
+            justify-content: flex-end;
+        }
+        
+        /* Ensure proper Arabic text rendering */
+        html[lang="ar"] * {
+            font-kerning: auto;
+            text-rendering: optimizeLegibility;
+            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        }
+    </style></head><body><div class="ai-lab-bg"></div><div class="ai-data-streams"></div><!-- Language Toggle --><nav class="ai-lab-nav"><a href="../ai-home.html" class="nav-back"><span>العودة لأكاديمية الذكاء الاصطناعي →</span></a><h1 class="nav-title"><span>مختبر الذكاء الاصطناعي 02: مولد القصص</span></h1><div class="ai-status"><span class="status-dot"></span><span><span>الذكاء الاصطناعي متصل</span></span></div></nav><main class="ai-lab-container"><!-- Lab Introduction --><section class="lab-intro"><h2 class="section-header"><span>إنشاء القصص بالذكاء الاصطناعي</span></h2><p class="lab-description"><span>أطلق العنان لإبداعك مع الذكاء الاصطناعي! أنشئ قصص فريدة من خلال اختيار الشخصيات والأماكن والمواضيع. 
+                شاهد كيف يصنع الذكاء الاصطناعي حكايات جذابة من أفكارك.</span></p><div class="ai-capabilities"><div class="capability-item"><span class="icon">📖</span><span><span>إنشاء القصص</span></span></div><div class="capability-item"><span class="icon">🎭</span><span><span>تطوير الشخصيات</span></span></div><div class="capability-item"><span class="icon">🌟</span><span><span>تطورات الحبكة</span></span></div><div class="capability-item"><span class="icon">✨</span><span><span>التعاون الإبداعي</span></span></div></div></section><!-- Story Builder Interface --><section class="story-section"><div class="story-container"><!-- Story Setup --><div class="story-setup" id="story-setup"><div class="setup-header"><h3><span>🚀 ابدأ مغامرة قصتك</span></h3><p><span>اختر عناصر قصتك ودع الذكاء الاصطناعي يساعدك في البداية!</span></p></div><div class="setup-options"><div class="option-group"><label><span>📚 النوع</span></label><div class="genre-buttons"><button class="genre-btn" data-genre="sci-fi"><span>🚀 خيال علمي</span></button><button class="genre-btn" data-genre="fantasy"><span>🧙 فانتازيا</span></button><button class="genre-btn" data-genre="mystery"><span>🔍 غموض</span></button><button class="genre-btn" data-genre="adventure"><span>⚡ مغامرة</span></button><button class="genre-btn" data-genre="comedy"><span>😄 كوميديا</span></button><button class="genre-btn" data-genre="horror"><span>👻 رعب</span></button></div></div><div class="option-group"><label>🌍 Setting</label><div class="setting-buttons"><button class="setting-btn" data-setting="space">🌌 Space Station</button><button class="setting-btn" data-setting="medieval">🏰 Medieval Castle</button><button class="setting-btn" data-setting="modern">🏙️ Modern City</button><button class="setting-btn" data-setting="jungle">🌿 Jungle</button><button class="setting-btn" data-setting="underwater">🌊 Underwater</button><button class="setting-btn" data-setting="cyberpunk">🤖 Cyberpunk City</button></div></div><div class="option-group"><label>👤 Main Character</label><input type="text" id="character-name" placeholder="أدخل اسم الشخصية (مثل: أحمد المستكشف)" maxlength="50"></div><div class="option-group"><label>🎯 Story Theme (Optional)</label><input type="text" id="story-theme" placeholder="عما يجب أن تدور القصة؟ (مثل: العثور على كنز مفقود)" maxlength="100"></div><button onclick="startStory()" class="start-story-btn">
+                            ✨ START STORY CREATION
+                        </button></div></div><!-- Story Writing Interface --><div class="story-writer" id="story-writer" style="display: none;"><div class="story-header"><div class="story-info"><h3 id="story-title">Your Story Adventure</h3><div class="story-meta"><span id="story-genre">Genre</span> • 
+                                <span id="story-setting">Setting</span> • 
+                                <span id="word-count">0 words</span></div></div><div class="story-controls"><button onclick="saveStory()" class="control-btn">💾 Save</button><button onclick="exportStory()" class="control-btn">📄 Export</button><button onclick="resetStory()" class="control-btn">🔄 New Story</button></div></div><div class="story-content"><div class="story-text" id="story-text"><!-- Story content will be added here --></div><div class="story-input-section"><div class="input-header"><span class="turn-indicator" id="turn-indicator">Your turn to write!</span><span class="suggestion-btn" onclick="getSuggestion()">💡 Get AI Suggestion</span></div><textarea 
+                                id="story-input" 
+                                placeholder="أكمل القصة... ماذا يحدث بعد ذلك؟"
+                                rows="4"
+                                maxlength="500"
+                            ></textarea><div class="input-controls"><div class="input-hints"><span class="hint">💭 Add 1-3 sentences to continue the story</span><span class="char-count" id="story-char-count">0/500</span></div><button onclick="addToStory()" class="add-story-btn" id="add-story-btn">
+                                    ➕ Add to Story
+                                </button></div></div></div></div></div></section><!-- AI Thinking Indicator --><div class="ai-thinking" id="ai-thinking"><div class="thinking-animation"><div class="thinking-dot"></div><div class="thinking-dot"></div><div class="thinking-dot"></div></div><span class="thinking-text">AI is crafting the story...</span></div><!-- Story Progress --><div class="lab-progress"><div class="progress-info"><span>Story Progress</span><span id="story-progress">Story not started</span></div><div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%"></div></div></div></main><script src="../js/ai-lab2-story.js"></script></body></html> 

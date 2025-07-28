@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>مختبر 04: صفحة تسجيل دخول مزيفة | ورشة مهندسين المستقبل</title><link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/labs.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><!-- Arabic Fonts --><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/arabic-fixes.css"><style>
+        /* Arabic RTL Support */
+        html[lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .message-text,
+        html[lang="ar"] .lab-description,
+        html[lang="ar"] .slide-body p,
+        html[lang="ar"] .hint,
+        html[lang="ar"] h1, h2, h3, h4, h5, h6 {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: embed;
+        }
+        
+        html[lang="ar"] input[type="text"],
+        html[lang="ar"] textarea {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        html[lang="ar"] .nav-back {
+            float: right;
+        }
+        
+        html[lang="ar"] .labs-grid,
+        html[lang="ar"] .ai-labs-grid {
+            direction: rtl;
+        }
+        
+        html[lang="ar"] .quick-prompts,
+        html[lang="ar"] .capability-item,
+        html[lang="ar"] .option-group {
+            text-align: right;
+        }
+        
+        /* Fix button alignment for RTL */
+        html[lang="ar"] .genre-buttons,
+        html[lang="ar"] .setting-buttons,
+        html[lang="ar"] .style-buttons {
+            justify-content: flex-end;
+        }
+        
+        /* Ensure proper Arabic text rendering */
+        html[lang="ar"] * {
+            font-kerning: auto;
+            text-rendering: optimizeLegibility;
+            -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+        }
+    </style></head><body><div class="lab-grid-bg"></div><div class="cyber-particles"></div><!-- Language Toggle --><nav class="lab-nav"><a href="../cyber-home.html" class="nav-back"><span>العودة للمختبرات →</span></a><h1 class="nav-title"><span>مختبر 04: صفحة تسجيل دخول مزيفة</span></h1><div class="lab-timer">00:00:00</div></nav><main class="lab-container"><!-- View Toggle --><div class="view-toggle"><button class="toggle-btn active" onclick="switchView('hacker')"><span class="icon">💀</span><span>عرض الهاكر</span></button><button class="toggle-btn" onclick="switchView('developer')"><span class="icon">🛡️</span><span>عرض المطور</span></button></div><!-- Lab Introduction --><section class="lab-intro"><h2 class="section-header"><span>محاكاة هجوم التصيد الاحتيالي</span></h2><p class="lab-description"><span>تستخدم هجمات التصيد الاحتيالي صفحات تسجيل دخول مزيفة تحاكي المواقع الشرعية لسرقة بيانات الاعتماد. 
+                يوضح هذا المختبر كيف ينشئ المهاجمون نسخاً مقنعة وكيفية الحماية منها.</span></p><div class="threat-level"><span>مستوى التهديد:</span><div class="threat-bar critical"></div><span class="threat-text critical"><span>حرج</span></span></div></section><!-- Hacker View --><section id="hacker-view" class="view-section active"><div class="terminal-header"><span class="terminal-title"><span>طرفية الهاكر</span></span><div class="terminal-controls"><span class="control red"></span><span class="control yellow"></span><span class="control green"></span></div></div><div class="hacker-content"><div class="scenario-box"><h3><span>📋 السيناريو</span></h3><p><span>إنشاء صفحة تسجيل دخول مزيفة مقنعة تحاكي خدمة شائعة لحصاد بيانات اعتماد المستخدمين.</span></p><p></span><span>الهدف: <code>بوابة موظفي TechCorp</code></span></p></div><div class="exploit-steps"><h3><span>🎣 خطوات هجوم التصيد الاحتيالي</span></h3><div class="step"><span class="step-number">01</span><div class="step-content"><h4><span>استنساخ الموقع المستهدف</span></h4><button onclick="cloneWebsite()" class="cyber-btn"><span>📸 استنساخ صفحة تسجيل الدخول</span></button><div id="clone-status" class="status-box"></div></div></div><div class="step"><span class="step-number">02</span><div class="step-content"><h4><span>إنشاء نطاق تصيد احتيالي</span></h4><div class="domain-generator"><p><span>اختر نطاق خادع:</span></p><div class="domain-options"><button class="domain-btn" onclick="selectDomain('techc0rp-portal.com')">
+                                        techc0rp-portal.com
+                                    </button><button class="domain-btn" onclick="selectDomain('techcorp-emp1oyee.net')">
+                                        techcorp-emp1oyee.net
+                                    </button><button class="domain-btn" onclick="selectDomain('portal-techcorp.org')">
+                                        portal-techcorp.org
+                                    </button></div><div id="selected-domain" class="selected-display"></div></div></div></div><div class="step"><span class="step-number">03</span><div class="step-content"><h4><span>نشر صفحة التصيد الاحتيالي</span></h4><button onclick="deployPhishingPage()" class="cyber-btn"><span>🚀 نشر موقع مزيف</span></button><div id="phishing-preview" class="phishing-container"></div></div></div><div class="step"><span class="step-number">04</span><div class="step-content"><h4><span>إرسال بريد تصيد احتيالي</span></h4><div class="email-composer"><div class="email-field"><label><span>من:</span></label><input type="text" id="email-from" value="security@techcorp-notifications.com" readonly></div><div class="email-field"><label><span>الموضوع:</span></label><input type="text" id="email-subject" value="عاجل: إشعار انتهاء صلاحية كلمة المرور" readonly></div><div class="email-body"><p><span>عزيزي الموظف،</span></p><p><span>ستنتهي صلاحية كلمة المرور الخاصة بك خلال 24 ساعة. يرجى تسجيل الدخول لتحديثها فوراً.</span></p><p><a href="#" id="phishing-link" class="fake-button"><span>تحديث كلمة المرور الآن</span></a></p><p><span>فريق أمان تقنية المعلومات</span></p></div><button onclick="sendPhishingEmail()" class="cyber-btn"><span>📧 إرسال بريد تصيد احتيالي</span></button></div></div></div></div><div class="credential-harvester"><h3><span>🎯 بيانات الاعتماد المحصودة</span></h3><div id="harvested-creds"></div></div><div class="success-indicator" id="success-indicator"><span class="icon">🎣</span><span><span>التصيد الاحتيالي ناجح!</span></span></div></div></section><!-- Developer View --><section id="developer-view" class="view-section"><div class="terminal-header"><span class="terminal-title"><span>طرفية المطور</span></span><div class="terminal-controls"><span class="control red"></span><span class="control yellow"></span><span class="control green"></span></div></div><div class="developer-content"><div class="vulnerability-explanation"><h3><span>🐛 تحليل هجوم التصيد الاحتيالي</span></h3><p><span>تستغل هجمات التصيد الاحتيالي علم النفس البشري والثغرات التقنية:</span></p><div class="attack-methods"><h4><span>تقنيات التصيد الاحتيالي الشائعة</span></h4><ul><li><strong><span>تزوير النطاق:</span></strong><span>استخدام نطاقات متشابهة المظهر (techc0rp مقابل techcorp)</span></li><li><strong><span>التشابه البصري:</span></strong><span>نسخ طبق الأصل من صفحات تسجيل الدخول الشرعية</span></li><li><strong><span>تكتيكات الاستعجال:</span></strong><span>إنشاء مواعيد نهائية أو تهديدات زائفة</span></li><li><strong><span>تزوير السلطة:</span></strong><span>انتحال شخصية أقسام تقنية المعلومات أو المدراء التنفيذيين</span></li><li><strong><span>مختصرات الروابط:</span></strong><span>إخفاء الروابط الضارة خلف الخدمات</span></li><li><strong><span>هجمات الحروف المتشابهة:</span></strong><span>استخدام أحرف Unicode متطابقة المظهر</span></li></ul></div></div><div class="secure-implementation"><h3><span>🛡️ إجراءات مكافحة التصيد الاحتيالي</span></h3><div class="protection-strategies"><h4><span>الحماية التقنية</span></h4><div class="protection-grid"><div class="protection-card"><h5><span>مصادقة البريد الإلكتروني</span></h5><pre class="code-block">
+// سجل SPF
+v=spf1 include:_spf.google.com -all
+
+// توقيع DKIM
+DKIM-Signature: v=1; a=rsa-sha256; 
+    d=techcorp.com; s=selector;
+    h=from:to:subject:date;
+
+// سياسة DMARC
+v=DMARC1; p=reject; 
+rua=mailto:dmarc@techcorp.com</pre></div><div class="protection-card"><h5><span>تنفيذ المصادقة الثنائية</span></h5><pre class="code-block language-javascript">
+// يتطلب مصادقة ثنائية حتى مع كلمة المرور الصحيحة
+async function authenticateUser(email, password, otpCode) {
+    const user = await validateCredentials(email, password);
+    
+    if (!user) {
+        throw new Error('Invalid credentials');
+    }
+    
+    // يتطلب دائماً مصادقة ثنائية
+    const validOTP = await verifyOTP(user.id, otpCode);
+    if (!validOTP) {
+        throw new Error('Invalid 2FA code');
+    }
+    
+    // فحوصات إضافية
+    await checkLoginAnomaly(user.id, req.ip);
+    await notifyUserOfLogin(user.email, req);
+    
+    return generateSecureSession(user);
+}</pre></div><div class="protection-card"><h5><span>التحقق من الرابط</span></h5><pre class="code-block language-javascript">
+// التحقق من الرابط من جانب العميل
+function verifyLoginPage() {
+    const legitDomain = 'techcorp.com';
+    const currentDomain = window.location.hostname;
+    
+    // التحقق من النطاق الشرعي
+    if (!currentDomain.endsWith(legitDomain)) {
+        showWarning('Suspicious URL detected!');
+        return false;
+    }
+    
+    // التحقق من شهادة SSL
+    if (window.location.protocol !== 'https:') {
+        showWarning('Insecure connection!');
+        return false;
+    }
+    
+    // التحقق من المؤشرات البصرية
+    displaySecurityBadge();
+    return true;
+}</pre></div></div></div><div class="user-education"><h4><span>🎓 تعليم المستخدم</span></h4><div class="education-points"><div class="education-item"><span class="icon">🔍</span><strong><span>تحقق من الروابط:</span></strong><p><span>تحقق دائماً من الرابط الكامل قبل إدخال بيانات الاعتماد</span></p></div><div class="education-item"><span class="icon">🔒</span><strong><span>ابحث عن HTTPS:</span></strong><p><span>تأكد من وجود أيقونة القفل وصحتها</span></p></div><div class="education-item"><span class="icon">📧</span><strong><span>تحقق من المرسل:</span></strong><p><span>تحقق بعناية من رؤوس البريد الإلكتروني وعناوين المرسلين</span></p></div><div class="education-item"><span class="icon">🚨</span><strong><span>كن مشككاً:</span></strong><p><span>شكك في الطلبات العاجلة والرسائل غير المتوقعة</span></p></div></div></div><div class="phishing-indicators"><h4><span>⚠️ مؤشرات التصيد الاحتيالي</span></h4><div class="indicator-list"><div class="indicator bad"><span>❌ أسماء نطاقات مكتوبة بشكل خاطئ</span></div><div class="indicator bad"><span>❌ تحيات عامة ("عزيزي العميل")</span></div><div class="indicator bad"><span>❌ إجراء عاجل مطلوب</span></div><div class="indicator bad"><span>❌ مرفقات مشبوهة</span></div><div class="indicator bad"><span>❌ أخطاء نحوية وإملائية</span></div><div class="indicator bad"><span>❌ طلبات معلومات حساسة</span></div><div class="indicator good"><span>✅ نطاق مرسل موثق</span></div><div class="indicator good"><span>✅ تحيات شخصية</span></div><div class="indicator good"><span>✅ هوية تجارية متسقة</span></div><div class="indicator good"><span>✅ شهادات أمان صالحة</span></div></div></div></div><div class="reporting-section"><h3><span>📢 الاستجابة للحوادث</span></h3><div class="response-steps"><ol><li><span>أبلغ فريق الأمان عن الرسائل المشبوهة</span></li><li><span>لا تنقر على الروابط أو تحمل المرفقات</span></li><li><span>أعد توجيه رسائل التصيد الاحتيالي إلى: phishing@techcorp.com</span></li><li><span>إذا تم إدخال بيانات الاعتماد، غيّر كلمة المرور فوراً</span></li><li><span>فعّل المصادقة الثنائية على جميع الحسابات</span></li><li><span>راقب الحسابات للأنشطة المشبوهة</span></li></ol></div></div></div></section><!-- Lab Progress --><div class="lab-progress"><div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div><div class="progress-steps"><div class="step-indicator active">Setup</div><div class="step-indicator">Clone</div><div class="step-indicator">Deploy</div><div class="step-indicator">Harvest</div></div></div></main><script src="../js/lab-common.js"></script><script src="../js/lab4-fake-login.js"></script></body></html> 

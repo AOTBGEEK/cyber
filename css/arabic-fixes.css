@@ -1,0 +1,460 @@
+/* 
+ * Arabic Text and Layout Fixes
+ * Professional styling for Arabic/RTL content
+ * Fixes mixed language display and RTL issues
+ */
+
+/* Global Arabic Font and Direction Fix */
+html[lang="ar"] {
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+}
+
+html[lang="ar"] * {
+    font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', sans-serif !important;
+    direction: rtl !important;
+    text-align: right !important;
+    unicode-bidi: embed;
+    font-kerning: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* Fix English Text within Arabic Content */
+html[lang="ar"] .english-term,
+html[lang="ar"] .career-item,
+html[lang="ar"] .mitre-tactic,
+html[lang="ar"] .lab-preview,
+html[lang="ar"] .token,
+html[lang="ar"] .vector-numbers,
+html[lang="ar"] .word-text {
+    direction: ltr !important;
+    text-align: left !important;
+    display: inline-block;
+    font-family: 'Orbitron', 'Source Code Pro', monospace !important;
+    color: var(--primary-cyan);
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(0, 255, 255, 0.1);
+    margin: 0 4px;
+}
+
+/* Navigation Fixes */
+html[lang="ar"] .nav-back {
+    float: left !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+html[lang="ar"] .cyber-nav,
+html[lang="ar"] .ai-nav {
+    text-align: right !important;
+}
+
+html[lang="ar"] .nav-title {
+    text-align: center !important;
+}
+
+/* Enhanced Lab Navigation Layout */
+html[lang="ar"] .lab-nav {
+    display: grid !important;
+    grid-template-columns: 200px 1fr 150px !important;
+    grid-template-areas: "back title timer" !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1.5rem 2rem !important;
+    min-height: 80px !important;
+}
+
+html[lang="ar"] .lab-nav .nav-back {
+    grid-area: back !important;
+    float: none !important;
+    margin: 0 !important;
+    justify-self: start !important;
+}
+
+html[lang="ar"] .lab-nav .nav-title {
+    grid-area: title !important;
+    text-align: center !important;
+    justify-self: center !important;
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+html[lang="ar"] .lab-nav .lab-timer {
+    grid-area: timer !important;
+    justify-self: end !important;
+    font-size: 1.2rem !important;
+    color: var(--neon-green) !important;
+    text-shadow: 0 0 10px currentColor !important;
+    font-family: 'Orbitron', monospace !important;
+    min-width: 120px !important;
+    text-align: center !important;
+    background: rgba(0, 255, 0, 0.1) !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(0, 255, 0, 0.3) !important;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+    html[lang="ar"] .lab-nav {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: 
+            "back"
+            "title" 
+            "timer" !important;
+        gap: 0.8rem !important;
+        padding: 1rem !important;
+        text-align: center !important;
+    }
+    
+    html[lang="ar"] .lab-nav .nav-back,
+    html[lang="ar"] .lab-nav .nav-title,
+    html[lang="ar"] .lab-nav .lab-timer {
+        justify-self: center !important;
+    }
+    
+    html[lang="ar"] .lab-nav .nav-title {
+        font-size: 1.2rem !important;
+    }
+    
+    html[lang="ar"] .lab-nav .lab-timer {
+        font-size: 1rem !important;
+        min-width: 100px !important;
+    }
+}
+
+/* Grid and Layout Fixes */
+html[lang="ar"] .labs-grid,
+html[lang="ar"] .ai-labs-grid,
+html[lang="ar"] .portal-container {
+    direction: rtl !important;
+}
+
+/* Button and Input Fixes */
+html[lang="ar"] .genre-buttons,
+html[lang="ar"] .setting-buttons,
+html[lang="ar"] .style-buttons,
+html[lang="ar"] .slide-navigation {
+    justify-content: flex-start !important;
+    direction: rtl !important;
+}
+
+html[lang="ar"] input[type="text"],
+html[lang="ar"] textarea,
+html[lang="ar"] .chat-input {
+    direction: rtl !important;
+    text-align: right !important;
+    padding-right: 15px !important;
+    padding-left: 45px !important;
+}
+
+/* Career Items and Technical Terms */
+html[lang="ar"] .career-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    direction: rtl !important;
+}
+
+html[lang="ar"] .career-item {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.1));
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    direction: ltr !important;
+    text-align: center !important;
+    white-space: nowrap;
+}
+
+/* MITRE ATT&CK Grid */
+html[lang="ar"] .mitre-grid {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[lang="ar"] .mitre-tactic {
+    direction: ltr !important;
+    text-align: center !important;
+    font-family: 'Orbitron', monospace !important;
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 255, 0, 0.1));
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Labs Preview Items */
+html[lang="ar"] .labs-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+    direction: rtl !important;
+}
+
+html[lang="ar"] .lab-preview {
+    direction: ltr !important;
+    text-align: center !important;
+    font-family: 'Orbitron', monospace !important;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.1));
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-cyan);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Vector Demo and Code Examples */
+html[lang="ar"] .vector-demo,
+html[lang="ar"] .word-conversion {
+    direction: rtl !important;
+}
+
+html[lang="ar"] .word-example,
+html[lang="ar"] .vector-example {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[lang="ar"] .word-label,
+html[lang="ar"] .vector-label {
+    direction: rtl !important;
+    text-align: right !important;
+    font-weight: 600;
+}
+
+html[lang="ar"] .tokens {
+    direction: ltr !important;
+    justify-content: center !important;
+}
+
+html[lang="ar"] .token {
+    direction: ltr !important;
+    text-align: center !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+/* Slide Navigation Arrows Fix */
+html[lang="ar"] .prev-btn {
+    order: 2;
+}
+
+html[lang="ar"] .next-btn {
+    order: 1;
+}
+
+html[lang="ar"] .slide-counter {
+    order: 1.5;
+}
+
+/* Enter Text Arrow Direction Fix */
+html[lang="ar"] .enter-text {
+    direction: rtl !important;
+}
+
+/* Portal Lines Direction */
+html[lang="ar"] .portal-lines {
+    direction: rtl !important;
+}
+
+/* Team Battle Layout */
+html[lang="ar"] .teams-battle {
+    direction: rtl !important;
+}
+
+html[lang="ar"] .team {
+    text-align: center !important;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    html[lang="ar"] .career-items {
+        justify-content: center;
+    }
+    
+    html[lang="ar"] .labs-preview {
+        justify-content: center;
+    }
+    
+    html[lang="ar"] .mitre-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+    
+    html[lang="ar"] .nav-back {
+        float: none !important;
+        margin: 0 !important;
+        text-align: center;
+    }
+}
+
+/* Code and Technical Content */
+html[lang="ar"] code,
+html[lang="ar"] .code,
+html[lang="ar"] pre {
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+/* Language Toggle Position Fix */
+html[lang="ar"] .language-toggle {
+    left: 30px !important;
+    right: auto !important;
+}
+
+/* Developer Credit Fix */
+html[lang="ar"] .developer-name {
+    direction: ltr !important;
+    text-align: center !important;
+    font-family: 'Orbitron', monospace !important;
+}
+
+/* Additional Professional Styling */
+html[lang="ar"] .slide-title,
+html[lang="ar"] .lab-title,
+html[lang="ar"] .portal-title {
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+}
+
+html[lang="ar"] .lab-desc,
+html[lang="ar"] .portal-desc {
+    line-height: 1.6 !important;
+    font-weight: 500 !important;
+}
+
+/* Enhanced Professional Layout */
+html[lang="ar"] .labs-grid,
+html[lang="ar"] .ai-labs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+html[lang="ar"] .lab-card,
+html[lang="ar"] .ai-lab-card {
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+html[lang="ar"] .lab-card:hover,
+html[lang="ar"] .ai-lab-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+}
+
+/* Better spacing for content sections */
+html[lang="ar"] .slide-content {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+html[lang="ar"] .slide-body {
+    text-align: right;
+    line-height: 1.8;
+}
+
+html[lang="ar"] .slide-body p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Improved section spacing */
+html[lang="ar"] .concepts-section,
+html[lang="ar"] .labs-section {
+    padding: 3rem 0;
+}
+
+html[lang="ar"] .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Enhanced button styling */
+html[lang="ar"] .nav-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+html[lang="ar"] .nav-btn:hover {
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-magenta));
+    transform: scale(1.05);
+}
+
+/* Professional status indicators */
+html[lang="ar"] .lab-status,
+html[lang="ar"] .cyber-status,
+html[lang="ar"] .ai-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--neon-green);
+}
+
+html[lang="ar"] .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+/* Ensure proper text flow */
+html[lang="ar"] p,
+html[lang="ar"] div,
+html[lang="ar"] span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Fix any remaining alignment issues */
+html[lang="ar"] .cyber-container,
+html[lang="ar"] .ai-main {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Professional spacing for mixed content */
+html[lang="ar"] .thinking-item,
+html[lang="ar"] .principle-text,
+html[lang="ar"] .step {
+    direction: rtl !important;
+    text-align: right !important;
+    padding: 8px 0;
+}
+
+html[lang="ar"] .thinking-item span,
+html[lang="ar"] .principle-text span,
+html[lang="ar"] .step span {
+    margin-right: 8px;
+}

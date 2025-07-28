@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Lab 01 - Talk to ChatGPT | CyberNet Academy</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/ai-labs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Arabic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Fix nav-back direction issue */
+        html[lang="ar"] .nav-back {
+            transform: none !important;
+            direction: rtl !important;
+        }
+        
+        html[lang="ar"] .nav-back:hover {
+            transform: translateX(8px) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="ai-lab-bg"></div>
+    <div class="ai-data-streams"></div>
+    
+    
+    <nav class="ai-lab-nav">
+        <a href="../ai-home.html" class="nav-back">
+            <span>العودة للمختبرات →</span>
+        </a>
+        <h1 class="nav-title">
+            <span>مختبر 01: تحدث مع ChatGPT</span>
+        </h1>
+        <div class="ai-status">
+            <span class="status-dot"></span>
+            <span>الذكاء الاصطناعي متصل</span>
+        </div>
+    </nav>
+    
+    <main class="ai-lab-container">
+        <!-- Lab Introduction -->
+        <section class="lab-intro">
+            <h2 class="section-header">
+                <span>محادثة تفاعلية مع الذكاء الاصطناعي</span>
+            </h2>
+            <p class="lab-description">
+                اختبر قوة المحادثة مع الذكاء الاصطناعي! اطرح أسئلة إبداعية على ChatGPT، واحصل على مساعدة في المشاكل، 
+                أو استمتع فقط باستكشاف ما يمكن للذكاء الاصطناعي أن يفعله.
+            </p>
+            <div class="ai-capabilities">
+                <div class="capability-item">
+                    <span class="icon">💭</span>
+                    <span>الكتابة الإبداعية</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🧮</span>
+                    <span>حل المشاكل</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🎓</span>
+                    <span>التعلم والتعليم</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🎯</span>
+                    <span>الإجابة على الأسئلة</span>
+                </div>
+            </div>
+        
+        <!-- Chat Interface -->
+        <section class="chat-section">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="ai-avatar">
+                        <div class="avatar-core"></div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="ai-info">
+                        <h3>مساعد ChatGPT</h3>
+                        <p class="ai-model">GPT-4 Turbo • الشبكة العصبية نشطة</p>
+                    </div>
+                    <div class="chat-controls">
+                        <button onclick="clearChat()" class="control-btn">
+                            🗑️ مسح المحادثة
+                        </button>
+                        <button onclick="exportChat()" class="control-btn">
+                            💾 تصدير
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <div class="message-text">
+                                مرحباً! أنا مساعدك الذكي. أنا هنا لمساعدتك في استكشاف عالم الذكاء الاصطناعي الرائع! 
+                                يمكنك أن تسألني أي شيء - من المطالبات الإبداعية للكتابة إلى الأسئلة المعقدة حول العلوم والتكنولوجيا، أو مجرد محادثات ممتعة.
+                                <br><br>
+                                جرب أن تسألني شيئاً مثل:
+                                <ul>
+                                    <li>"اكتب قصة قصيرة عن روبوت يكتشف المشاعر"</li>
+                                    <li>"اشرح الحوسبة الكمية كما لو كنت في العاشرة من عمري"</li>
+                                    <li>"ماذا سيحدث لو توقفت الجاذبية فجأة عن العمل؟"</li>
+                                    <li>"ساعدني في العصف الذهني لأفكار مشروع مدرسي"</li>
+                                </ul>
+                                ماذا تود أن تستكشف اليوم؟
+                            </div>
+                            <div class="message-time">
+                                الآن
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-section">
+                    <div class="quick-prompts">
+                        <button onclick="sendQuickPrompt('احك لي نكتة عن الذكاء الاصطناعي')" class="quick-btn">
+                            😄 نكتة ذكاء اصطناعي
+                        </button>
+                        <button onclick="sendQuickPrompt('اكتب قصيدة قصيرة عن مستقبل التكنولوجيا')" class="quick-btn">
+                            📝 قصيدة تقنية
+                        </button>
+                        <button onclick="sendQuickPrompt('اشرح كيف تعمل الشبكات العصبية بمصطلحات بسيطة')" class="quick-btn">
+                            🧠 الشبكات العصبية
+                        </button>
+                        <button onclick="sendQuickPrompt('ما هي أروع تطبيقات الذكاء الاصطناعي التي يمكنك التفكير فيها؟')" class="quick-btn">
+                            🚀 تطبيقات ذكية رائعة
+                        </button>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="input-wrapper">
+                            <textarea 
+                                id="chat-input" 
+                                placeholder=""
+                                rows="1"
+                                onkeydown="handleKeyDown(event)"
+                            ></textarea>
+                            <button onclick="sendMessage()" class="send-btn" id="send-btn">
+                                <span class="send-icon">🚀</span>
+                            </button>
+                        </div>
+                        <div class="input-hints">
+                            <span class="hint">
+                                💡 نصيحة: كن محدداً ومبدعاً في أسئلتك!
+                            </span>
+                            <span class="char-count" id="char-count">0/2000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- AI Thinking Indicator -->
+        <div class="ai-thinking" id="ai-thinking">
+            <div class="thinking-animation">
+                <div class="thinking-dot"></div>
+                <div class="thinking-dot"></div>
+                <div class="thinking-dot"></div>
+            </div>
+            <span class="thinking-text">الذكاء الاصطناعي يفكر...</span>
+        </div>
+        
+        <!-- Lab Progress -->
+        <div class="lab-progress">
+            <div class="progress-info">
+                <span>تقدم المحادثة</span>
+                <span id="message-count">رسالة واحدة</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 10%"></div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../js/ai-lab1-chat.js"></script>
+    <script>
+        // Initialize when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set placeholder text
+            const chatInput = document.getElementById('chat-input');
+            if (chatInput) {
+                chatInput.placeholder = 'اكتب رسالتك لـ ChatGPT...';
+            }
+        });
+    </script>
+</body>
+</html>
