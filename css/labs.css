@@ -333,6 +333,9 @@
 /* Exploit Steps */
 .exploit-steps {
     margin: 2rem 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .step {
@@ -343,6 +346,9 @@
     background: rgba(0, 255, 255, 0.02);
     border-left: 3px solid var(--primary-cyan);
     transition: all 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .step:hover {
@@ -1040,9 +1046,88 @@ html[lang="ar"] .toggle-btn .icon {
         padding: 0.2rem;
     }
     
+    /* Fix exploit steps on mobile */
+    .exploit-steps {
+        margin: 1rem 0;
+        padding: 0;
+    }
+    
+    .step {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1rem 0;
+        padding: 1rem;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .step-number {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .step-content {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Fix code blocks on mobile */
+    .code-block {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        font-size: 0.8rem;
+    }
+    
+    .code-block pre {
+        font-size: 0.75rem;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    
+    /* Fix protection grid and cards on mobile */
+    .protection-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+    }
+    
+    .protection-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    .protection-card h5 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .protection-card .code-block {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+    }
+    
+    /* Fix other lab-specific elements */
+    .attack-methods ul {
+        padding-right: 1rem !important;
+        margin: 0 !important;
+    }
+    
+    .attack-methods li {
+        margin-bottom: 0.5rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+    
     .lang-btn {
         padding: 0.3rem 0.6rem;
         font-size: 0.65rem;
         min-width: 30px;
     }
-} 
