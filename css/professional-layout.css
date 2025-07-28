@@ -75,6 +75,7 @@
     text-align: center;
     white-space: nowrap;
     width: 100%;
+    direction: rtl;
 }
 
 .academy-tagline {
@@ -87,6 +88,7 @@
     width: 100%;
     display: block;
     white-space: nowrap;
+    direction: rtl;
 }
 
 .center-tagline {
