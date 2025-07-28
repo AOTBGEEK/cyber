@@ -1,205 +1,127 @@
-# CyberNet Academy - Cybersecurity Workshop
+# 🛡️ ورشة المهندس المستقبلي - الأمن السيبراني والذكاء الاصطناعي
 
-An interactive, cyberpunk-themed cybersecurity and AI workshop website designed for live presentations and educational purposes.
+## 🌟 نظرة عامة
+منصة تعليمية تفاعلية باللغة العربية تهدف إلى تعريف الطلاب بأساسيات الأمن السيبراني والذكاء الاصطناعي من خلال مختبرات عملية ومحاكيات واقعية.
 
-## 🚀 Getting Started
+## 🚀 العرض المباشر
+يمكنك زيارة الموقع مباشرة على: [GitHub Pages Link will be here]
 
-Simply open `index.html` in a modern web browser (Chrome, Firefox, Safari, or Edge recommended).
+## 📋 المحتويات
 
-```bash
-# Navigate to the project directory
-cd cybersecurity-workshop
+### 🔐 قسم الأمن السيبراني
+- **مختبر 1**: ثغرة IDOR (Insecure Direct Object Reference)
+- **مختبر 2**: هجمات Brute Force
+- **مختبر 3**: كشف كلمات المرور في الروابط
+- **مختبر 4**: صفحات تسجيل الدخول المزيفة
+- **مختبر 5**: اختراق الكاميرا
+- **مختبر 6**: ثغرات أنظمة الدفع
+- **مختبر 7**: اختراق OTP
 
-# Open in your default browser (macOS)
-open index.html
+### 🤖 قسم الذكاء الاصطناعي
+- **مختبر 1**: بناء شات بوت ذكي
+- **مختبر 2**: مولد القصص بالذكاء الاصطناعي
+- **مختبر 3**: مولد الصور بالذكاء الاصطناعي
+- **مختبر 4**: إنشاء مواقع ويب بالذكاء الاصطناعي
+- **مختبر 5**: مقارنة أدوات الذكاء الاصطناعي
 
-# Or use a simple HTTP server for better performance
-python3 -m http.server 8000
-# Then navigate to http://localhost:8000
-```
+## 🛠️ التقنيات المستخدمة
+- **HTML5** - هيكل الصفحات
+- **CSS3** - التصميم والأنيميشن
+- **JavaScript** - التفاعل والمحاكاة
+- **Arabic Typography** - دعم كامل للغة العربية
 
-## 🎮 Features
-
-### Landing Page
-- Two main portals: Cybersecurity and Artificial Intelligence
-- Stunning cyberpunk animations and effects
-- Keyboard shortcuts (press 1 or 2 to navigate)
-
-### Cybersecurity Section
-
-#### Interactive Timeline
-Learn about key cybersecurity concepts through an animated, scrollable timeline:
-- Types of hackers (Black Hat, White Hat, Gray Hat)
-- Red Team vs Blue Team operations
-- MITRE ATT&CK Framework
-- OWASP Top 10 vulnerabilities
-- Secure application design
-- Bug bounty programs
-- System architecture (Cloud vs On-Prem)
-- Common misconfigurations
-- Career paths in cybersecurity
-- Hacker mindset development
-
-#### 7 Cyber Labs
-Interactive hands-on labs with both Hacker View and Developer View:
-
-1. **Lab 1: IDOR - Role Change** ✅ (Fully Implemented)
-   - Exploit Insecure Direct Object References
-   - Interactive demo: Try user IDs 0, 1, or 1001
-   - Real-time attack visualization
-
-2. **Lab 2: Brute Force** ✅ (Fully Implemented)
-   - Password cracking simulation
-   - Multiple attack methods: Dictionary, Common, Pattern-based
-   - Live attempt visualization
-
-3. **Lab 3: Password in URL** ✅ (Fully Implemented)
-   - URL exposure vulnerability demonstration
-   - Browser history, server logs, and referer exploitation
-   - Credential harvesting simulation
-
-4. **Lab 4: Fake Login Page** ✅ (Fully Implemented)
-   - Phishing attack simulation
-   - Clone website, create fake domains
-   - Harvest credentials in real-time
-
-5. **Lab 5: Accessing Camera** ✅ (Fully Implemented)
-   - Device permission exploitation
-   - Camera and microphone access simulation
-   - Privacy protection mechanisms
-
-6. **Lab 6: Fake Payment Page** ✅ (Fully Implemented)
-   - Financial fraud simulation
-   - Credit card skimming techniques
-   - PCI DSS compliance guidelines
-
-7. **Lab 7: Account Protection with OTP** ✅ (Fully Implemented)
-   - Two-factor authentication implementation
-   - OTP bypass techniques and prevention
-   - Hardware token security
-
-## 🎨 Design Features
-
-- **Cyberpunk Aesthetic**: Neon colors, glowing effects, futuristic fonts
-- **Smooth Animations**: Scroll effects, hover states, transitions
-- **Interactive Elements**: Click, type, and explore
-- **Responsive Design**: Works on desktop and mobile devices
-- **Live Demo Ready**: Perfect for presentations and workshops
-
-## 🔧 Technical Stack
-
-- **Pure HTML/CSS/JavaScript**: No build tools required
-- **Modern CSS Features**: Grid, Flexbox, CSS Variables, Animations
-- **Canvas Visualizations**: Real-time attack demonstrations
-- **Google Fonts**: Orbitron, Rajdhani, Source Code Pro
-
-## 📁 Project Structure
-
+## 📁 هيكل المشروع
 ```
 cybersecurity-workshop/
-├── index.html              # Landing page
-├── cyber-home.html         # Cybersecurity home page
-├── css/
-│   ├── styles.css         # Main styles
-│   ├── animations.css     # Animation keyframes
-│   ├── cyber-home.css     # Timeline and lab cards
-│   └── labs.css           # Lab page styles
-├── js/
-│   ├── landing.js         # Landing page interactions
-│   ├── cyber-home.js      # Timeline and lab navigation
-│   ├── lab-common.js      # Common lab functionality
-│   └── lab1-idor.js       # Lab 1 specific code
-└── labs/
-    └── lab1-idor.html     # Lab 1 implementation
+├── index.html              # الصفحة الرئيسية
+├── cyber-home.html         # صفحة الأمن السيبراني
+├── ai-home.html           # صفحة الذكاء الاصطناعي
+├── css/                   # ملفات التصميم
+│   ├── styles.css
+│   ├── animations.css
+│   └── arabic-fixes.css
+├── js/                    # ملفات JavaScript
+│   ├── landing.js
+│   ├── cyber-home.js
+│   └── ai-home.js
+├── labs/                  # مختبرات الأمن السيبراني
+│   ├── lab1-idor.html
+│   ├── lab2-bruteforce.html
+│   └── ...
+└── ai-labs/              # مختبرات الذكاء الاصطناعي
+    ├── ai-lab1-chat.html
+    ├── ai-lab2-story.html
+    └── ...
 ```
 
-## 🎯 Usage Tips
+## 🚀 كيفية الاستخدام
 
-### For Presenters
-1. Use fullscreen mode (F11) for maximum impact
-2. Navigate with keyboard shortcuts (1, 2 for view switching)
-3. The timer tracks session duration automatically
-4. Demonstrate both hacker and developer perspectives
+### تشغيل محلي
+1. قم بتحميل المشروع:
+```bash
+git clone https://github.com/[username]/cybersecurity-workshop.git
+cd cybersecurity-workshop
+```
 
-### For Students
-1. Start with the timeline to understand concepts
-2. Try the interactive labs in order
-3. In Lab 1, experiment with different user IDs (hint: try 0 or 1)
-4. Switch between Hacker View and Developer View to see both sides
+2. قم بفتح `index.html` في المتصفح أو استخدم خادم محلي:
+```bash
+# باستخدام Python
+python -m http.server 8000
 
-## 🔒 Quick Lab Guides
+# باستخدام Node.js
+npx http-server
+```
 
-### Lab 1: IDOR - Role Change
-1. In Hacker View, try these user IDs:
-   - `1001` - Normal user
-   - `1000` - Moderator
-   - `1` - Admin (SUCCESS!)
-   - `0` - System (CRITICAL ACCESS!)
+### النشر على GitHub Pages
+1. انتقل إلى إعدادات المستودع في GitHub
+2. اختر قسم "Pages"
+3. اختر "Deploy from a branch"
+4. اختر "main branch"
+5. احفظ الإعدادات
 
-### Lab 2: Brute Force
-1. Select attack method (Dictionary/Common/Pattern)
-2. Click "START ATTACK"
-3. Watch as passwords are tried (Success: `Admin@123`)
-4. Switch to Developer View for protection methods
+سيكون الموقع متاحاً على: `https://[username].github.io/cybersecurity-workshop/`
 
-### Lab 3: Password in URL
-1. Click "Check Browser History" - see exposed passwords
-2. Click "Analyze Server Logs" - find credentials in logs
-3. Click "Check Referer Headers" - see leaked data
-4. Observe the Live URL Monitor
+## 🎯 الأهداف التعليمية
 
-### Lab 4: Fake Login Page
-1. Click "Clone Login Page"
-2. Select a phishing domain (e.g., `techc0rp-portal.com`)
-3. Click "Deploy Fake Site"
-4. Click "Send Phishing Email"
-5. Watch credentials being harvested
+### الأمن السيبراني
+- فهم أنواع الثغرات الأمنية الشائعة
+- تعلم تقنيات الهكر الأخلاقي
+- تطبيق مبادئ الحماية والدفاع
+- محاكاة سيناريوهات الهجمات الواقعية
 
-### Lab 5: Accessing Camera
-1. Click "Allow Camera Access" on the fake app
-2. Click "Request All Permissions"
-3. Click "Start Surveillance" to begin monitoring
-4. Use "Capture Frame" and "Monitor Audio" buttons
-5. Observe data exfiltration in real-time
+### الذكاء الاصطناعي
+- التعرف على أدوات الذكاء الاصطناعي المختلفة
+- بناء تطبيقات ذكية بسيطة
+- فهم إمكانيات ومحدوديات الذكاء الاصطناعي
+- تطبيق الذكاء الاصطناعي في مشاريع عملية
 
-### Lab 6: Fake Payment Page
-1. Select a site template (Electronics/Fashion/Books)
-2. Click "Deploy Payment System"
-3. Click "Generate Fake Certificate"
-4. Fill out the fake payment form and submit
-5. Watch credit card data being harvested
+## 🎨 المميزات
+- ✅ تصميم حديث ومتجاوب
+- ✅ دعم كامل للغة العربية
+- ✅ مختبرات تفاعلية
+- ✅ محاكيات واقعية
+- ✅ واجهة سهلة الاستخدام
+- ✅ أنيميشن وتأثيرات بصرية
+- ✅ متوافق مع جميع المتصفحات
 
-### Lab 7: Account Protection with OTP
-1. Click "Attempt Login" with provided credentials
-2. Observe the 2FA challenge and OTP generator
-3. Try different bypass techniques (all will fail with TOTP)
-4. Enter the current OTP code to successfully authenticate
-5. Learn about secure 2FA implementation
+## 👥 المساهمة
+نرحب بالمساهمات! يمكنك:
+- إضافة مختبرات جديدة
+- تحسين التصميم
+- إصلاح الأخطاء
+- ترجمة المحتوى
+- تحسين الوثائق
 
-## 🚧 Future Enhancements
+## 📄 الترخيص
+هذا المشروع مرخص تحت رخصة MIT - راجع ملف [LICENSE](LICENSE) للتفاصيل.
 
-- Complete implementation of Labs 2-7
-- Add sound effects and background music
-- Create AI section content
-- Add more interactive visualizations
-- Include CTF challenges
-- Add progress tracking and certificates
+## 📞 التواصل
+- **المطور**: Abdulrahman Alotaibi
+- **البريد الإلكتروني**: engaotb@example.com
+- **GitHub**: [Your GitHub Profile]
 
-## 🎓 Educational Value
-
-This workshop teaches:
-- Real-world vulnerability exploitation
-- Secure coding practices
-- Security mindset development
-- Both offensive and defensive perspectives
-- Industry-standard frameworks and tools
-
-## 📝 License
-
-Created for educational purposes. Feel free to use and modify for your cybersecurity workshops and training sessions.
+## 🙏 شكر وتقدير
+شكر خاص لجميع المساهمين والمختبرين الذين ساعدوا في تطوير هذه المنصة التعليمية.
 
 ---
-
-**Remember**: This is for educational purposes only. Always practice ethical hacking and obtain proper authorization before testing security on any system.
-
-🔐 Stay secure, think like a hacker, code like a defender! 🛡️ 
+**ملاحظة**: هذا المشروع مخصص للأغراض التعليمية فقط. جميع تقنيات الهكر المعروضة يجب استخدامها بشكل أخلاقي ومسؤول. 
