@@ -238,7 +238,7 @@
     overflow: hidden;
     backdrop-filter: blur(10px);
     width: 100%;
-    max-width: 450px;
+    max-width: 550px;
     margin: 0 auto;
 }
 
@@ -622,7 +622,7 @@
     }
     
     .programs-section {
-        padding: 2rem 1rem;
+        padding: 2rem 0.5rem;
         width: 100%;
     }
     
@@ -633,13 +633,15 @@
         max-width: 100%;
         display: flex !important;
         flex-direction: column !important;
+        padding: 0 0.5rem;
     }
     
     .program-card {
-        padding: 1.5rem;
+        padding: 2rem;
         width: 100%;
         margin: 0 auto 2rem auto;
         display: block;
+        max-width: 100%;
     }
     
     .about-content {
@@ -682,24 +684,25 @@
     }
     
     .programs-section {
-        padding: 1rem 0.5rem;
+        padding: 1rem 0.3rem;
         width: 100%;
     }
     
     .programs-grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem;
-        padding: 0 0.5rem;
+        padding: 0 0.3rem;
         display: flex !important;
         flex-direction: column !important;
         width: 100%;
     }
     
     .program-card {
-        padding: 1rem;
+        padding: 1.5rem;
         margin: 0 0 1.5rem 0;
         width: 100%;
         display: block;
+        max-width: 100%;
     }
     
     .program-title {
@@ -787,11 +790,11 @@
 /* Programs grid layout */
 .programs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
     justify-items: center;
     width: 100%;
 }
