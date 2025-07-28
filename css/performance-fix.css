@@ -13,11 +13,16 @@
     display: none !important;
 }
 
-/* أنيميشن Glitch مرئي بشكل دائم */
+/* أنيميشن Glitch مشع وواضح بشكل دائم */
 .glitch {
     position: relative !important;
-    animation: glitch-text 2s linear infinite !important;
+    animation: glitch-text 1.5s linear infinite !important;
     display: inline-block !important;
+    text-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(0, 255, 255, 0.4),
+        0 0 40px rgba(0, 255, 255, 0.2) !important;
 }
 
 .glitch::before,
@@ -32,47 +37,84 @@
 }
 
 .glitch::before {
-    color: #ff0080 !important;
-    animation: glitch-before 2s linear infinite !important;
+    color: #ff0066 !important;
+    text-shadow: 
+        0 0 15px rgba(255, 0, 102, 1),
+        0 0 25px rgba(255, 0, 102, 0.8),
+        0 0 35px rgba(255, 0, 102, 0.6),
+        0 0 45px rgba(255, 0, 102, 0.4) !important;
+    animation: glitch-before 1.5s linear infinite !important;
     z-index: -1 !important;
     clip: rect(24px, 550px, 90px, 0) !important;
 }
 
 .glitch::after {
     color: #00ffff !important;
-    animation: glitch-after 2s linear infinite !important;
+    text-shadow: 
+        0 0 15px rgba(0, 255, 255, 1),
+        0 0 25px rgba(0, 255, 255, 0.8),
+        0 0 35px rgba(0, 255, 255, 0.6),
+        0 0 45px rgba(0, 255, 255, 0.4) !important;
+    animation: glitch-after 1.5s linear infinite !important;
     z-index: -2 !important;
     clip: rect(85px, 550px, 140px, 0) !important;
 }
 
-/* Enhanced Glow خفيف */
+/* Enhanced Glow مشع وقوي */
 .enhanced-glow {
-    animation: enhanced-glow-pulse 3s ease-in-out infinite !important;
+    animation: enhanced-glow-pulse 2s ease-in-out infinite !important;
     text-shadow: 
-        0 0 5px rgba(0, 255, 255, 0.5),
-        0 0 10px rgba(0, 255, 255, 0.3),
-        0 0 15px rgba(0, 255, 255, 0.2) !important;
+        0 0 15px rgba(0, 255, 255, 0.8),
+        0 0 25px rgba(0, 255, 255, 0.6),
+        0 0 35px rgba(0, 255, 255, 0.4),
+        0 0 45px rgba(0, 255, 255, 0.2) !important;
 }
 
-/* أنيميشن Keyframes مرئي ومستمر */
+/* أنيميشن Keyframes مشع وواضح */
 @keyframes glitch-text {
     0% {
         transform: translate(0);
+        filter: brightness(1) contrast(1);
+    }
+    10% {
+        transform: translate(-3px, 3px);
+        filter: brightness(1.2) contrast(1.1);
     }
     20% {
-        transform: translate(-2px, 2px);
+        transform: translate(-3px, -3px);
+        filter: brightness(1.1) contrast(1.2);
+    }
+    30% {
+        transform: translate(3px, 3px);
+        filter: brightness(1.3) contrast(1.05);
     }
     40% {
-        transform: translate(-2px, -2px);
+        transform: translate(3px, -3px);
+        filter: brightness(1.05) contrast(1.3);
+    }
+    50% {
+        transform: translate(-2px, 2px);
+        filter: brightness(1.2) contrast(1.1);
     }
     60% {
+        transform: translate(-2px, -2px);
+        filter: brightness(1.1) contrast(1.2);
+    }
+    70% {
         transform: translate(2px, 2px);
+        filter: brightness(1.3) contrast(1.05);
     }
     80% {
         transform: translate(2px, -2px);
+        filter: brightness(1.05) contrast(1.3);
+    }
+    90% {
+        transform: translate(-1px, 1px);
+        filter: brightness(1.2) contrast(1.1);
     }
     100% {
         transform: translate(0);
+        filter: brightness(1) contrast(1);
     }
 }
 
@@ -181,30 +223,51 @@
 @keyframes enhanced-glow-pulse {
     0%, 100% {
         text-shadow: 
-            0 0 5px rgba(0, 255, 255, 0.5),
-            0 0 10px rgba(0, 255, 255, 0.3),
-            0 0 15px rgba(0, 255, 255, 0.2);
+            0 0 15px rgba(0, 255, 255, 0.8),
+            0 0 25px rgba(0, 255, 255, 0.6),
+            0 0 35px rgba(0, 255, 255, 0.4),
+            0 0 45px rgba(0, 255, 255, 0.2);
     }
     50% {
         text-shadow: 
-            0 0 8px rgba(0, 255, 255, 0.8),
-            0 0 16px rgba(0, 255, 255, 0.5),
-            0 0 24px rgba(0, 255, 255, 0.3);
+            0 0 25px rgba(0, 255, 255, 1),
+            0 0 35px rgba(0, 255, 255, 0.8),
+            0 0 45px rgba(0, 255, 255, 0.6),
+            0 0 55px rgba(0, 255, 255, 0.4),
+            0 0 65px rgba(0, 255, 255, 0.2);
     }
 }
 
-/* تفاعل Hover للعنوان - تأثير أقوى */
+/* تفاعل Hover للعنوان - تأثير مشع وقوي */
 .academy-name:hover .glitch {
-    animation-duration: 0.5s !important;
-    transform: scale(1.05) !important;
+    animation-duration: 0.3s !important;
+    transform: scale(1.08) !important;
+    text-shadow: 
+        0 0 20px rgba(0, 255, 255, 1),
+        0 0 30px rgba(0, 255, 255, 0.8),
+        0 0 40px rgba(0, 255, 255, 0.6),
+        0 0 50px rgba(0, 255, 255, 0.4),
+        0 0 60px rgba(0, 255, 255, 0.2) !important;
 }
 
 .academy-name:hover .glitch::before {
-    animation-duration: 0.3s !important;
+    animation-duration: 0.2s !important;
+    text-shadow: 
+        0 0 25px rgba(255, 0, 102, 1),
+        0 0 35px rgba(255, 0, 102, 0.9),
+        0 0 45px rgba(255, 0, 102, 0.7),
+        0 0 55px rgba(255, 0, 102, 0.5),
+        0 0 65px rgba(255, 0, 102, 0.3) !important;
 }
 
 .academy-name:hover .glitch::after {
-    animation-duration: 0.4s !important;
+    animation-duration: 0.25s !important;
+    text-shadow: 
+        0 0 25px rgba(0, 255, 255, 1),
+        0 0 35px rgba(0, 255, 255, 0.9),
+        0 0 45px rgba(0, 255, 255, 0.7),
+        0 0 55px rgba(0, 255, 255, 0.5),
+        0 0 65px rgba(0, 255, 255, 0.3) !important;
 }
 
 /* أنيميشن للتاج لاين */
