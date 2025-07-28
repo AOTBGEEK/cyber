@@ -861,6 +861,228 @@
     backdrop-filter: blur(10px);
 }
 
+/* Protection Grid - Original Definition */
+.protection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.protection-card {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.protection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+}
+
+.protection-card h5 {
+    color: var(--primary-cyan);
+    margin-bottom: 0.5rem;
+    font-family: 'Orbitron', monospace;
+}
+
+.protection-card .code-block {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}
+
+/* Protection Strategies Section */
+.protection-strategies {
+    margin: 2rem 0;
+}
+
+.protection-strategies h4 {
+    color: var(--primary-cyan);
+    margin-bottom: 1.5rem;
+    font-family: 'Orbitron', monospace;
+}
+
+/* Attack Methods List Styling */
+.attack-methods ul {
+    list-style: none;
+    padding: 0;
+    padding-right: 1.5rem;
+}
+
+.attack-methods li {
+    position: relative;
+    margin-bottom: 0.8rem;
+    padding-right: 1.5rem;
+    color: #ccc;
+}
+
+.attack-methods li::before {
+    content: "←";
+    position: absolute;
+    right: 0;
+    color: var(--primary-cyan);
+    font-weight: bold;
+}
+
+/* Fix RTL direction for Arabic */
+html[lang="ar"] .attack-methods ul {
+    padding-right: 0;
+    padding-left: 1.5rem;
+}
+
+html[lang="ar"] .attack-methods li {
+    padding-right: 0;
+    padding-left: 1.5rem;
+}
+
+html[lang="ar"] .attack-methods li::before {
+    content: "→";
+    right: auto;
+    left: 0;
+}
+
+/* User Education Section */
+.user-education {
+    margin: 2rem 0;
+}
+
+.user-education h4 {
+    color: var(--primary-cyan);
+    margin-bottom: 1.5rem;
+    font-family: 'Orbitron', monospace;
+}
+
+.education-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.education-item {
+    background: rgba(0, 255, 0, 0.05);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
+}
+
+.education-item .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.education-item strong {
+    color: var(--neon-green);
+    font-family: 'Orbitron', monospace;
+}
+
+/* Phishing Indicators Section */
+.phishing-indicators {
+    margin: 2rem 0;
+}
+
+.phishing-indicators h4 {
+    color: var(--primary-yellow);
+    margin-bottom: 1.5rem;
+    font-family: 'Orbitron', monospace;
+}
+
+.indicator-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.indicator {
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.indicator.bad {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: #ff6666;
+}
+
+.indicator.good {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    color: #66ff66;
+}
+
+.indicator:hover {
+    transform: translateY(-2px);
+}
+
+/* Reporting Section */
+.reporting-section {
+    margin: 2rem 0;
+}
+
+.reporting-section h3 {
+    color: var(--primary-magenta);
+    margin-bottom: 1.5rem;
+    font-family: 'Orbitron', monospace;
+}
+
+.response-steps {
+    background: rgba(255, 0, 255, 0.05);
+    border: 1px solid rgba(255, 0, 255, 0.3);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.response-steps ol {
+    list-style: none;
+    padding: 0;
+    counter-reset: step-counter;
+}
+
+.response-steps li {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-right: 3rem;
+    counter-increment: step-counter;
+}
+
+.response-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: var(--primary-magenta);
+    color: var(--dark-bg);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Fix RTL direction for Arabic in reporting section */
+html[lang="ar"] .response-steps li {
+    padding-right: 0;
+    padding-left: 3rem;
+}
+
+html[lang="ar"] .response-steps li::before {
+    right: auto;
+    left: 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .lab-nav {
@@ -1123,6 +1345,80 @@ html[lang="ar"] .toggle-btn .icon {
     .attack-methods li {
         margin-bottom: 0.5rem !important;
         font-size: 0.9rem !important;
+    }
+    
+    /* Fix education and indicator sections on mobile */
+    .education-points,
+    .indicator-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+    }
+    
+    .education-item,
+    .indicator {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Fix user education section */
+    .user-education {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    .user-education h4 {
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Fix phishing indicators section */
+    .phishing-indicators {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    .phishing-indicators h4 {
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Fix reporting section on mobile */
+    .reporting-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    .response-steps {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    .response-steps li {
+        padding-right: 2.5rem !important;
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .response-steps li::before {
+        width: 1.8rem !important;
+        height: 1.8rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Fix RTL on mobile */
+    html[lang="ar"] .response-steps li {
+        padding-right: 0 !important;
+        padding-left: 2.5rem !important;
     }
 }
     
