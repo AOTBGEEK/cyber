@@ -93,7 +93,7 @@
                 </div>
 
                 <!-- AI Program -->
-                <div class="program-card ai-program" onclick="navigateToAI()">
+                <div class="program-card ai-program maintenance-mode" onclick="showMaintenanceMessage()">
                     
                     <div class="program-content">
                         <h4 class="program-title">ورشة الذكاء الاصطناعي</h4>
@@ -101,7 +101,13 @@
                             اكتشف عالم الذكاء الاصطناعي وتعلم بناء تطبيقات ذكية من الصفر
                         </p>
                         
-                        <div class="program-features">
+                        <div class="maintenance-overlay">
+                            <div class="maintenance-icon">🔧</div>
+                            <div class="maintenance-text">تحت الصيانة</div>
+                            <div class="maintenance-subtitle">قريباً...</div>
+                        </div>
+                        
+                        <div class="program-features maintenance-disabled">
                             <div class="feature-item">
                                 <span class="feature-icon">🧠</span>
                                 <span>5 مختبرات ذكية</span>
@@ -116,7 +122,7 @@
                             </div>
                         </div>
                         
-                        <div class="program-topics">
+                        <div class="program-topics maintenance-disabled">
                             <span class="topic english-term">ChatGPT</span>
                             <span class="topic english-term">Image Generation</span>
                             <span class="topic english-term">Vector Analysis</span>
@@ -153,6 +159,10 @@
         
         function navigateToAI() {
             window.location.href = 'ai-home.html';
+        }
+        
+        function showMaintenanceMessage() {
+            alert('🔧 ورشة الذكاء الاصطناعي تحت الصيانة حالياً\n\nسيتم إتاحتها قريباً... ترقبوا التحديثات! 🚀');
         }
         
         // Initialize animations and interactions

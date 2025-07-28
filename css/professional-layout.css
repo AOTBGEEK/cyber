@@ -918,6 +918,85 @@
     margin-bottom: 0 !important;
 }
 
+/* Maintenance Mode Styles */
+.program-card.maintenance-mode {
+    position: relative;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.program-card.maintenance-mode:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 40px rgba(255, 165, 0, 0.3) !important;
+}
+
+.maintenance-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #ffa500;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(255, 165, 0, 0.5);
+}
+
+.maintenance-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: maintenance-spin 3s linear infinite;
+}
+
+.maintenance-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffa500;
+    font-family: 'Cairo', sans-serif;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+.maintenance-subtitle {
+    font-size: 1rem;
+    color: #ccc;
+    font-family: 'Cairo', sans-serif;
+    opacity: 0.8;
+}
+
+.maintenance-disabled {
+    opacity: 0.3;
+    filter: grayscale(50%);
+}
+
+@keyframes maintenance-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile adjustments for maintenance mode */
+@media (max-width: 768px) {
+    .maintenance-overlay {
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+    
+    .maintenance-icon {
+        font-size: 2.5rem;
+    }
+    
+    .maintenance-text {
+        font-size: 1.2rem;
+    }
+    
+    .maintenance-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
 /* Enhanced Animations */
 @keyframes fadeInUp {
     from {
