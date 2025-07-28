@@ -1074,13 +1074,15 @@ html[lang="ar"] .attack-methods li::before {
 
 /* Fix RTL direction for Arabic in reporting section */
 html[lang="ar"] .response-steps li {
-    padding-right: 0;
-    padding-left: 3rem;
+    padding-left: 0;
+    padding-right: 3rem;
+    text-align: right;
+    direction: rtl;
 }
 
 html[lang="ar"] .response-steps li::before {
-    right: auto;
-    left: 0;
+    left: auto;
+    right: 0;
 }
 
 /* Responsive */
@@ -1417,8 +1419,15 @@ html[lang="ar"] .toggle-btn .icon {
     
     /* Fix RTL on mobile */
     html[lang="ar"] .response-steps li {
-        padding-right: 0 !important;
-        padding-left: 2.5rem !important;
+        padding-left: 0 !important;
+        padding-right: 2.5rem !important;
+        text-align: right !important;
+        direction: rtl !important;
+    }
+    
+    html[lang="ar"] .response-steps li::before {
+        left: auto !important;
+        right: 0 !important;
     }
 }
     
