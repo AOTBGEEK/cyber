@@ -1,0 +1,86 @@
+/* Performance Fix - تخفيف الأنيميشن بطريقة آمنة */
+
+/* تخفيف الأنيميشن الثقيل بدلاً من تعطيله */
+.cyber-grid {
+    animation-duration: 120s !important; /* إبطاء الأنيميشن أكثر */
+    animation-timing-function: linear !important;
+    background-size: 150px 150px !important; /* شبكة أكبر = أقل حركة */
+    opacity: 0.3 !important; /* تقليل الشفافية */
+}
+
+.data-streams {
+    opacity: 0.05 !important; /* تقليل الشفافية بشكل كبير */
+}
+
+.stream {
+    animation-duration: 15s !important; /* إبطاء التدفق أكثر */
+    height: 40px !important; /* تقليل الارتفاع */
+    opacity: 0.3 !important;
+}
+
+/* تخفيف أنيميشن الذكاء الاصطناعي */
+.ai-grid-bg {
+    animation-duration: 120s !important;
+    background-size: 150px 150px !important;
+    opacity: 0.2 !important;
+}
+
+.ai-particles {
+    opacity: 0.02 !important;
+}
+
+.neural-network {
+    opacity: 0.01 !important;
+}
+
+/* تخفيف الأنيميشن العام - أكثر أماناً */
+.lab-box,
+.lab-card,
+.nav-title {
+    animation: none !important;
+    transition: all 0.3s ease !important;
+}
+
+/* إزالة الأنيميشن الثقيل من الخلفية */
+.matrix-bg,
+.scanlines,
+.ambient-lights,
+.floating-particles {
+    display: none !important;
+}
+
+/* تخفيف الأنيميشن على الجوال */
+@media (max-width: 768px) {
+    .cyber-grid,
+    .ai-grid-bg {
+        animation: none !important;
+        background: rgba(0, 255, 255, 0.005) !important;
+        opacity: 0.1 !important;
+    }
+    
+    .data-streams,
+    .ai-particles,
+    .neural-network {
+        display: none !important;
+    }
+    
+    .lab-box,
+    .lab-card {
+        animation: none !important;
+        transition: all 0.2s ease !important;
+    }
+}
+
+/* تحسين الأداء للعناصر المهمة */
+.labs-section,
+.labs-container {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* إزالة الأنيميشن من العناصر غير المهمة */
+.lab-icon,
+.lab-number,
+.lab-status {
+    animation: none !important;
+} 
