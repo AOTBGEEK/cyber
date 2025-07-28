@@ -293,6 +293,8 @@
     align-items: center !important;
     text-align: center !important;
     width: 100% !important;
+    position: relative !important;
+    padding: 4rem 0 !important;
 }
 
 .header-content {
@@ -301,6 +303,9 @@
     align-items: center !important;
     text-align: center !important;
     width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
 }
 
 .academy-logo {
@@ -310,6 +315,7 @@
     align-items: center !important;
     text-align: center !important;
     width: 100% !important;
+    margin: 0 auto !important;
 }
 
 .logo-text {
@@ -319,6 +325,7 @@
     align-items: center !important;
     text-align: center !important;
     width: 100% !important;
+    margin: 0 auto !important;
 }
 
 .academy-name {
@@ -327,6 +334,11 @@
     width: 100% !important;
     display: block !important;
     direction: rtl !important;
+    font-size: 2.4rem !important;
+    font-weight: 900 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    position: relative !important;
 }
 
 .academy-tagline {
@@ -389,11 +401,21 @@
 
 /* تحسين للشاشات الصغيرة */
 @media (max-width: 768px) {
+    .academy-header {
+        padding: 3rem 0 !important;
+    }
+    
+    .header-content {
+        padding: 0 1rem !important;
+    }
+    
     .academy-name {
         font-size: 1.8rem !important;
         text-align: center !important;
         white-space: normal !important;
         line-height: 1.2 !important;
+        margin: 0 auto !important;
+        width: 100% !important;
     }
     
     .academy-tagline {
@@ -408,11 +430,21 @@
 }
 
 @media (max-width: 480px) {
+    .academy-header {
+        padding: 2rem 0 !important;
+    }
+    
+    .header-content {
+        padding: 0 0.5rem !important;
+    }
+    
     .academy-name {
         font-size: 1.5rem !important;
         text-align: center !important;
         white-space: normal !important;
         line-height: 1.2 !important;
+        margin: 0 auto !important;
+        width: 100% !important;
     }
     
     .academy-tagline {
@@ -428,11 +460,21 @@
 
 /* إصلاح خاص للـ iPhone */
 @media screen and (max-width: 414px) {
+    .academy-header {
+        padding: 1.5rem 0 !important;
+    }
+    
+    .header-content {
+        padding: 0 0.3rem !important;
+    }
+    
     .academy-name {
         font-size: 1.3rem !important;
         text-align: center !important;
         white-space: normal !important;
         line-height: 1.2 !important;
+        margin: 0 auto !important;
+        width: 100% !important;
     }
     
     .academy-tagline {
@@ -444,4 +486,44 @@
         padding: 0 0.3rem !important;
         margin: 1rem auto 0 auto !important;
     }
+}
+
+/* إصلاح شامل للتوسيط على جميع الشاشات */
+@media (min-width: 1200px) {
+    .academy-header {
+        padding: 5rem 0 !important;
+    }
+    
+    .academy-name {
+        font-size: 3rem !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+    
+    .academy-tagline {
+        font-size: 1.3rem !important;
+        text-align: center !important;
+        margin: 2.5rem auto 0 auto !important;
+        width: 100% !important;
+        max-width: 900px !important;
+    }
+}
+
+/* إصلاح للتوسيط العمودي */
+.landing-container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+}
+
+.academy-header {
+    flex: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
 } 
