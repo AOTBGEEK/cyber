@@ -157,11 +157,29 @@
             window.location.href = 'ai-home.html';
         }
         
-
+        // Show zoom recommendation alert
+        function showZoomRecommendation() {
+            const currentZoom = Math.round(window.devicePixelRatio * 100);
+            
+            if (currentZoom !== 50) {
+                const message = `للتأكد من الحصول على أفضل تجربة، يرجى ضبط حجم الشاشة إلى 50%\n\nالحجم الحالي: ${currentZoom}%\n\nهل تريد المتابعة؟`;
+                
+                if (confirm(message)) {
+                    // User confirmed, continue
+                    console.log('User confirmed zoom recommendation');
+                } else {
+                    // User cancelled, show instructions
+                    alert('لضبط حجم الشاشة:\n\n1. اضغط Ctrl + - (أو Cmd + - على Mac)\n2. أو استخدم قائمة المتصفح: عرض > تكبير/تصغير\n3. أو اضغط Ctrl + 0 (أو Cmd + 0 على Mac) للعودة إلى الحجم الطبيعي ثم اضغط Ctrl + - مرتين');
+                }
+            }
+        }
         
         // Initialize animations and interactions
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Future Engineers Workshop loaded successfully');
+            
+            // Show zoom recommendation after a short delay
+            setTimeout(showZoomRecommendation, 1000);
         });
     </script>
 </body>
