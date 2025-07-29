@@ -132,12 +132,15 @@ html[lang="ar"] .lab-nav .lab-timer {
         min-width: 100px !important;
     }
     
-    /* AI Labs responsive layout - keep horizontal layout like cyber labs */
+    /* AI Labs responsive layout - exactly like cyber labs */
     html[lang="ar"] .ai-nav {
-        grid-template-columns: 150px 1fr 120px !important;
-        grid-template-areas: "timer title back" !important;
-        gap: 0.5rem !important;
-        padding: 0.8rem !important;
+        grid-template-columns: 1fr !important;
+        grid-template-areas: 
+            "timer"
+            "title" 
+            "back" !important;
+        gap: 0.8rem !important;
+        padding: 1rem !important;
         text-align: center !important;
     }
     
@@ -145,22 +148,15 @@ html[lang="ar"] .lab-nav .lab-timer {
     html[lang="ar"] .ai-nav .nav-title,
     html[lang="ar"] .ai-nav .lab-timer {
         justify-self: center !important;
-        font-size: 0.9rem !important;
     }
     
     html[lang="ar"] .ai-nav .nav-title {
-        font-size: 1rem !important;
+        font-size: 1.2rem !important;
     }
     
     html[lang="ar"] .ai-nav .lab-timer {
-        font-size: 0.8rem !important;
-        min-width: 80px !important;
-        padding: 0.4rem 0.6rem !important;
-    }
-    
-    html[lang="ar"] .ai-nav .nav-back {
-        padding: 0.4rem 0.6rem !important;
-        font-size: 0.8rem !important;
+        font-size: 1rem !important;
+        min-width: 100px !important;
     }
 }
 
