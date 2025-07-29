@@ -159,15 +159,7 @@
         
         // Show zoom recommendation alert
         function showZoomRecommendation() {
-            const message = `للحصول على أفضل تجربة يرجى ضبط المتصفح على حجم 50%\n\nهل تريد رؤية التعليمات؟`;
-            
-            if (confirm(message)) {
-                // User wants instructions
-                alert('لضبط حجم الشاشة إلى 50%:\n\n1. اضغط Ctrl + - (أو Cmd + - على Mac) مرتين\n2. أو استخدم قائمة المتصفح: عرض > تكبير/تصغير\n3. أو اضغط Ctrl + 0 (أو Cmd + 0 على Mac) للعودة إلى الحجم الطبيعي ثم اضغط Ctrl + - مرتين\n\nيمكنك التحقق من الحجم الحالي في شريط العنوان أو قائمة المتصفح');
-            } else {
-                // User wants to continue without instructions
-                console.log('User chose to continue without zoom instructions');
-            }
+            alert('للحصول على أفضل تجربة يرجى ضبط المتصفح على حجم 50%');
         }
         
         // Initialize animations and interactions
