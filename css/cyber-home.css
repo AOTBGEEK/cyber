@@ -96,20 +96,20 @@
 .academy-main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
-    min-height: calc(100vh - 100px);
+    padding: 1rem 2rem;
+    min-height: 100vh;
 }
 
 /* Labs Section */
 .labs-section {
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
 .labs-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .lab-box {
@@ -201,7 +201,7 @@
     }
     
     .academy-main {
-        padding: 1rem;
+        padding: 0.5rem 1rem;
     }
     
     .labs-container {

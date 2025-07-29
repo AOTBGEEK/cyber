@@ -108,7 +108,7 @@
 
 /* Main Container */
 .ai-main {
-    padding: 2rem;
+    padding: 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -1415,7 +1415,7 @@ html[lang="ar"] .lab-status {
     }
     
     .labs-section {
-        margin-top: 6rem;
+        margin-top: 0;
     }
     
     .word-conversion {
@@ -1458,7 +1458,7 @@ html[lang="ar"] .lab-status {
     }
     
     .ai-main {
-        padding: 1rem;
+        padding: 0.5rem 1rem;
     }
     
     .section-title h2 {
@@ -1644,7 +1644,7 @@ html[lang="ar"] .lab-status {
 
 /* Labs Section Spacing */
 .labs-section {
-    margin-top: 8rem;
+    margin-top: 0;
 }
 
 /* Tablet Responsive */
@@ -1655,6 +1655,6 @@ html[lang="ar"] .lab-status {
     }
     
     .labs-section {
-        margin-top: 7rem;
+        margin-top: 0;
     }
 } 
