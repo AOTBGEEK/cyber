@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختبر 03: مساعد الرياضيات | ورشة مهندس المستقبل</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/labs.css">
+    <link rel="stylesheet" href="../css/arabic-fixes.css">
+    <link rel="stylesheet" href="../css/professional-layout.css">
+    <link rel="stylesheet" href="../css/ai-professional.css">
+    <link rel="stylesheet" href="../css/cyber-professional.css">
+    <link rel="stylesheet" href="../css/performance-fix.css">
+    
+    <style>
+        /* ===== تصميم مطابق لابات السايبر ===== */
+        
+        /* خلفية لابات السايبر */
+        body {
+            background: #000000 !important;
+            color: #ffffff !important;
+            font-family: 'Cairo', 'Tajawal', sans-serif !important;
+        }
+
+        .kids-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+                repeating-linear-gradient(
+                    0deg,
+                    #000 0px,
+                    #000 1px,
+                    transparent 1px,
+                    transparent 40px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    #000 0px,
+                    #000 1px,
+                    transparent 1px,
+                    transparent 40px
+                );
+            z-index: -2;
+        }
+
+        /* الهيدر مطابق لابات السايبر */
+        .ai-nav {
+            display: grid !important;
+            grid-template-columns: 200px 1fr 150px !important;
+            grid-template-areas: "timer title back" !important;
+            align-items: center !important;
+            padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 3rem) !important;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.8)) !important;
+            border-bottom: 2px solid #00ffff !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+            backdrop-filter: blur(10px) !important;
+        }
+
+        .nav-title {
+            grid-area: title !important;
+            justify-self: center !important;
+            text-align: center !important;
+            margin: 0 !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+            font-weight: 700 !important;
+            color: #00ffff !important;
+            text-shadow: 0 0 10px currentColor !important;
+        }
+
+        .nav-back {
+            grid-area: back !important;
+            justify-self: end !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: 1rem !important;
+            color: #00ffff !important;
+            text-shadow: 0 0 10px currentColor !important;
+            background: rgba(0, 255, 255, 0.1) !important;
+            border: 1px solid #00ffff !important;
+            border-radius: 8px !important;
+            padding: 0.8rem 1.2rem !important;
+            backdrop-filter: blur(5px) !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.05em !important;
+        }
+
+        .nav-back:hover {
+            background: rgba(0, 255, 255, 0.2) !important;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+            transform: translateX(-3px) !important;
+        }
+
+        .lab-timer {
+            grid-area: timer !important;
+            justify-self: start !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: 1.2rem !important;
+            color: #00ff00 !important;
+            text-shadow: 0 0 10px currentColor !important;
+            background: rgba(0, 255, 0, 0.1) !important;
+            border: 1px solid #00ff00 !important;
+            border-radius: 8px !important;
+            padding: 0.8rem 1.2rem !important;
+            backdrop-filter: blur(5px) !important;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ===== البطاقات مطابقة لابات السايبر ===== */
+        .step-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #00ffff;
+            color: #000000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* ===== الأزرار مطابقة لابات السايبر ===== */
+        .action-btn {
+            background: #00ffff;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            color: #000000;
+            font-weight: 600;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .action-btn:hover {
+            background: #00e6e6;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            border: 1px solid #00ffff;
+            color: #00ffff;
+        }
+
+        .action-btn.secondary:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #00ffff;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            background: #00ffff;
+            border: none;
+            border-radius: 4px;
+            padding: 0.3rem 0.6rem;
+            color: #000000;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .copy-btn:hover {
+            background: #00e6e6;
+        }
+
+        /* ===== النصوص المنسوخة ===== */
+        .copy-text {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #00ffff;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-text:hover {
+            border-color: #00ffff;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* ===== شريط التقدم ===== */
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+
+
+        /* ===== تخصيصات المختبر الثالث ===== */
+        .math-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .example-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ff00;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .example-card:hover {
+            border-color: #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .example-card.bad {
+            border-color: #ff4444;
+        }
+
+        .example-card.bad:hover {
+            border-color: #ff4444;
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.3);
+        }
+
+        .example-card.good {
+            border-color: #00ff00;
+        }
+
+        .example-card.good:hover {
+            border-color: #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .example-label {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .example-label.bad {
+            color: #ff4444;
+        }
+
+        .example-label.good {
+            color: #00ff00;
+        }
+
+        .example-text {
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .example-explanation {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .math-formula {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: #00ffff;
+            text-align: center;
+        }
+
+        .book-reference {
+            background: rgba(255, 255, 0, 0.1);
+            border: 1px solid #ffff00;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .book-reference h4 {
+            color: #ffff00;
+            margin-bottom: 0.5rem;
+        }
+
+        .interactive-demo {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ffff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .demo-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-input:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .demo-result {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            white-space: pre-wrap;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tip-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #00ffff;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .tip-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ===== Media Queries للشاشات الصغيرة ===== */
+        @media (max-width: 768px) {
+            .ai-nav {
+                grid-template-columns: 1fr !important;
+                grid-template-areas: 
+                    "timer"
+                    "title" 
+                    "back" !important;
+                row-gap: 1rem !important;
+                padding: 1rem !important;
+            }
+            
+            .lab-timer, .nav-title, .nav-back {
+                justify-self: center !important;
+            }
+            
+            .lab-container {
+                padding: 1rem !important;
+            }
+            
+            .step-card {
+                padding: 1.5rem !important;
+                margin: 1rem 0 !important;
+            }
+            
+            .step-title {
+                font-size: 1.3rem !important;
+            }
+            
+            .step-description {
+                font-size: 1rem !important;
+            }
+            
+            .action-btn {
+                width: 100% !important;
+                margin: 0.5rem 0 !important;
+                padding: 1rem !important;
+            }
+            
+            .math-examples {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية لابات السايبر -->
+    <div class="lab-grid-bg"></div>
+    <div class="kids-bg"></div>
+    
+    <!-- الهيدر -->
+    <nav class="ai-nav">
+        <a href="../ai-home.html" class="nav-back">
+            <span>العودة ←</span>
+        </a>
+        <h1 class="nav-title">
+            <span>مختبر 03: مساعد الرياضيات</span>
+        </h1>
+        <div class="lab-timer">00:00:00</div>
+    </nav>
+
+    <!-- الحاوية الرئيسية -->
+    <main class="lab-container">
+        <!-- شريط التقدم -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- الخطوة 1: مقدمة -->
+        <div class="step-card" id="step1">
+            <div class="step-number">1</div>
+            <h2 class="step-title"> ChatGPT مساعد الرياضيات المثالي</h2>
+            <p class="step-description">
+                مرحباً! في هذا المختبر ستتعلم كيفية استخدام ChatGPT لحل المسائل الرياضية بطريقة ذكية.
+                <br><br>
+                <strong>لماذا مهم؟</strong> ChatGPT يمكنه شرح الخطوات، تصحيح الأخطاء، وحتى إنشاء مسائل مشابهة!
+            </p>
+            <button class="action-btn" onclick="nextStep(2)">
+                هيا نبدأ! 
+            </button>
+        </div>
+
+        <!-- الخطوة 2: طرق سيئة -->
+        <div class="step-card" id="step2" style="display: none;">
+            <div class="step-number">2</div>
+            <h2 class="step-title">❌ طرق سيئة - تجنبها!</h2>
+            <p class="step-description">
+                دعنا نبدأ بمعرفة ما يجب تجنبه عند طلب حل مسائل رياضية:
+            </p>
+            
+            <div class="math-examples">
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ طلب الإجابة فقط</div>
+                    <div class="example-text">"ما هو ناتج 15 × 23؟"</div>
+                    <div class="example-explanation">
+                        ستحصل على رقم فقط بدون فهم كيفية الحل أو الخطوات.
+                    </div>
+                </div>
+                
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ مسألة غامضة</div>
+                    <div class="example-text">"حل هذه المسألة: x + y = 10"</div>
+                    <div class="example-explanation">
+                        معادلة واحدة بمتغيرين! لا يمكن حلها بدون معلومات إضافية.
+                    </div>
+                </div>
+                
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ طلب حل سريع</div>
+                    <div class="example-text">"حل هذا بسرعة: 2x² + 5x - 3 = 0"</div>
+                    <div class="example-explanation">
+                        "بسرعة" قد تؤدي إلى خطأ أو حل غير مكتمل.
+                    </div>
+                </div>
+            </div>
+
+            </button>
+            <button class="action-btn" onclick="nextStep(3)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 3: طرق جيدة -->
+        <div class="step-card" id="step3" style="display: none;">
+            <div class="step-number">3</div>
+            <h2 class="step-title">✅ طرق جيدة - استخدمها!</h2>
+            <p class="step-description">
+                الآن دعنا نرى أمثلة لطرق جيدة للحصول على حلول مفيدة:
+            </p>
+            
+            <div class="math-examples">
+                <div class="example-card good">
+                    <div class="example-label good">✅ طلب الشرح خطوة بخطوة</div>
+                    <div class="example-text">"اشرح لي خطوة بخطوة كيفية حل: 15 × 23 باستخدام طريقة الضرب المطول"</div>
+                    <div class="example-explanation">
+                        ستحصل على شرح مفصل لكل خطوة مع الفهم.
+                    </div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ تحديد المستوى والكتاب</div>
+                    <div class="example-text">"أنا في الصف السابع، حل مسألة من كتاب الرياضيات: إذا كان سعر القلم دينارين، فكم ثمن 5 أقلام؟"</div>
+                    <div class="example-explanation">
+                        محدد: المستوى، نوع المسألة، والسياق.
+                    </div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ طلب تصحيح الحل</div>
+                    <div class="example-text">"تحقق من حلي: 2x + 5 = 13، حلي: x = 4. هل هذا صحيح؟"</div>
+                    <div class="example-explanation">
+                        يتحقق من صحة الحل ويشرح إذا كان خطأ.
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(2)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(4)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 4: نصائح عملية -->
+        <div class="step-card" id="step4" style="display: none;">
+            <div class="step-number">4</div>
+            <h2 class="step-title">💡 نصائح لاستخدام ChatGPT في الرياضيات</h2>
+            <p class="step-description">
+                إليك نصائح عملية للحصول على أفضل النتائج:
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">📝</div>
+                    <div class="tip-title">اكتب المسألة كاملة</div>
+                    <div class="tip-description">
+                        انسخ المسألة بالضبط كما هي مكتوبة في الكتاب.
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <div class="tip-title">اذكر المستوى الدراسي</div>
+                    <div class="tip-description">
+                        "أنا في الصف..." يساعد ChatGPT يختار الطريقة المناسبة.
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">📚</div>
+                    <div class="tip-title">اذكر اسم الكتاب</div>
+                    <div class="tip-description">
+                        "من كتاب الرياضيات للصف..." للحصول على حل مطابق.
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🔍</div>
+                    <div class="tip-title">اطلب الشرح خطوة بخطوة</div>
+                    <div class="tip-description">
+                        "اشرح لي كل خطوة" بدلاً من "أعطني الإجابة".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">✅</div>
+                    <div class="tip-title">اطلب التحقق من حلك</div>
+                    <div class="tip-description">
+                        "تحقق من حلي" لمعرفة إذا كان صحيحاً.
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🔄</div>
+                    <div class="tip-title">اطلب مسائل مشابهة</div>
+                    <div class="tip-description">
+                        "أعطني 3 مسائل مشابهة" للتدريب.
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(3)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(5)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 5: أمثلة عملية -->
+        <div class="step-card" id="step5" style="display: none;">
+            <div class="step-number">5</div>
+            <h2 class="step-title">🛠️ أمثلة عملية</h2>
+            <p class="step-description">
+                دعنا نرى أمثلة واقعية لأسئلة رياضية جيدة:
+            </p>
+            
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 1 - مسألة حسابية:</strong><br>
+                    "أنا في الصف السادس، حل هذه المسألة من كتاب الرياضيات خطوة بخطوة: إذا كان سعر الكيلو من التفاح 3 دنانير، فكم ثمن 2.5 كيلو؟"
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 2 - معادلة جبرية:</strong><br>
+                    "أنا في الصف الثامن، اشرح لي كيفية حل هذه المعادلة خطوة بخطوة: 3x + 7 = 22"
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 3 - مسألة هندسية:</strong><br>
+                    "أنا في الصف السابع، حل هذه المسألة: ما مساحة المستطيل الذي طوله 8 سم وعرضه 5 سم؟ اشرح لي القانون المستخدم."
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 4 - طلب تصحيح:</strong><br>
+                    "تحقق من حلي لهذه المسألة: 15 ÷ 3 = 4. هل هذا صحيح؟ وإذا كان خطأ، ما هو الحل الصحيح؟"
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(4)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(6)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 6: تدريب تفاعلي -->
+        <div class="step-card" id="step6" style="display: none;">
+            <div class="step-number">6</div>
+            <h2 class="step-title">🛠️ تدريب تفاعلي</h2>
+            <p class="step-description">
+                جرب بنفسك! اكتب مسألة رياضية وسأعطيك مثالاً لسؤال جيد:
+            </p>
+            
+            <div class="interactive-demo">
+                <label for="mathProblem">اكتب مسألتك الرياضية:</label>
+                <textarea id="mathProblem" class="demo-input" rows="3" placeholder="مثال: 2x + 5 = 13"></textarea>
+                
+                <button class="action-btn" onclick="generateQuestion()">
+                    أنشئ سؤالاً جيداً 
+                </button>
+                
+                <div id="generatedQuestion" class="demo-result" style="display: none;"></div>
+            </div>
+
+            <div class="book-reference">
+                <h4>📚 تلميح مهم:</h4>
+                <p>تذكر دائماً أن تذكر:</p>
+                <ul>
+                    <li>مستواك الدراسي (الصف)</li>
+                    <li>اسم الكتاب (إذا كان من كتاب معين)</li>
+                    <li>اطلب الشرح خطوة بخطوة</li>
+                    <li>اكتب المسألة بالضبط كما هي</li>
+                </ul>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(5)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(7)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 7: نصائح متقدمة -->
+        <div class="step-card" id="step7" style="display: none;">
+            <div class="step-number">7</div>
+            <h2 class="step-title"> نصائح متقدمة</h2>
+            <p class="step-description">
+                نصائح متقدمة لاستخدام ChatGPT في الرياضيات:
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon"></div>
+                    <div class="tip-title">اعطِ ChatGPT دوراً</div>
+                    <div class="tip-description">
+                        "كن معلم رياضيات للصف السابع" أو "كن مدرس خصوصي".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">📊</div>
+                    <div class="tip-title">اطلب رسوماً بيانية</div>
+                    <div class="tip-description">
+                        "ارسم رسماً بيانياً لهذه المعادلة" أو "اشرح بالرسم".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🔢</div>
+                    <div class="tip-title">اطلب طرق حل مختلفة</div>
+                    <div class="tip-description">
+                        "حل هذه المسألة بطريقتين مختلفتين" أو "أي طريقة أسهل؟".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">❓</div>
+                    <div class="tip-title">اسأل عن الأخطاء الشائعة</div>
+                    <div class="tip-description">
+                        "ما هي الأخطاء الشائعة في هذا النوع من المسائل؟".
+                    </div>
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>قالب سؤال رياضي ممتاز:</strong><br>
+                    "أنا في الصف [رقم الصف]، حل هذه المسألة من كتاب [اسم الكتاب] خطوة بخطوة: [المسألة]. اشرح لي كل خطوة بوضوح."
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(6)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(8)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 8: اختبار نهائي -->
+        <div class="step-card" id="step8" style="display: none;">
+            <div class="step-number">8</div>
+            <h2 class="step-title">🎯 اختبار نهائي</h2>
+            <p class="step-description">
+                الآن اختبر مهاراتك! حول هذه الأسئلة السيئة إلى أسئلة جيدة:
+            </p>
+            
+            <div class="math-examples">
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ حول هذا السؤال</div>
+                    <div class="example-text">"ما هو ناتج 25 × 16؟"</div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ اكتب إجابتك هنا</div>
+                    <div class="example-text" id="answer1" contenteditable="true" style="min-height: 60px; padding: 0.5rem; background: rgba(0, 0, 0, 0.3); border: 1px solid #00ff00; border-radius: 5px;">
+                        اكتب سؤالك المحسن هنا...
+                    </div>
+                </div>
+            </div>
+
+            <div class="math-examples">
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ حول هذا السؤال</div>
+                    <div class="example-text">"حل: x² + 5x + 6 = 0"</div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ اكتب إجابتك هنا</div>
+                    <div class="example-text" id="answer2" contenteditable="true" style="min-height: 60px; padding: 0.5rem; background: rgba(0, 0, 0, 0.3); border: 1px solid #00ff00; border-radius: 5px;">
+                        اكتب سؤالك المحسن هنا...
+                    </div>
+                </div>
+            </div>
+
+            <div class="math-examples">
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ حول هذا السؤال</div>
+                    <div class="example-text">"ما مساحة المربع؟"</div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ اكتب إجابتك هنا</div>
+                    <div class="example-text" id="answer3" contenteditable="true" style="min-height: 60px; padding: 0.5rem; background: rgba(0, 0, 0, 0.3); border: 1px solid #00ff00; border-radius: 5px;">
+                        اكتب سؤالك المحسن هنا...
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(7)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(9)">
+                انتهيت! 🎉
+            </button>
+        </div>
+
+        <!-- الخطوة 9: الخلاصة -->
+        <div class="step-card" id="step9" style="display: none;">
+            <div class="step-number">9</div>
+            <h2 class="step-title">🎉 مبروك! لقد أكملت المختبر</h2>
+            <p class="step-description">
+                لقد تعلمت كيفية استخدام ChatGPT كمساعد رياضيات ممتاز! الآن يمكنك الحصول على حلول مفيدة ومفصلة.
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">✅</div>
+                    <div class="tip-title">ما تعلمته</div>
+                    <div class="tip-description">
+                        • اكتب المسألة كاملة<br>
+                        • اذكر مستواك الدراسي<br>
+                        • اطلب الشرح خطوة بخطوة<br>
+                        • استخدم ChatGPT للتصحيح
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon"></div>
+                    <div class="tip-title">الخطوة التالية</div>
+                    <div class="tip-description">
+                        جرب هذه النصائح مع مسائلك الحقيقية. ChatGPT سيكون مساعدك المثالي في الرياضيات!
+                    </div>
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>تذكر دائماً:</strong><br>
+                    "الشرح أفضل من الإجابة"<br>
+                    اطلب الفهم، لا مجرد النتيجة!
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(8)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="window.location.href='../ai-home.html'">
+                العودة للمختبرات 🏠
+            </button>
+        </div>
+    </main>
+
+    <script src="../js/lab-common.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 9;
+
+        function nextStep(step) {
+            document.getElementById('step' + currentStep).style.display = 'none';
+            document.getElementById('step' + step).style.display = 'block';
+            currentStep = step;
+            updateProgress();
+        }
+
+        function prevStep(step) {
+            document.getElementById('step' + currentStep).style.display = 'none';
+            document.getElementById('step' + step).style.display = 'block';
+            currentStep = step;
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function copyText(button) {
+            const textDiv = button.nextElementSibling;
+            const text = textDiv.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'تم النسخ!';
+                button.style.background = '#00ff00';
+                button.style.color = '#000000';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#00ffff';
+                    button.style.color = '#000000';
+                }, 2000);
+            });
+        }
+
+        function generateQuestion() {
+            const problem = document.getElementById('mathProblem').value.trim();
+            const resultDiv = document.getElementById('generatedQuestion');
+            
+            if (!problem) {
+                alert('يرجى كتابة مسألة رياضية أولاً!');
+                return;
+            }
+            
+            const goodQuestion = `أنا في الصف السابع، حل هذه المسألة خطوة بخطوة: ${problem}. اشرح لي كل خطوة بوضوح.`;
+            
+            resultDiv.textContent = goodQuestion;
+            resultDiv.style.display = 'block';
+        }
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            
+            // بدء المؤقت
+            startTimer();
+            
+            console.log('AI Lab 3 - Math Assistant loaded successfully');
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختبر 04: مصمم المحادثات | ورشة مهندس المستقبل</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/labs.css">
+    <link rel="stylesheet" href="../css/arabic-fixes.css">
+    <link rel="stylesheet" href="../css/professional-layout.css">
+    <link rel="stylesheet" href="../css/ai-professional.css">
+    <link rel="stylesheet" href="../css/cyber-professional.css">
+    <link rel="stylesheet" href="../css/performance-fix.css">
+    
+    <style>
+        /* ===== تصميم مطابق لابات السايبر ===== */
+        
+        /* خلفية لابات السايبر */
+        body {
+            background: #000000 !important;
+            color: #ffffff !important;
+            font-family: 'Cairo', 'Tajawal', sans-serif !important;
+        }
+
+        .kids-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+                repeating-linear-gradient(
+                    0deg,
+                    #000 0px,
+                    #000 1px,
+                    transparent 1px,
+                    transparent 40px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    #000 0px,
+                    #000 1px,
+                    transparent 1px,
+                    transparent 40px
+                );
+            z-index: -2;
+        }
+
+        /* الهيدر مطابق لابات السايبر */
+        .ai-nav {
+            display: grid !important;
+            grid-template-columns: 200px 1fr 150px !important;
+            grid-template-areas: "timer title back" !important;
+            align-items: center !important;
+            padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 3rem) !important;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.8)) !important;
+            border-bottom: 2px solid #00ffff !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+            backdrop-filter: blur(10px) !important;
+        }
+
+        .nav-title {
+            grid-area: title !important;
+            justify-self: center !important;
+            text-align: center !important;
+            margin: 0 !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+            font-weight: 700 !important;
+            color: #00ffff !important;
+            text-shadow: 0 0 10px currentColor !important;
+        }
+
+        .nav-back {
+            grid-area: back !important;
+            justify-self: end !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: 1rem !important;
+            color: #00ffff !important;
+            text-shadow: 0 0 10px currentColor !important;
+            background: rgba(0, 255, 255, 0.1) !important;
+            border: 1px solid #00ffff !important;
+            border-radius: 8px !important;
+            padding: 0.8rem 1.2rem !important;
+            backdrop-filter: blur(5px) !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.05em !important;
+        }
+
+        .nav-back:hover {
+            background: rgba(0, 255, 255, 0.2) !important;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+            transform: translateX(-3px) !important;
+        }
+
+        .lab-timer {
+            grid-area: timer !important;
+            justify-self: start !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: 1.2rem !important;
+            color: #00ff00 !important;
+            text-shadow: 0 0 10px currentColor !important;
+            background: rgba(0, 255, 0, 0.1) !important;
+            border: 1px solid #00ff00 !important;
+            border-radius: 8px !important;
+            padding: 0.8rem 1.2rem !important;
+            backdrop-filter: blur(5px) !important;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ===== البطاقات مطابقة لابات السايبر ===== */
+        .step-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #00ffff;
+            color: #000000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* ===== الأزرار مطابقة لابات السايبر ===== */
+        .action-btn {
+            background: #00ffff;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            color: #000000;
+            font-weight: 600;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .action-btn:hover {
+            background: #00e6e6;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            border: 1px solid #00ffff;
+            color: #00ffff;
+        }
+
+        .action-btn.secondary:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #00ffff;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            background: #00ffff;
+            border: none;
+            border-radius: 4px;
+            padding: 0.3rem 0.6rem;
+            color: #000000;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .copy-btn:hover {
+            background: #00e6e6;
+        }
+
+        /* ===== النصوص المنسوخة ===== */
+        .copy-text {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #00ffff;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-text:hover {
+            border-color: #00ffff;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* ===== شريط التقدم ===== */
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+
+
+        /* ===== تخصيصات المختبر الرابع ===== */
+        .role-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .example-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ff00;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .example-card:hover {
+            border-color: #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .example-card.bad {
+            border-color: #ff4444;
+        }
+
+        .example-card.bad:hover {
+            border-color: #ff4444;
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.3);
+        }
+
+        .example-card.good {
+            border-color: #00ff00;
+        }
+
+        .example-card.good:hover {
+            border-color: #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .example-label {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .example-label.bad {
+            color: #ff4444;
+        }
+
+        .example-label.good {
+            color: #00ff00;
+        }
+
+        .example-text {
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .example-explanation {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .role-template {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: #00ffff;
+        }
+
+        .role-builder {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ffff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .builder-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .builder-input:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .builder-result {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            white-space: pre-wrap;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tip-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #00ffff;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .tip-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .role-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .category-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #00ffff;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .category-examples {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        /* ===== Media Queries للشاشات الصغيرة ===== */
+        @media (max-width: 768px) {
+            .ai-nav {
+                grid-template-columns: 1fr !important;
+                grid-template-areas: 
+                    "timer"
+                    "title" 
+                    "back" !important;
+                row-gap: 1rem !important;
+                padding: 1rem !important;
+            }
+            
+            .lab-timer, .nav-title, .nav-back {
+                justify-self: center !important;
+            }
+            
+            .lab-container {
+                padding: 1rem !important;
+            }
+            
+            .step-card {
+                padding: 1.5rem !important;
+                margin: 1rem 0 !important;
+            }
+            
+            .step-title {
+                font-size: 1.3rem !important;
+            }
+            
+            .step-description {
+                font-size: 1rem !important;
+            }
+            
+            .action-btn {
+                width: 100% !important;
+                margin: 0.5rem 0 !important;
+                padding: 1rem !important;
+            }
+            
+            .role-examples {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .role-categories {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية لابات السايبر -->
+    <div class="lab-grid-bg"></div>
+    <div class="kids-bg"></div>
+    
+    <!-- الهيدر -->
+    <nav class="ai-nav">
+        <a href="../ai-home.html" class="nav-back">
+            <span>العودة ←</span>
+        </a>
+        <h1 class="nav-title">
+            <span>مختبر 04: مصمم المحادثات</span>
+        </h1>
+        <div class="lab-timer">00:00:00</div>
+    </nav>
+
+    <!-- الحاوية الرئيسية -->
+    <main class="lab-container">
+        <!-- شريط التقدم -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- الخطوة 1: مقدمة -->
+        <div class="step-card" id="step1">
+            <div class="step-number">1</div>
+            <h2 class="step-title"> إعطاء ChatGPT دوراً - فن المحادثات</h2>
+            <p class="step-description">
+                مرحباً! في هذا المختبر ستتعلم كيفية إعطاء ChatGPT أدواراً مختلفة للحصول على إجابات أفضل.
+                <br><br>
+                <strong>لماذا مهم؟</strong> عندما تعطي ChatGPT دوراً، يصبح أكثر تخصصاً ومفيداً!
+            </p>
+            <button class="action-btn" onclick="nextStep(2)">
+                هيا نبدأ! 
+            </button>
+        </div>
+
+        <!-- الخطوة 2: طرق سيئة -->
+        <div class="step-card" id="step2" style="display: none;">
+            <div class="step-number">2</div>
+            <h2 class="step-title">❌ طرق سيئة - تجنبها!</h2>
+            <p class="step-description">
+                دعنا نبدأ بمعرفة ما يجب تجنبه عند إعطاء ChatGPT دوراً:
+            </p>
+            
+            <div class="role-examples">
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ دور غامض</div>
+                    <div class="example-text">"كن مساعداً"</div>
+                    <div class="example-explanation">
+                        هذا دور غامض جداً. لا يعرف ChatGPT ما نوع المساعدة المطلوبة.
+                    </div>
+                </div>
+                
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ دور معقد جداً</div>
+                    <div class="example-text">"كن خبيراً في كل شيء مع 20 سنة خبرة في 50 مجال مختلف"</div>
+                    <div class="example-explanation">
+                        دور معقد جداً ومتعدد الأوجه. ركز على دور واحد محدد.
+                    </div>
+                </div>
+                
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ دور غير مناسب</div>
+                    <div class="example-text">"كن طبيباً" (للسؤال عن البرمجة)</div>
+                    <div class="example-explanation">
+                        الدور لا يتناسب مع نوع السؤال. اختر دوراً مناسباً للموضوع.
+                    </div>
+                </div>
+            </div>
+
+            </button>
+            <button class="action-btn" onclick="nextStep(3)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 3: طرق جيدة -->
+        <div class="step-card" id="step3" style="display: none;">
+            <div class="step-number">3</div>
+            <h2 class="step-title">✅ طرق جيدة - استخدمها!</h2>
+            <p class="step-description">
+                الآن دعنا نرى أمثلة لطرق جيدة لإعطاء ChatGPT دوراً:
+            </p>
+            
+            <div class="role-examples">
+                <div class="example-card good">
+                    <div class="example-label good">✅ دور محدد ومتخصص</div>
+                    <div class="example-text">"كن معلم رياضيات للصف السابع، اشرح لي مفهوم الكسور بطريقة بسيطة"</div>
+                    <div class="example-explanation">
+                        دور محدد: معلم رياضيات، مستوى محدد، موضوع محدد.
+                    </div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ دور مع خصائص</div>
+                    <div class="example-text">"كن كاتب قصص للأطفال، اكتب قصة قصيرة عن الصداقة مع شخصيات محببة"</div>
+                    <div class="example-explanation">
+                        دور مع خصائص واضحة: كاتب، جمهور محدد، نوع محدد.
+                    </div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ دور مع أسلوب</div>
+                    <div class="example-text">"كن مبرمج محترف، اشرح لي Python بطريقة سهلة للمبتدئين"</div>
+                    <div class="example-explanation">
+                        دور مع أسلوب محدد: محترف يشرح للمبتدئين.
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(2)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(4)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 4: فئات الأدوار -->
+        <div class="step-card" id="step4" style="display: none;">
+            <div class="step-number">4</div>
+            <h2 class="step-title">📚 فئات الأدوار المفيدة</h2>
+            <p class="step-description">
+                إليك فئات الأدوار الأكثر فائدة للأطفال والمراهقين:
+            </p>
+            
+            <div class="role-categories">
+                <div class="category-card" onclick="selectCategory('teacher')">
+                    <div class="category-icon">👨‍🏫</div>
+                    <div class="category-title">المعلمون</div>
+                    <div class="category-examples">
+                        معلم رياضيات<br>
+                        معلم علوم<br>
+                        معلم لغة عربية<br>
+                        معلم إنجليزي
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="selectCategory('writer')">
+                    <div class="category-icon">✍️</div>
+                    <div class="category-title">الكتّاب</div>
+                    <div class="category-examples">
+                        كاتب قصص للأطفال<br>
+                        كاتب مقالات<br>
+                        كاتب شعر<br>
+                        كاتب مسرحيات
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="selectCategory('programmer')">
+                    <div class="category-icon">💻</div>
+                    <div class="category-title">المبرمجون</div>
+                    <div class="category-examples">
+                        مبرمج Python<br>
+                        مطور ويب<br>
+                        مطور ألعاب<br>
+                        خبير أمن سيبراني
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="selectCategory('scientist')">
+                    <div class="category-icon">🔬</div>
+                    <div class="category-title">العلماء</div>
+                    <div class="category-examples">
+                        عالم فيزياء<br>
+                        عالم كيمياء<br>
+                        عالم أحياء<br>
+                        عالم فضاء
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="selectCategory('artist')">
+                    <div class="category-icon">🎨</div>
+                    <div class="category-title">الفنانون</div>
+                    <div class="category-examples">
+                        رسام<br>
+                        مصمم جرافيك<br>
+                        موسيقي<br>
+                        مصور
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="selectCategory('coach')">
+                    <div class="category-icon">🏃‍♂️</div>
+                    <div class="category-title">المدربون</div>
+                    <div class="category-examples">
+                        مدرب رياضي<br>
+                        مدرب شخصي<br>
+                        مدرب مهارات حياتية<br>
+                        مدرب إبداع
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(3)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(5)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 5: نصائح عملية -->
+        <div class="step-card" id="step5" style="display: none;">
+            <div class="step-number">5</div>
+            <h2 class="step-title">💡 نصائح لإنشاء أدوار ممتازة</h2>
+            <p class="step-description">
+                إليك نصائح عملية لإنشاء أدوار فعالة:
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <div class="tip-title">كن محدداً</div>
+                    <div class="tip-description">
+                        "معلم رياضيات للصف السابع" أفضل من "معلم".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">👥</div>
+                    <div class="tip-title">حدد الجمهور</div>
+                    <div class="tip-description">
+                        "للأطفال" أو "للمبتدئين" أو "للمراهقين".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎨</div>
+                    <div class="tip-title">حدد الأسلوب</div>
+                    <div class="tip-description">
+                        "بطريقة بسيطة" أو "بأمثلة عملية" أو "بقصص".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">📏</div>
+                    <div class="tip-title">حدد الطول</div>
+                    <div class="tip-description">
+                        "في جملة واحدة" أو "شرح مفصل" أو "ملخص قصير".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon"></div>
+                    <div class="tip-title">اجمع الأدوار</div>
+                    <div class="tip-description">
+                        "كن معلم رياضيات وكاتب قصص، اشرح الكسور بقصة".
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🔄</div>
+                    <div class="tip-title">جرب أدوار مختلفة</div>
+                    <div class="tip-description">
+                        نفس السؤال مع أدوار مختلفة يعطي نتائج مختلفة.
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(4)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(6)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 6: أمثلة عملية -->
+        <div class="step-card" id="step6" style="display: none;">
+            <div class="step-number">6</div>
+            <h2 class="step-title">🛠️ أمثلة عملية</h2>
+            <p class="step-description">
+                دعنا نرى أمثلة واقعية لأدوار فعالة:
+            </p>
+            
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 1 - تعلم البرمجة:</strong><br>
+                    "كن مبرمج محترف، اشرح لي مفهوم المتغيرات في Python بطريقة بسيطة مع أمثلة عملية"
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 2 - كتابة قصة:</strong><br>
+                    "كن كاتب قصص للأطفال، اكتب قصة قصيرة عن الصداقة مع شخصيات محببة وأحداث مثيرة"
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 3 - حل مسألة رياضية:</strong><br>
+                    "كن معلم رياضيات للصف السادس، حل هذه المسألة خطوة بخطوة: 15 × 23"
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 4 - تعلم العلوم:</strong><br>
+                    "كن عالم فيزياء، اشرح لي مفهوم الجاذبية بطريقة بسيطة مع أمثلة من الحياة اليومية"
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>مثال 5 - تصميم:</strong><br>
+                    "كن مصمم جرافيك محترف، أعطني 5 نصائح لتصميم لوحة إعلانية جذابة للأطفال"
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(5)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(7)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 7: منشئ الأدوار -->
+        <div class="step-card" id="step7" style="display: none;">
+            <div class="step-number">7</div>
+            <h2 class="step-title">🛠️ منشئ الأدوار التفاعلي</h2>
+            <p class="step-description">
+                جرب بنفسك! أنشئ دوراً مخصصاً لسؤالك:
+            </p>
+            
+            <div class="role-builder">
+                <label for="topic">ما هو الدور الذي تريده؟</label>
+                <input type="text" id="topic" class="builder-input" placeholder="مثال: برمجة، كتابة، رسم، علم، تعليم...">
+                
+                <label for="audience">من هو الجمهور المستهدف؟</label>
+                <input type="text" id="audience" class="builder-input" placeholder="مثال: أطفال، مراهقين، مبتدئين...">
+                
+                <label for="style">ما هو الأسلوب المفضل؟</label>
+                <input type="text" id="style" class="builder-input" placeholder="مثال: بسيط، بأمثلة، بقصص، مفصل...">
+                
+                <button class="action-btn" onclick="generateRole()">
+                    أنشئ دوراً مخصصاً! 
+                </button>
+                
+                <div id="generatedRole" class="builder-result" style="display: none;"></div>
+            </div>
+
+            <div class="role-template">
+                <strong>قالب دور ممتاز:</strong><br>
+                "كن [الدور] لل[الجمهور]، اشرح لي [الموضوع] [بالأسلوب المفضل]"
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(6)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(8)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 8: نصائح متقدمة -->
+        <div class="step-card" id="step8" style="display: none;">
+            <div class="step-number">8</div>
+            <h2 class="step-title"> نصائح متقدمة</h2>
+            <p class="step-description">
+                نصائح متقدمة لاستخدام الأدوار بشكل فعال:
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon"></div>
+                    <div class="tip-title">أدوار متعددة</div>
+                    <div class="tip-description">
+                        "كن معلم وكاتب، اشرح الكسور بقصة" يجمع بين دورين.
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎨</div>
+                    <div class="tip-title">أدوار إبداعية</div>
+                    <div class="tip-description">
+                        "كن شاعر" أو "كن رسام" للحصول على إجابات إبداعية.
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🔬</div>
+                    <div class="tip-title">أدوار علمية</div>
+                    <div class="tip-description">
+                        "كن عالم" أو "كن باحث" للحصول على معلومات دقيقة.
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <div class="tip-title">أدوار متخصصة</div>
+                    <div class="tip-description">
+                        "كن خبير أمن سيبراني" أو "كن مطور ألعاب".
+                    </div>
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>أمثلة لأدوار متقدمة:</strong><br>
+                    • "كن معلم رياضيات وكاتب قصص، اشرح الكسور بقصة للأطفال"<br>
+                    • "كن مبرمج محترف وعالم فيزياء، اشرح البرمجة بمفاهيم فيزيائية"<br>
+                    • "كن شاعر وموسيقي، اكتب أغنية عن البرمجة"<br>
+                    • "كن عالم أحياء ورسام، اشرح الخلية برسم"
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(7)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(9)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 9: اختبار نهائي -->
+        <div class="step-card" id="step9" style="display: none;">
+            <div class="step-number">9</div>
+            <h2 class="step-title">🎯 اختبار نهائي</h2>
+            <p class="step-description">
+                الآن اختبر مهاراتك! أنشئ أدواراً جيدة لهذه الأسئلة:
+            </p>
+            
+            <div class="role-examples">
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ حول هذا السؤال</div>
+                    <div class="example-text">"اشرح لي البرمجة"</div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ اكتب إجابتك هنا</div>
+                    <div class="example-text" id="answer1" contenteditable="true" style="min-height: 60px; padding: 0.5rem; background: rgba(0, 0, 0, 0.3); border: 1px solid #00ff00; border-radius: 5px;">
+                        اكتب سؤالك مع دور محدد هنا...
+                    </div>
+                </div>
+            </div>
+
+            <div class="role-examples">
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ حول هذا السؤال</div>
+                    <div class="example-text">"اكتب قصة"</div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ اكتب إجابتك هنا</div>
+                    <div class="example-text" id="answer2" contenteditable="true" style="min-height: 60px; padding: 0.5rem; background: rgba(0, 0, 0, 0.3); border: 1px solid #00ff00; border-radius: 5px;">
+                        اكتب سؤالك مع دور محدد هنا...
+                    </div>
+                </div>
+            </div>
+
+            <div class="role-examples">
+                <div class="example-card bad">
+                    <div class="example-label bad">❌ حول هذا السؤال</div>
+                    <div class="example-text">"ما هي الجاذبية؟"</div>
+                </div>
+                
+                <div class="example-card good">
+                    <div class="example-label good">✅ اكتب إجابتك هنا</div>
+                    <div class="example-text" id="answer3" contenteditable="true" style="min-height: 60px; padding: 0.5rem; background: rgba(0, 0, 0, 0.3); border: 1px solid #00ff00; border-radius: 5px;">
+                        اكتب سؤالك مع دور محدد هنا...
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(8)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(10)">
+                انتهيت! 🎉
+            </button>
+        </div>
+
+        <!-- الخطوة 10: الخلاصة -->
+        <div class="step-card" id="step10" style="display: none;">
+            <div class="step-number">10</div>
+            <h2 class="step-title">🎉 مبروك! لقد أكملت المختبر</h2>
+            <p class="step-description">
+                لقد تعلمت فن إعطاء ChatGPT أدواراً مختلفة! الآن يمكنك الحصول على إجابات أكثر تخصصاً ومفيدة.
+            </p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">✅</div>
+                    <div class="tip-title">ما تعلمته</div>
+                    <div class="tip-description">
+                        • كن محدداً في الدور<br>
+                        • حدد الجمهور والأسلوب<br>
+                        • جرب أدوار مختلفة<br>
+                        • اجمع بين الأدوار
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon"></div>
+                    <div class="tip-title">الخطوة التالية</div>
+                    <div class="tip-description">
+                        جرب هذه النصائح مع ChatGPT. كل دور يعطي إجابة مختلفة ومفيدة!
+                    </div>
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>
+                    <strong>تذكر دائماً:</strong><br>
+                    "الدور المناسب = إجابة ممتازة"<br>
+                    جرب أدوار مختلفة لنفس السؤال!
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(9)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="window.location.href='../ai-home.html'">
+                العودة للمختبرات 🏠
+            </button>
+        </div>
+    </main>
+
+    <script src="../js/lab-common.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 10;
+
+        function nextStep(step) {
+            document.getElementById('step' + currentStep).style.display = 'none';
+            document.getElementById('step' + step).style.display = 'block';
+            currentStep = step;
+            updateProgress();
+        }
+
+        function prevStep(step) {
+            document.getElementById('step' + currentStep).style.display = 'none';
+            document.getElementById('step' + step).style.display = 'block';
+            currentStep = step;
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function copyText(button) {
+            const textDiv = button.nextElementSibling;
+            const text = textDiv.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'تم النسخ!';
+                button.style.background = '#00ff00';
+                button.style.color = '#000000';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#00ffff';
+                    button.style.color = '#000000';
+                }, 2000);
+            });
+        }
+
+        function selectCategory(category) {
+            const categories = {
+                'teacher': 'معلم',
+                'writer': 'كاتب',
+                'programmer': 'مبرمج',
+                'scientist': 'عالم',
+                'artist': 'فنان',
+                'coach': 'مدرب'
+            };
+            
+            alert(`اخترت فئة: ${categories[category]}\n\nيمكنك استخدام هذا الدور في أسئلتك!`);
+        }
+
+        function generateRole() {
+            const topic = document.getElementById('topic').value.trim();
+            const audience = document.getElementById('audience').value.trim();
+            const style = document.getElementById('style').value.trim();
+            
+            if (!topic || !audience || !style) {
+                alert('يرجى ملء جميع الحقول!');
+                return;
+            }
+            
+            // تحسين صياغة الدور
+            let roleText = '';
+            
+            // إضافة "كن" مع تحسين الصياغة
+            if (topic.includes('برمجة') || topic.includes('برمجه')) {
+                roleText = 'كن مبرمج';
+            } else if (topic.includes('كتابة') || topic.includes('كتابه')) {
+                roleText = 'كن كاتب';
+            } else if (topic.includes('رسم') || topic.includes('تصميم')) {
+                roleText = 'كن فنان';
+            } else if (topic.includes('علم') || topic.includes('بحث')) {
+                roleText = 'كن عالم';
+            } else if (topic.includes('تعليم') || topic.includes('تدريس')) {
+                roleText = 'كن معلم';
+            } else {
+                roleText = `كن ${topic}`;
+            }
+            
+            // إضافة الجمهور
+            roleText += ` لل${audience}`;
+            
+            // إضافة الأسلوب مع تحسين الصياغة
+            if (style.includes('بسيط') || style.includes('سهل')) {
+                roleText += '، اشرح لي الموضوع بأسلوب بسيط';
+            } else if (style.includes('مفصل') || style.includes('تفصيلي')) {
+                roleText += '، اشرح لي الموضوع بتفصيل';
+            } else if (style.includes('قصص') || style.includes('قصة')) {
+                roleText += '، اشرح لي الموضوع بقصة';
+            } else if (style.includes('أمثلة') || style.includes('مثال')) {
+                roleText += '، اشرح لي الموضوع بأمثلة';
+            } else {
+                roleText += `، اشرح لي الموضوع ${style}`;
+            }
+            
+            document.getElementById('generatedRole').textContent = roleText;
+            document.getElementById('generatedRole').style.display = 'block';
+        }
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            
+            // بدء المؤقت
+            startTimer();
+            
+            console.log('AI Lab 4 - Role Designer loaded successfully');
+        });
+    </script>
+</body>
+</html> 

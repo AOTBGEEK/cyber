@@ -48,7 +48,7 @@
 
 .logo-icon {
     font-size: 3rem;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-magenta));
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-cyan));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -278,7 +278,7 @@
     bottom: 0;
     border-radius: 20px;
     padding: 2px;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-magenta));
+    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-cyan));
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     opacity: 0;
@@ -299,7 +299,7 @@
 }
 
 .ai-program {
-    border-color: var(--primary-magenta);
+    border-color: var(--primary-cyan);
 }
 
 .program-header {

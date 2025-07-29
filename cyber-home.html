@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورشة الأمن السيبراني - ورشة مهندسين المستقبل</title>
+    <title>ورشة الأمن السيبراني - ورشة مهندس المستقبل</title>
     
     <!-- Core Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/professional-layout.css">
     <link rel="stylesheet" href="css/cyber-professional.css">
     <link rel="stylesheet" href="css/performance-fix.css">
+    
+
     
     <!-- Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -35,14 +37,8 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="academy-nav cyber-nav">
-        <div class="nav-container">
-            <div class="nav-center">
-                <div class="academy-branding">
-                    <h1 class="nav-title">ورشة الأمن السيبراني</h1>
-                </div>
-            </div>
-        </div>
+    <nav class="home-nav">
+        <h1 class="nav-title">ورشة الأمن السيبراني</h1>
     </nav>
 
     <!-- Main Container -->
@@ -55,7 +51,7 @@
                 <!-- Lab 1: IDOR -->
                 <div class="lab-box" onclick="window.location.href='labs/lab1-idor.html'">
                     <div class="lab-content">
-                        <h3 class="lab-title">هجوم <span class="english-term">IDOR</span></h3>
+                        <h3 class="lab-title">مختبر 01: هجوم <span class="english-term">IDOR</span></h3>
                         <p class="lab-description">
                             تعلم كيفية استغلال ثغرات المرجع المباشر غير الآمن للكائن
                         </p>
@@ -69,7 +65,7 @@
                 <!-- Lab 2: Brute Force -->
                 <div class="lab-box" onclick="window.location.href='labs/lab2-bruteforce.html'">
                     <div class="lab-content">
-                        <h3 class="lab-title">هجوم <span class="english-term">Brute Force</span></h3>
+                        <h3 class="lab-title">مختبر 02: هجوم <span class="english-term">Brute Force</span></h3>
                         <p class="lab-description">
                             اكتشف كيف يتم كسر كلمات المرور بـ <span class="english-term">Brute Force</span>
                         </p>
@@ -83,7 +79,7 @@
                 <!-- Lab 3: Phishing -->
                 <div class="lab-box" onclick="window.location.href='labs/lab3-password-url.html'">
                     <div class="lab-content">
-                        <h3 class="lab-title">كلمة المرور في <span class="english-term">URL</span></h3>
+                        <h3 class="lab-title">مختبر 03: كلمة المرور في <span class="english-term">URL</span></h3>
                         <p class="lab-description">
                             اكتشف مخاطر تسريب كلمات المرور في روابط المواقع
                         </p>
@@ -97,7 +93,7 @@
                 <!-- Lab 4: SQL Injection -->
                 <div class="lab-box" onclick="window.location.href='labs/lab4-fake-login.html'">
                     <div class="lab-content">
-                        <h3 class="lab-title">صفحة تسجيل دخول مزيفة</h3>
+                        <h3 class="lab-title">مختبر 04: صفحة تسجيل دخول مزيفة</h3>
                         <p class="lab-description">
                             تعرف على كيفية اكتشاف صفحات التسجيل المزيفة وتجنبها
                         </p>
@@ -111,7 +107,7 @@
                 <!-- Lab 5: XSS -->
                 <div class="lab-box" onclick="window.location.href='labs/lab5-camera.html'">
                     <div class="lab-content">
-                        <h3 class="lab-title">الوصول للكاميرا</h3>
+                        <h3 class="lab-title">مختبر 05: الوصول للكاميرا</h3>
                         <p class="lab-description">
                             تعلم كيفية حماية الكاميرا من الوصول غير المصرح به
                         </p>
@@ -125,7 +121,7 @@
                 <!-- Lab 6: 2FA Bypass -->
                 <div class="lab-box" onclick="window.location.href='labs/lab6-payment.html'">
                     <div class="lab-content">
-                        <h3 class="lab-title">صفحة دفع مزيفة</h3>
+                        <h3 class="lab-title">مختبر 06: صفحة دفع مزيفة</h3>
                         <p class="lab-description">
                             احذر من صفحات الدفع المزيفة وتعلم كيفية اكتشافها
                         </p>
@@ -139,7 +135,7 @@
                 <!-- Lab 7: Network Security -->
                 <div class="lab-box" onclick="window.location.href='labs/lab7-otp.html'">
                     <div class="lab-content">
-                        <h3 class="lab-title">حماية الحساب بـ <span class="english-term">OTP</span></h3>
+                        <h3 class="lab-title">مختبر 07: حماية الحساب بـ <span class="english-term">OTP</span></h3>
                         <p class="lab-description">
                             تعلم كيفية استخدام رموز الأمان لحماية حسابك
                         </p>
@@ -153,13 +149,45 @@
         </section>
     </main>
 
+        <style>
+        .nav-back {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .nav-back * {
+            transition: none !important;
+            transform: none !important;
+            animation: none !important;
+        }
+        
+        .nav-back:hover {
+            transform: translateY(-50%) !important;
+        }
+        
+        .nav-back:hover * {
+            transform: none !important;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-back {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 1rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+
     <!-- Scripts -->
     <script src="js/cyber-home.js"></script>
-    <script>
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Cybersecurity Workshop loaded successfully');
-        });
-    </script>
 </body>
 </html>

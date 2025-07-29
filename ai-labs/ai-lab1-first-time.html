@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختبر 01: أول مرة مع ChatGPT | ورشة مهندس المستقبل</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/ai-home.css">
+    <link rel="stylesheet" href="../css/arabic-fixes.css">
+    <link rel="stylesheet" href="../css/professional-layout.css">
+    <link rel="stylesheet" href="../css/ai-professional.css">
+    <link rel="stylesheet" href="../css/cyber-professional.css">
+    <link rel="stylesheet" href="../css/performance-fix.css">
+    
+    <style>
+        /* ===== تصميم مطابق لابات السايبر ===== */
+        
+        /* خلفية لابات السايبر */
+        body {
+            background: #000000 !important;
+            color: #ffffff !important;
+            font-family: 'Cairo', 'Tajawal', sans-serif !important;
+        }
+
+        .kids-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+                repeating-linear-gradient(
+                    0deg,
+                    #000 0px,
+                    #000 1px,
+                    transparent 1px,
+                    transparent 40px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    #000 0px,
+                    #000 1px,
+                    transparent 1px,
+                    transparent 40px
+                );
+            z-index: -2;
+        }
+
+        /* الهيدر مطابق لابات السايبر */
+        .ai-nav {
+            display: grid !important;
+            grid-template-columns: 200px 1fr 150px !important;
+            grid-template-areas: "timer title back" !important;
+            align-items: center !important;
+            padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 3rem) !important;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.8)) !important;
+            border-bottom: 2px solid #00ffff !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+            backdrop-filter: blur(10px) !important;
+        }
+
+        .nav-title {
+            grid-area: title !important;
+            justify-self: center !important;
+            text-align: center !important;
+            margin: 0 !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+            font-weight: 700 !important;
+            color: #00ffff !important;
+            text-shadow: 0 0 10px currentColor !important;
+        }
+
+        .nav-back {
+            grid-area: back !important;
+            justify-self: end !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: 1rem !important;
+            color: #00ffff !important;
+            text-shadow: 0 0 10px currentColor !important;
+            background: rgba(0, 255, 255, 0.1) !important;
+            border: 1px solid #00ffff !important;
+            border-radius: 8px !important;
+            padding: 0.8rem 1.2rem !important;
+            backdrop-filter: blur(5px) !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.05em !important;
+        }
+
+        .nav-back:hover {
+            background: rgba(0, 255, 255, 0.2) !important;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+            transform: translateX(-3px) !important;
+        }
+
+        .lab-timer {
+            grid-area: timer !important;
+            justify-self: start !important;
+            font-family: 'Orbitron', monospace !important;
+            font-size: 1.2rem !important;
+            color: #00ff00 !important;
+            text-shadow: 0 0 10px currentColor !important;
+            background: rgba(0, 255, 0, 0.1) !important;
+            border: 1px solid #00ff00 !important;
+            border-radius: 8px !important;
+            padding: 0.8rem 1.2rem !important;
+            backdrop-filter: blur(5px) !important;
+        }
+
+        /* ===== البطاقات مطابقة لابات السايبر ===== */
+        .step-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #00ffff;
+            color: #000000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .step-title {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            color: #00ffc3;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .step-description {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ===== الأزرار مطابقة لابات السايبر ===== */
+        .action-btn {
+            background: #00ffff;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            color: #000000;
+            font-weight: 600;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .action-btn:hover {
+            background: #00e6e6;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            border: 1px solid #00ffff;
+            color: #00ffff;
+        }
+
+        .action-btn.secondary:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        /* ===== النصوص المنسوخة ===== */
+        .copy-text {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #00ffff;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-text:hover {
+            border-color: #00ffff;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            background: #00ffff;
+            border: none;
+            border-radius: 4px;
+            padding: 0.3rem 0.6rem;
+            color: #000000;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .copy-btn:hover {
+            background: #00e6e6;
+        }
+
+        /* ===== التنبيهات ===== */
+        .alert {
+            background: rgba(255, 193, 7, 0.1);
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #ffc107;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .alert.danger {
+            background: rgba(220, 53, 69, 0.1);
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+
+        .alert.success {
+            background: rgba(40, 167, 69, 0.1);
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        /* ===== شريط التقدم ===== */
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #00ffff;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+
+
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+        }
+
+        .celebration.show {
+            display: block;
+        }
+
+        /* ===== Media Queries للشاشات الصغيرة ===== */
+        @media (max-width: 768px) {
+            .ai-nav {
+                grid-template-columns: 1fr !important;
+                grid-template-areas: 
+                    "timer"
+                    "title" 
+                    "back" !important;
+                row-gap: 1rem !important;
+                padding: 1rem !important;
+            }
+            
+            .lab-timer, .nav-title, .nav-back {
+                justify-self: center !important;
+            }
+            
+            .lab-container {
+                padding: 1rem !important;
+            }
+            
+            .step-card {
+                padding: 1.5rem !important;
+                margin: 1rem 0 !important;
+            }
+            
+            .step-title {
+                font-size: 1.3rem !important;
+            }
+            
+            .step-description {
+                font-size: 1rem !important;
+            }
+            
+            .action-btn {
+                width: 100% !important;
+                margin: 0.5rem 0 !important;
+                padding: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية لابات السايبر -->
+    <div class="lab-grid-bg"></div>
+    <div class="kids-bg"></div>
+    
+    <!-- الهيدر -->
+    <nav class="ai-nav">
+        <a href="../ai-home.html" class="nav-back">
+            <span>العودة ←</span>
+        </a>
+        <h1 class="nav-title">
+            <span>مختبر 01: أول مرة مع ChatGPT</span>
+        </h1>
+        <div class="lab-timer">00:00:00</div>
+    </nav>
+
+    <!-- الحاوية الرئيسية -->
+    <main class="lab-container">
+        <!-- شريط التقدم -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- الخطوة 1: مقدمة -->
+        <div class="step-card" id="step1">
+            <div class="step-number">1</div>
+            <h2 class="step-title">🎉 مرحباً بك في عالم ChatGPT!</h2>
+            <p class="step-description">
+                مرحباً! أنت على وشك التعرف على صديقك الجديد ChatGPT - مساعد ذكي يمكنه مساعدتك في التعلم والإبداع!
+                <br><br>
+                <span class="emoji-icon">🤖</span> ChatGPT هو روبوت ذكي يمكنه:
+                <br>• الإجابة على أسئلتك
+                <br>• مساعدتك في الواجبات المدرسية
+                <br>• إخبارك قصصاً ممتعة
+                <br>• مساعدتك في البرمجة
+            </p>
+            <button class="action-btn" onclick="nextStep(2)">
+                هيا نبدأ! 
+            </button>
+        </div>
+
+        <!-- الخطوة 2: إنشاء الحساب -->
+        <div class="step-card" id="step2" style="display: none;">
+            <div class="step-number">2</div>
+            <h2 class="step-title">📝 إنشاء حساب ChatGPT</h2>
+            <p class="step-description">
+                أولاً، نحتاج إلى إنشاء حساب لك على ChatGPT. 
+                <strong>مهم:</strong> اطلب من المشرفين مساعدتك في هذه الخطوة!
+            </p>
+            
+            <div class="alert">
+                <strong>⚠️ تذكر:</strong> لا تشارك كلمة المرور مع أي شخص، حتى أصدقائك!
+            </div>
+
+            <h3 style="color: #00ffc3; margin: 1rem 0;">الخطوات:</h3>
+            <ol style="margin: 1rem 0; padding-right: 1.5rem; line-height: 2;">
+                <li>اذهب إلى موقع ChatGPT: <a href="https://chat.openai.com" target="_blank" style="color: #00ffc3;">chat.openai.com</a></li>
+                <li>اضغط على "Sign up" (إنشاء حساب)</li>
+                <li>أدخل بريدك الإلكتروني</li>
+                <li>اختر كلمة مرور قوية</li>
+                <li>تحقق من بريدك الإلكتروني</li>
+            </ol>
+
+            </button>
+            <button class="action-btn" onclick="nextStep(3)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 3: الواجهة الأولى -->
+        <div class="step-card" id="step3" style="display: none;">
+            <div class="step-number">3</div>
+            <h2 class="step-title">🎮 التعرف على واجهة ChatGPT</h2>
+            <p class="step-description">
+                الآن بعد إنشاء الحساب، دعنا نتعرف على واجهة ChatGPT!
+            </p>
+
+            <div style="background: rgba(0,0,0,0.3); border-radius: 15px; padding: 1.5rem; margin: 1rem 0;">
+                <h3 style="color: #00ffc3; margin-bottom: 1rem;">🔍 أجزاء الواجهة:</h3>
+                <ul style="line-height: 2; padding-right: 1rem;">
+                    <li><strong>صندوق الكتابة:</strong> هنا تكتب أسئلتك</li>
+                    <li><strong>زر الإرسال:</strong> ⚡ ليرسل رسالتك</li>
+                    <li><strong>المحادثة:</strong> تظهر هنا الرسائل</li>
+                    <li><strong>القائمة الجانبية:</strong> محادثاتك السابقة</li>
+                </ul>
+            </div>
+
+            <div class="copy-text">
+                <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                <div>مرحباً! أنا جديد هنا، هل يمكنك أن تخبرني عن نفسك؟</div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(2)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(4)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 4: أول محادثة -->
+        <div class="step-card" id="step4" style="display: none;">
+            <div class="step-number">4</div>
+            <h2 class="step-title"> أول محادثة مع ChatGPT</h2>
+            <p class="step-description">
+                الآن حان وقت المحادثة الأولى! جرب هذه الأسئلة البسيطة:
+            </p>
+
+            <div style="display: grid; gap: 1rem; margin: 1rem 0;">
+                <div class="copy-text">
+                    <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                    <div>اخبرني عن قصة قصيره فيها عبره</div>
+                </div>
+                
+                <div class="copy-text">
+                    <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                    <div>اشرح لي قانون الحجوم</div>
+                </div>
+                
+                <div class="copy-text">
+                    <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                    <div>علمني كلمة جديدة باللغة الإنجليزية</div>
+                </div>
+            </div>
+
+            <div class="alert success">
+                <strong>🎯 نصيحة:</strong> اكتب أسئلتك بوضوح وبطريقة مهذبة!
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(3)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(5)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 5: الأمان -->
+        <div class="step-card" id="step5" style="display: none;">
+            <div class="step-number">5</div>
+            <h2 class="step-title">🔒 الأمان والخصوصية</h2>
+            <p class="step-description">
+                الأمان مهم جداً! إليك قواعد مهمة:
+            </p>
+
+            <div class="alert danger">
+                <strong>❌ لا تفعل:</strong>
+                <ul style="margin: 0.5rem 0; padding-right: 1rem;">
+                    <li>لا تشارك معلوماتك الشخصية</li>
+                    <li>لا تخبره عنوان منزلك</li>
+                    <li>لا تشارك صورك</li>
+                    <li>لا تخبره كلمة مرورك</li>
+                </ul>
+            </div>
+
+            <div class="alert success">
+                <strong>✅ افعل:</strong>
+                <ul style="margin: 0.5rem 0; padding-right: 1rem;">
+                    <li>اسأل عن المعلومات العامة</li>
+                    <li>اطلب المساعدة في الواجبات</li>
+                    <li>تعلم أشياء جديدة</li>
+                    <li>اطلب قصصاً وألغازاً</li>
+                </ul>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(4)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="nextStep(6)">
+                التالي ←
+            </button>
+        </div>
+
+        <!-- الخطوة 6: التحدي -->
+        <div class="step-card" id="step6" style="display: none;">
+            <div class="step-number">6</div>
+            <h2 class="step-title">🏆 تحدي المختبر</h2>
+            <p class="step-description">
+                الآن حان وقت التحدي! جرب هذه المهمة:
+            </p>
+
+            <div style="background: rgba(0,255,195,0.1); border: 2px solid #00ffc3; border-radius: 15px; padding: 1.5rem; margin: 1rem 0;">
+                <h3 style="color: #00ffc3; margin-bottom: 1rem;">🎯 المهمة:</h3>
+                <p>اطلب من ChatGPT أن يخبرك قصة عن رجل فضاء يكتشف كوكباً جديداً!</p>
+                
+                <div class="copy-text">
+                    <button class="copy-btn" onclick="copyText(this)">نسخ</button>
+                    <div>أخبرني قصة مثيرة عن رجل فضاء يكتشف كوكباً جديداً في الفضاء العميق</div>
+                </div>
+            </div>
+
+            <button class="action-btn secondary" onclick="prevStep(5)">
+                → السابق
+            </button>
+            <button class="action-btn" onclick="completeLab()">
+                أكمل المختبر! 🎉
+            </button>
+        </div>
+
+        <!-- شاشة الإنجاز -->
+        <div class="step-card" id="completion" style="display: none; text-align: center;">
+            <div style="font-size: 4rem; margin: 1rem 0;">🏆</div>
+            <h2 class="step-title">مبروك! 🎉</h2>
+            <p class="step-description">
+                لقد أكملت المختبر الأول بنجاح! 
+                <br><br>
+                أنت الآن تعرف كيفية:
+                <br>✅ إنشاء حساب ChatGPT
+                <br>✅ استخدام الواجهة
+                <br>✅ إجراء محادثة بسيطة
+                <br>✅ الحفاظ على الأمان
+                <br><br>
+                <strong>أنت جاهز للمختبر التالي!</strong>
+            </p>
+            
+            <div style="margin: 2rem 0;">
+                <button class="action-btn" onclick="window.location.href='../ai-home.html'">
+                    العودة للمختبرات الرئيسية
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- تأثيرات الاحتفال -->
+    <div class="celebration" id="celebration"></div>
+
+    <script src="../js/lab-common.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showStep(stepNumber) {
+            // إخفاء جميع الخطوات
+            for (let i = 1; i <= totalSteps; i++) {
+                document.getElementById('step' + i).style.display = 'none';
+            }
+            document.getElementById('completion').style.display = 'none';
+            
+            // إظهار الخطوة المطلوبة
+            if (stepNumber <= totalSteps) {
+                document.getElementById('step' + stepNumber).style.display = 'block';
+            } else {
+                document.getElementById('completion').style.display = 'block';
+            }
+            
+            updateProgress();
+        }
+
+        function nextStep(stepNumber) {
+            currentStep = stepNumber;
+            showStep(stepNumber);
+            
+            // تأثير بصري
+            const card = document.getElementById('step' + stepNumber);
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        function prevStep(stepNumber) {
+            currentStep = stepNumber;
+            showStep(stepNumber);
+        }
+
+        function copyText(button) {
+            const textDiv = button.nextElementSibling;
+            const text = textDiv.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'تم!';
+                button.style.background = 'rgba(40, 167, 69, 0.3)';
+                button.style.borderColor = '#28a745';
+                button.style.color = '#28a745';
+                
+                setTimeout(() => {
+                    button.textContent = 'نسخ';
+                    button.style.background = 'rgba(0, 255, 195, 0.2)';
+                    button.style.borderColor = '#00ffc3';
+                    button.style.color = '#00ffc3';
+                }, 2000);
+            });
+        }
+
+        function completeLab() {
+            currentStep = totalSteps + 1;
+            showStep(currentStep);
+            
+            // تأثير الاحتفال
+            const celebration = document.getElementById('celebration');
+            celebration.classList.add('show');
+            
+
+            
+            setTimeout(() => {
+                celebration.classList.remove('show');
+            }, 3000);
+        }
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            
+            // بدء المؤقت
+            startTimer();
+            
+            // إضافة تأثيرات للأزرار
+            const buttons = document.querySelectorAll('.action-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

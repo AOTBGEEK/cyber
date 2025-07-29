@@ -170,24 +170,7 @@
     padding: 0 2rem;
 }
 
-.nav-back {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-}
 
-.nav-back:hover {
-    color: var(--primary-cyan);
-    background: rgba(0, 255, 255, 0.1);
-    transform: translateX(-5px);
-}
 
 .back-icon {
     font-size: 1.2rem;
