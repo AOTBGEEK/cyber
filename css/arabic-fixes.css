@@ -131,6 +131,37 @@ html[lang="ar"] .lab-nav .lab-timer {
         font-size: 1rem !important;
         min-width: 100px !important;
     }
+    
+    /* AI Labs responsive layout - keep horizontal layout like cyber labs */
+    html[lang="ar"] .ai-nav {
+        grid-template-columns: 150px 1fr 120px !important;
+        grid-template-areas: "timer title back" !important;
+        gap: 0.5rem !important;
+        padding: 0.8rem !important;
+        text-align: center !important;
+    }
+    
+    html[lang="ar"] .ai-nav .nav-back,
+    html[lang="ar"] .ai-nav .nav-title,
+    html[lang="ar"] .ai-nav .lab-timer {
+        justify-self: center !important;
+        font-size: 0.9rem !important;
+    }
+    
+    html[lang="ar"] .ai-nav .nav-title {
+        font-size: 1rem !important;
+    }
+    
+    html[lang="ar"] .ai-nav .lab-timer {
+        font-size: 0.8rem !important;
+        min-width: 80px !important;
+        padding: 0.4rem 0.6rem !important;
+    }
+    
+    html[lang="ar"] .ai-nav .nav-back {
+        padding: 0.4rem 0.6rem !important;
+        font-size: 0.8rem !important;
+    }
 }
 
 /* Grid and Layout Fixes */
