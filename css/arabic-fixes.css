@@ -500,3 +500,18 @@ html[lang="ar"] .home-nav .nav-title {
     text-align: center !important;
 }
 
+/* استثناءات للعنوان الرئيسي والوصف - منفصلين ومستقلين */
+html[lang="ar"] .academy-name {
+    text-align: center !important;
+    font-size: 175% !important;
+    position: relative;
+    z-index: 20;
+}
+
+html[lang="ar"] .academy-tagline {
+    text-align: center !important;
+    font-size: 110% !important;
+    position: relative;
+    z-index: 20;
+}
+
