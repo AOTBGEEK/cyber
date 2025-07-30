@@ -515,3 +515,43 @@ html[lang="ar"] .academy-tagline {
     z-index: 20;
 }
 
+/* استثناءات للمميزات - جعلها أفقية بصناديق صفراء */
+html[lang="ar"] .program-features {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    margin: 1rem 0 !important;
+    direction: ltr !important;
+    flex-direction: row !important;
+}
+
+html[lang="ar"] .feature-item {
+    background: linear-gradient(135deg, #ffeb3b, #ffc107) !important;
+    color: #1a1a1a !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    box-shadow: 0 2px 8px rgba(255, 235, 59, 0.3) !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    border: 1px solid rgba(255, 193, 7, 0.6) !important;
+    text-shadow: none !important;
+    white-space: nowrap !important;
+    direction: ltr !important;
+    text-align: center !important;
+}
+
+html[lang="ar"] .feature-item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(255, 235, 59, 0.5) !important;
+    background: linear-gradient(135deg, #fff59d, #ffeb3b) !important;
+}
+
+html[lang="ar"] .feature-icon {
+    font-size: 1rem !important;
+}
+
