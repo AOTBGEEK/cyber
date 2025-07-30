@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ورشة المهندس المستقبلي - الأمن السيبراني والذكاء الاصطناعي</title>
     
                     <!-- Core Stylesheets -->
@@ -130,20 +130,18 @@
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="academy-footer">
-            <div class="developer-credit">
-                <div class="credit-container">
-                    <div class="credit-lines">
-                        <span class="line"></span>
-                        <span class="center-text">تطوير</span>
-                        <span class="line"></span>
-                    </div>
-                    <h3 class="developer-name">Abdulrahman Alotaibi</h3>
-                    <div class="credit-glow"></div>
+        <!-- Developer Credit - Moved up -->
+        <div class="developer-credit" style="margin: 1rem 0; position: relative; z-index: 10;">
+            <div class="credit-container">
+                <div class="credit-lines">
+                    <span class="line"></span>
+                    <span class="center-text">تطوير</span>
+                    <span class="line"></span>
                 </div>
+                <h3 class="developer-name">Abdulrahman Alotaibi</h3>
+                <div class="credit-glow"></div>
             </div>
-        </footer>
+        </div>
     </div>
 
 
@@ -159,17 +157,9 @@
             window.location.href = 'ai-home.html';
         }
         
-        // Show zoom recommendation alert
-        function showZoomRecommendation() {
-            alert('للحصول على أفضل تجربة يرجى ضبط المتصفح على حجم 50%');
-        }
-        
         // Initialize animations and interactions
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Future Engineers Workshop loaded successfully');
-            
-            // Show zoom recommendation after a short delay
-            setTimeout(showZoomRecommendation, 1000);
         });
     </script>
 </body>
