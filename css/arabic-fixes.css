@@ -534,7 +534,6 @@ html[lang="ar"] .feature-item {
     font-weight: 600 !important;
     font-size: 0.85rem !important;
     box-shadow: 0 2px 8px rgba(255, 235, 59, 0.3) !important;
-    transition: all 0.3s ease !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 0.4rem !important;
@@ -543,15 +542,62 @@ html[lang="ar"] .feature-item {
     white-space: nowrap !important;
     direction: ltr !important;
     text-align: center !important;
-}
-
-html[lang="ar"] .feature-item:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 15px rgba(255, 235, 59, 0.5) !important;
-    background: linear-gradient(135deg, #fff59d, #ffeb3b) !important;
+    cursor: default !important;
+    pointer-events: none !important;
 }
 
 html[lang="ar"] .feature-icon {
     font-size: 1rem !important;
+}
+
+/* جعل مربع المطور بالكامل في المنتصف */
+html[lang="ar"] .developer-credit {
+    position: static !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    left: auto !important;
+    transform: none !important;
+    bottom: auto !important;
+}
+
+html[lang="ar"] .credit-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+
+html[lang="ar"] .credit-lines {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+html[lang="ar"] .developer-name {
+    direction: ltr !important;
+    text-align: center !important;
+    font-family: 'Orbitron', monospace !important;
+    margin: 0 auto !important;
+}
+
+/* جعل program-topics في المنتصف */
+html[lang="ar"] .program-topics {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    margin: 1rem 0 !important;
+    direction: ltr !important;
+}
+
+/* تكبير العنوان الرئيسي فقط */
+html[lang="ar"] .academy-name span {
+    font-size: 1.2em !important;
 }
 

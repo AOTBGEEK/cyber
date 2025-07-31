@@ -447,17 +447,7 @@ html[lang="ar"] .glitch::after {
 }
 
 .glitch::before {
-    color: #ff0080;
-    animation: glitch-before 3s infinite;
-    z-index: -1;
-    text-shadow: 
-        2px 0 #ff0080,
-        -2px 0 #ff0080,
-        0 2px #ff0080,
-        0 -2px #ff0080,
-        4px 0 rgba(255, 0, 128, 0.7),
-        -4px 0 rgba(255, 0, 128, 0.7);
-    mix-blend-mode: screen;
+    display: none !important;
 }
 
 .glitch::after {
