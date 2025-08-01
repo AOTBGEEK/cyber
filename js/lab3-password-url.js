@@ -556,10 +556,10 @@ function switchView(viewType) {
 // Quiz functionality
 const correctAnswers = {
     q1: 'b', // لأن الروابط تُسجل في تاريخ المتصفح وسجلات الخادم
-    q2: 'b', // POST request مع نص الطلب
-    q3: 'b', // في HTTP-only cookies
-    q4: 'b', // من خلال تاريخ المتصفح ورؤوس المرجع وسجلات الخادم
-    q5: 'b'  // Referrer-Policy
+    q2: 'a', // POST request مع نص الطلب
+    q3: 'c', // في HTTP-only cookies
+    q4: 'd', // من خلال تاريخ المتصفح ورؤوس المرجع وسجلات الخادم
+    q5: 'a'  // Referrer-Policy
 };
 
 function checkAnswers() {

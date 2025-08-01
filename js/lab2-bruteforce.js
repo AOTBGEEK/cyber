@@ -615,10 +615,10 @@ document.addEventListener('DOMContentLoaded', initializeLab);
 // Quiz functionality
 const correctAnswers = {
     q1: 'b', // محاولة منهجية لتخمين كلمات المرور
-    q2: 'b', // تحديد معدل المحاولات (Rate Limiting)
+    q2: 'a', // تحديد معدل المحاولات (Rate Limiting)
     q3: 'c', // 12 حرف أو أكثر
-    q4: 'b', // اختبار للتحقق من أن المستخدم بشري
-    q5: 'b'  // المصادقة متعددة العوامل (MFA)
+    q4: 'd', // اختبار للتحقق من أن المستخدم بشري
+    q5: 'c'  // المصادقة متعددة العوامل (MFA)
 };
 
 function checkAnswers() {
